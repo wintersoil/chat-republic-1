@@ -180,8 +180,6 @@
   height: 85%;
 }
 .inner-messages {
-  display: flex;
-  flex-wrap: wrap;
   padding-left: 20px 15px;
 }
 .messages-input-field:focus {
@@ -212,6 +210,7 @@
   padding-top:15px;
   padding-bottom: 35px;
   display: flex;
+  flex-wrap: wrap;
   color: teal;
   font-family: "Titillium Web";
   font-size: 25px;

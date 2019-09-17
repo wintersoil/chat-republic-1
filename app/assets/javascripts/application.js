@@ -28,13 +28,13 @@ scroll_bottom = function() {
 $(document).ready(function(){
   scroll_bottom();
 
-  $('#message_body').on('keypress', function(e){
+  $('#message_body').keypress(function(e){
     if(e.keyCode == 13)
     {
       $('.messages-input-field').val("");
     }
   });
-  $('.message-input-button').on('click', function(){
+  $('.message-input-button').click(function(){
     $('.messages-input-field').val("");
   });
 

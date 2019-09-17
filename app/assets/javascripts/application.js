@@ -27,8 +27,4 @@ scroll_bottom = function() {
 $( document ).on('turbolinks:load', function() {
   scroll_bottom();
 
-  $('#new_message').submit(function(e) {
-    $('.messages-input-field').val("");
-  });
-
 });

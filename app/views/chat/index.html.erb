@@ -1,0 +1,25 @@
+<div>
+  <% if logged_in? %>
+    <div class= "white-glassy">
+      <div class="ln1 bottom-separation">
+        <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+      </div>
+      <div class="ln1 bottom-separation">
+        <h2><%= current_user.email %></h2>
+      </div>
+      <div class="ln1 bottom-separation">
+        <h3><%= current_user.user_name %></h3>
+      </div>
+      <div class="ln1">
+        <%= link_to "Sign Out", logout_path, method: :delete, class:"nav-link-1" %>
+      </div>
+    </div>
+  <% end %>
+  <% if !logged_in? %>
+    <div class="white-glassy">
+      <div class="not-logged-in">
+        You are not logged in to the application. Please <%= link_to "Login", login_path, class:"nav-link-1" %> to continue.
+      </div>
+    </div>
+  <% end %>
+</div>

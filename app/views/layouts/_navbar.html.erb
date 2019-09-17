@@ -1,0 +1,28 @@
+<div class="nav-item">
+  <%= link_to "Home", root_path, class:"nav-link" %>
+</div>
+<% if !logged_in? %>
+  <div class="nav-item">
+    <%= link_to "Login", login_path, class:"nav-link" %>
+  </div>
+<% else %>
+  <div class="nav-item">
+    <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
+  </div>
+<% end %>
+<% if !logged_in? %>
+  <div class="nav-item">
+    <%= link_to "Sign Up", signup_path, class:"nav-link" %>
+  </div>
+<% end %>
+<div class="nav-item">
+  <%= link_to "About", root_path, class:"nav-link" %>
+</div>
+<div class="nav-item">
+  <%= link_to "Contact Us", root_path, class:"nav-link" %>
+</div>
+<% if logged_in? %>
+  <div class="nav-item">
+    <%= link_to "Chatroom", chatroom_path, class:"nav-link" %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<div style="display:flex;justify-content:center;align-self:center">
+  <div class="whitechat">
+    <div class="messages-display">
+      <% @messaging.each do |msg| %>
+        <%= render "messages/message", msg: msg %>
+      <% end %>
+    </div>
+    <div class="messages-input">
+      <%= form_for @message, url: {action: "create"}, remote: true do |f| %>
+        <%= f.text_field :body, class:"messages-input-field", autocomplete: :off %>
+        <%= f.submit "Send", class:"messages-input-button" %>
+      <% end %>
+    </div>
+  </div>
+</div>

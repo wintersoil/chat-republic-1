@@ -16,6 +16,7 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require_tree .
 
 scroll_bottom = function() {
@@ -24,7 +25,7 @@ scroll_bottom = function() {
   }
 }
 
-$(document).ready(function(){
+$( document ).on('turbolinks:load', function() {
   scroll_bottom();
 
   $('#message_body').keypress(function(e){
@@ -36,5 +37,4 @@ $(document).ready(function(){
   $('.message-input-button').click(function(){
     $('.messages-input-field').val("");
   });
-
 });

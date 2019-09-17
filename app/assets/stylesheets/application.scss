@@ -180,8 +180,6 @@
   height: 85%;
 }
 .inner-messages {
-  display: flex;
-  flex-wrap: wrap;
   padding-left: 20px 15px;
 }
 .messages-input-field:focus {
@@ -216,4 +214,9 @@
   font-family: "Titillium Web";
   font-size: 25px;
 clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
+}
+.message-outer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 30px;
 }

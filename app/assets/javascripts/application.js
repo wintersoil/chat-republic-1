@@ -24,17 +24,13 @@ scroll_bottom = function() {
     $('.messages-display').scrollTop($('.messages-display')[0].scrollHeight);
   }
 }
-
 $( document ).on('turbolinks:load', function() {
   scroll_bottom();
 
-  $('#message_body').keypress(function(e){
-    if(e.keyCode == 13)
-    {
-      $('.messages-input-field').val("");
-    }
-  });
-  $('.message-input-button').click(function(){
+  $('#new_message').submit(function(e) {
+    e.preventDefault(); // don't submit multiple times
+    this.submit(); // use the native submit method of the form element
     $('.messages-input-field').val("");
   });
+  
 });

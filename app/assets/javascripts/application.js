@@ -16,7 +16,6 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 scroll_bottom = function() {

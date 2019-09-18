@@ -22,8 +22,14 @@
   padding: 20px 40px;
   font-family: 'Titillium Web', sans-serif;
 }
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+}
 .nav-item {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.7s ease;
   padding: 10px 15px;
   margin-right: 20px;

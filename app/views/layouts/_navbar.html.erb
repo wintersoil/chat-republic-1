@@ -1,30 +1,32 @@
-<div class="nav-item">
-  <img src="https://vectr.com/wintersoil/a3PHMtzvQ.svg?width=50&height=50&select=a3PHMtzvQpage0"/>
-  <%= link_to "Home", root_path, class:"nav-link" %>
+<div class="navbar">
+  <div class="nav-item">
+    <img src="https://vectr.com/wintersoil/a3PHMtzvQ.svg?width=50&height=50&select=a3PHMtzvQpage0"/>
+    <%= link_to "Home", root_path, class:"nav-link" %>
+  </div>
+  <% if !logged_in? %>
+    <div class="nav-item">
+      <%= link_to "Login", login_path, class:"nav-link" %>
+    </div>
+  <% else %>
+    <div class="nav-item">
+      <img src="https://vectr.com/wintersoil/k16hwfwm5.svg?width=50&height=50&select=k16hwfwm5page0" />
+      <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
+    </div>
+  <% end %>
+  <% if !logged_in? %>
+    <div class="nav-item">
+      <%= link_to "Sign Up", signup_path, class:"nav-link" %>
+    </div>
+  <% end %>
+  <div class="nav-item">
+    <%= link_to "About", root_path, class:"nav-link" %>
+  </div>
+  <div class="nav-item">
+    <%= link_to "Contact Us", root_path, class:"nav-link" %>
+  </div>
+  <% if logged_in? %>
+    <div class="nav-item">
+      <%= link_to "Chatroom", chatroom_path, class:"nav-link" %>
+    </div>
+  <% end %>
 </div>
-<% if !logged_in? %>
-  <div class="nav-item">
-    <%= link_to "Login", login_path, class:"nav-link" %>
-  </div>
-<% else %>
-  <div class="nav-item">
-    <img src="https://vectr.com/wintersoil/k16hwfwm5.svg?width=50&height=50&select=k16hwfwm5page0" />
-    <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
-  </div>
-<% end %>
-<% if !logged_in? %>
-  <div class="nav-item">
-    <%= link_to "Sign Up", signup_path, class:"nav-link" %>
-  </div>
-<% end %>
-<div class="nav-item">
-  <%= link_to "About", root_path, class:"nav-link" %>
-</div>
-<div class="nav-item">
-  <%= link_to "Contact Us", root_path, class:"nav-link" %>
-</div>
-<% if logged_in? %>
-  <div class="nav-item">
-    <%= link_to "Chatroom", chatroom_path, class:"nav-link" %>
-  </div>
-<% end %>

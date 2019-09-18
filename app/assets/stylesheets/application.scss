@@ -219,6 +219,7 @@ clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
   border-radius: 9px;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
   position: relative;
+  overflow:visible;
 }
 .message-timing {
   position: absolute;
@@ -227,6 +228,7 @@ clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
   background-color: orange;
   padding: 5px 7px;
   border-radius: 25px;
+  z-index:4;
 }
 .message-wrap {
   filter: drop-shadow(4px 8px 15px #555);

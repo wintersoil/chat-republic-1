@@ -264,6 +264,17 @@ clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
   flex-wrap: wrap;
   padding: 20px 30px;
 }
+.griddy {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+#intro {
+  grid-area: 1/1/2/2;
+}
+#history {
+  grid-area: 1/2/2/3;
+}
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

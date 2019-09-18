@@ -243,11 +243,11 @@ background-image: linear-gradient(to bottom, #FFF100, #FFAC00, #FFAC00, #FFF100)
   color: teal;
   font-family: "Titillium Web";
   font-size: 25px;
-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
+clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 10% 80%);
   flex-wrap: wrap;
   margin-bottom: 12px;
   border-radius: 9px;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
+  -webkit-clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 10% 80%);
   position: relative;
 }
 .message-timing {

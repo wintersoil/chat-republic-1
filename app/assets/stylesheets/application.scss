@@ -15,9 +15,7 @@
  */
 
 .containing {
-  //background-image: url('https://static1.bigstockphoto.com/6/5/2/large1500/25627160.jpg');
-  bacground-image: url('/assets/images/wallpaper.jpg');
-  color: white;
+  color: teal;
   height: 100vh;
   width: 100vw;
   margin: 0px;
@@ -40,7 +38,7 @@
 }
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: teal;
   font-size: 32px;
 }
 .nav-link-1 {
@@ -80,7 +78,7 @@
   background-color: transparent;
   border: 0px;
   font-size: 25px;
-  color: white;
+  color: teal;
   font-family: "Titillium Web";
   padding: 5px 10px;
 }
@@ -188,7 +186,7 @@
 }
 .messages-input-button {
   background-color: teal;
-  color: white;
+  color: black;
   font-size: 25px;
   font-family: "Titillium Web";
   transition: all 0.5s;

@@ -15,7 +15,4 @@
     </div>
   </div>
 </div>
-<audio controls style="display:none" id="hollow-copy">
-  <source src="/assets/media/hollow_copy.mp3" type="audio/ogg">
-  <source src="/assets/media/hollow_copy.mp3" type="audio/mpeg">
-</audio>
+<%= audio_tag("hollow_copy.mp3", autoplay: false, controls: true, style: "display:none") %>

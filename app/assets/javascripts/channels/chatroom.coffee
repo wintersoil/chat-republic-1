@@ -9,3 +9,4 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     # Called when there's incoming data on the websocket for this channel
     $('.messages-display').append(data.mod_message)
     scroll_bottom();
+    $('#hollow-copy').play();

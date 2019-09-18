@@ -222,11 +222,11 @@ clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
 }
 .message-timing {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: -20px;
+  right: -40px;
   background-color: orange;
-  padding: 7px 10px;
-  border-radius: 9px;
+  padding: 5px 7px;
+  border-radius: 25px;
 }
 .message-wrap {
   filter: drop-shadow(4px 8px 15px #555);

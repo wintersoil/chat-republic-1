@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="nav-item">
-    <%= image_tag("home-logo.svg",height:50px,width:50px) %>
+    <%= image_tag("home-logo.svg",height:'50',width:'50') %>
     <%= link_to "Home", root_path, class:"nav-link" %>
   </div>
   <% if !logged_in? %>
@@ -9,7 +9,7 @@
     </div>
   <% else %>
     <div class="nav-item">
-      <%= image_tag("logout-navbar.svg",height:50px,width:50px) %>
+      <%= image_tag("logout-navbar.svg",height:'50',width:'50') %>
       <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
     </div>
   <% end %>

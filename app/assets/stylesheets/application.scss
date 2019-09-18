@@ -204,7 +204,7 @@
 }
 
 .message-boxing {
-  background-image: linear-gradient(to bottom, #FFF100, #FFAC00);
+background-image: linear-gradient(to bottom, #FFF100, #FFAC00, #FFAC00, #FFF100);
   padding-right: 25px;
   padding-left: 25px;
   padding-top:15px;
@@ -214,8 +214,13 @@
   font-family: "Titillium Web";
   font-size: 25px;
 clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
-border-radius: 9px;
--webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  border-radius: 9px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
+}
+.message-wrap {
+  filter: drop-shadow(4px 8px 15px #555);
 }
 .message-outer {
   display: flex;

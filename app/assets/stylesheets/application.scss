@@ -137,8 +137,10 @@
 .white-glassy{
   padding: 0px 0px;
   opacity:0.75;
-  background-color: white;
+  background-color: rgb(223,223,223);
   color: teal;
+  border: 1px solid teal;
+  border-radius: 6px;
   width: 30vw;
   margin-top: 25px;
 }

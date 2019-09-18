@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="nav-item">
-    <img src="https://vectr.com/wintersoil/a3PHMtzvQ.svg?width=50&height=50&select=a3PHMtzvQpage0"/>
+    <%= image_tag("home-logo.svg",height:50px,width:50px) %>
     <%= link_to "Home", root_path, class:"nav-link" %>
   </div>
   <% if !logged_in? %>
@@ -9,7 +9,7 @@
     </div>
   <% else %>
     <div class="nav-item">
-      <img src="https://vectr.com/wintersoil/acTLZWpRL.svg?width=50&height=50&select=acTLZWpRLpage0" />
+      <%= image_tag("logout-navbar.svg",height:50px,width:50px) %>
       <%= link_to "Logout", logout_path, method: :delete, class:"nav-link" %>
     </div>
   <% end %>

@@ -10,3 +10,4 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     $('.messages-display').append(data.mod_message)
     scroll_bottom();
     document.getElementById('hollow_copy').play();
+    document.getElementById('hollow_copy_1').play();

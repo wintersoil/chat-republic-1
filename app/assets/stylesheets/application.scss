@@ -261,10 +261,14 @@ clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
 @media only screen and (max-width: 480px)
 {
   .message-boxing{
-    font-size: 57px;
+    font-size: 42px;
     padding: 25px 35px;
   }
   .nav-link {
-    font-size: 65px;
+    font-size: 45px;
+  }
+  .whitechat{
+    height: 70vh;
+    width: 100%;
   }
 }

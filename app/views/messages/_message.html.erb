@@ -5,7 +5,9 @@
           <div>
             <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong> <%= msg.body %>
           </div>
-          <span style="font-size:16px;color:grey;"><%= time_ago_in_words(msg.created_at) %> ago</span>
+          <div>
+            <span style="font-size:16px;color:grey;"><%= time_ago_in_words(msg.created_at) %> ago</span>
+          </div>
       </div>
     </div>
   </div>

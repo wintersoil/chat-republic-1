@@ -275,7 +275,7 @@ clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
   .message-outer{
     padding: 20px 0px;
   }
-  .outer-whitechat{
-    justify-content:flex-start;
+  .containing{
+    padding-left: 0px;
   }
 }

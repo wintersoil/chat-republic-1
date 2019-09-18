@@ -207,7 +207,7 @@
 background-image: linear-gradient(to bottom, #FFF100, #FFAC00, #FFAC00, #FFF100);
   padding-right: 25px;
   padding-left: 25px;
-  padding-top:15px;
+  padding-top:23px;
   padding-bottom: 35px;
   display: flex;
   color: teal;
@@ -224,8 +224,8 @@ clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 8% 79%, 0 100%, 0 75%, 0% 75%);
 .message-timing {
   position: absolute;
   top: -20px;
-  right: -40px;
-  background-color: orange;
+  right: 0px;
+  background-color: transparent;
   padding: 5px 7px;
   border-radius: 25px;
   z-index:4;

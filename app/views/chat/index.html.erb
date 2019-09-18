@@ -2,15 +2,16 @@
   <% if logged_in? %>
     <div class= "white-glassy">
       <div class="ln1 bottom-separation">
-        <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+        <%= current_user.first_name %> <%= current_user.last_name %>
       </div>
       <div class="ln1 bottom-separation">
-        <h2><%= current_user.email %></h2>
+        <%= current_user.email %>
       </div>
       <div class="ln1 bottom-separation">
-        <h3><%= current_user.user_name %></h3>
+        <%= current_user.user_name %>
       </div>
       <div class="ln1">
+        <img src="https://vectr.com/wintersoil/k16hwfwm5.svg?width=20&height=20&select=k16hwfwm5page0" />
         <%= link_to "Sign Out", logout_path, method: :delete, class:"nav-link-1" %>
       </div>
     </div>

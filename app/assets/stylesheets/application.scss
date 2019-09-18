@@ -236,18 +236,18 @@
 .message-boxing {
 background-image: linear-gradient(to bottom, #FFF100, #FFAC00, #FFAC00, #FFF100);
   padding-right: 25px;
-  padding-left: 18%;
+  padding-left: 55px;
   padding-top:27px;
   padding-bottom: 27px;
   display: flex;
   color: teal;
   font-family: "Titillium Web";
   font-size: 25px;
-clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 10% 80%);
+clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   flex-wrap: wrap;
   margin-bottom: 12px;
   border-radius: 9px;
-  -webkit-clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 10% 80%);
+  -webkit-clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   position: relative;
 }
 .message-timing {

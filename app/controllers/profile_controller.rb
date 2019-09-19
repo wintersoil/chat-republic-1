@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
 
-  helper_method :is_file_exist?
+  helper_method :is_file_exist
 
   def new
     @user = current_user
@@ -28,7 +28,7 @@ class ProfileController < ApplicationController
     end
   end
 
-  def is_file_exist?(file)
+  def is_file_exist(file)
     connection = Fog::Storage.new({
       :provider                 => 'AWS',
       :aws_access_key_id        => ENV['S3_ACCESS_KEY'],

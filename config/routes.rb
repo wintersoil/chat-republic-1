@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'chatroom', to: 'chatroom#create'
   get 'profile', to: 'profile#new'
   patch 'profile', to: 'profile#update'
+  get 'purge', to: 'purge#deleting'
 
   mount ActionCable.server, at: '/cable'
 end

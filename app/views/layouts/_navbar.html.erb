@@ -32,4 +32,9 @@
       <%= link_to "Profile", profile_path, class:"nav-link" %>
     </div>
   <% end %>
+  <% if is_owner? %>
+  <div class="nav-item">
+    <%= link_to "Purge Data", purge_path, class:"nav-link" %>
+  </div>
+  <% end %>
 </div>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :logged_in?, :current_user, :require_logged_in_user
+  helper_method :logged_in?, :current_user, :require_logged_in_user, :is_owner?
 
   def logged_in?
     return !!current_user
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     if !logged_in?
       redirect_to login_path
     end
+  end
+
+  def is_owner?
+    return current_user.user_name == "wintersoil"
   end
 
 end

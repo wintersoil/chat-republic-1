@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'chatroom', to: 'chatroom#new'
   post 'chatroom', to: 'chatroom#create'
   get 'profile', to: 'profile#new'
-  post 'profile', to: 'profile#update'
+  put 'profile', to: 'profile#update'
 
   mount ActionCable.server, at: '/cable'
 end

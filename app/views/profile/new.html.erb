@@ -26,10 +26,10 @@
       <%= form_for @user, url: {action: "update"} do |f| %>
       <div class="form-contents">
          <div class="form-individual">
-           <%= f.password_field :first_name, class:"big-inputting", placeholder:"First Name", autocomplete: :off %>
+           <%= f.text_field :first_name, class:"big-inputting", placeholder:"First Name", autocomplete: :off %>
          </div>
          <div class="form-individual">
-           <%= f.password_field :last_name, class:"big-inputting", placeholder:"Last Name", autocomplete: :off %>
+           <%= f.text_field :last_name, class:"big-inputting", placeholder:"Last Name", autocomplete: :off %>
          </div>
          <div class="form-individual">
            <%= f.submit "Edit Name", class:"submitting" %>

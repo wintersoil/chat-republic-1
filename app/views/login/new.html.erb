@@ -1,18 +1,21 @@
 <%= form_for :session, url: {action: "create"} do |f| %>
+
   <div class="form-outer">
-    <div class="form-container-1">
-      <h2 align="center">LOGIN</h2>
-      <div class="login-grid">
-        <div style="display:flex;justify-content:center;margin-bottom:20px;">
-          <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:user_name, "Username") %></span><%= f.text_field :user_name, class:"big-inputting", placeholder:"Username" %></div>
-        </div>
-        <div style="display:flex;justify-content:center">
-          <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:password, "Password") %></span><%= f.password_field :password, class:"big-inputting", placeholder:"Password" %></div>
-        </div>
-        <div style="justify-content:center;display:flex;margin-top: 25px;">
-          <%= f.submit "Log In", class:"submitting" %>
-        </div>
-      </div>
-    </div>
-  </div>
+   <div class="forming">
+     <div class="forming-header">
+       Login to your account
+     </div>
+     <div class="form-contents">
+       <div class="form-individual">
+         <%= f.text_field :user_name, class:"big-inputting", placeholder:"Username" %>
+       </div>
+       <div class="form-individual">
+         <%= f.password_field :password, class:"big-inputting", placeholder:"Password" %>
+       </div>
+       <div class="form-individual">
+         <%= f.submit "Log In", class:"submitting" %>
+       </div>
+     </div>
+   </div>
+ </div>
 <% end %>

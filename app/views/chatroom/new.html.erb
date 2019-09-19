@@ -10,7 +10,7 @@
     <div class="messages-input">
       <%= form_for @message, url: {action: "create"}, remote: true do |f| %>
         <%= f.text_field :body, class:"messages-input-field", autocomplete: :off %>
-        <%= f.submit "Send", class:"messages-input-button" %>
+        <%= f.submit "Send", class:"messages-input-button", placeholder: "Type text and send to everyone!" %>
       <% end %>
     </div>
   </div>

@@ -73,27 +73,53 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
 }
-.inputting {
-  border-radius: 25px;
-  background-image: linear-gradient(to right bottom, rgb(24,154,175), rgb(47,99,155) );
-  border: 2px solid rgb(47,99,155);
-  color: black;
-  padding: 5px 50px;
+
+.forming
+{
+  width: 30vw;
+  height: auto;
+  box-shadow: 3px 6px 12px #aaa,-3px -6px 12px #aaa ;
+  font-family: "Titillium Web";
+}
+.forming-header {
+  background-color: rgb(68,68,68);
+  color: rgb(110,110,110);
+  padding: 24px 20px;
+  text-transform: uppercase;
+  font-family: "Titillium Web";
+}
+.centering {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items: center;
 }
 .big-inputting {
   height: 30px;
-  background-color: transparent;
+  padding: 5px 15px;
+  font-size: 16px;
+  width: 93%;
   border: 0px;
-  font-size: 25px;
-  color: white;
-  font-family: "Titillium Web";
-  padding: 5px 10px;
+  border-bottom: 1px solid lightgrey;
+  color: teal;
+}
+.big-inputting:focus {
+  border-bottom: 1px solid orange;
 }
 .big-inputting:focus {
   outline: none;
 }
+.form-contents {
+  padding: 0px 30px;
+}
+.form-individual {
+  margin-bottom: 15px;
+}
+.form-individual:first-child{
+  margin-top: 15px;
+}
+
 .submitting {
   background-color: rgb(24,154,175);
   color: black;

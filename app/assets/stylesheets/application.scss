@@ -331,7 +331,7 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 @media only screen and (max-width: 480px)
 {
   .message-boxing{
-    font-size: 34px;
+    font-size: 26px;
     padding: 25px 35px;
   }
   .nav-link {
@@ -367,5 +367,8 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
     height: auto;
     box-shadow: 3px 6px 12px #aaa,-3px -6px 12px #aaa ;
     font-family: "Titillium Web";
+  }
+  .flash-outer {
+    width: 92%;
   }
 }

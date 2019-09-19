@@ -1,5 +1,7 @@
 class ProfileController < ApplicationController
 
+  helper_method: is_file_exist?
+
   def new
     @user = current_user
   end
@@ -24,6 +26,19 @@ class ProfileController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def  is_file_exist?(file)
+    s3 = Aws::S3::Resource.new(
+      region: ENV['S3_REGION'],
+      credentials: {
+        :provider => 'AWS',
+        :aws_access_key_id => ENV['S3_ACCESS_KEY'],
+        :aws_secret_access_key => ENV['S3_SECRET_KEY'],
+      }
+    )
+    bucket =  s3.bucket('myphotoappimages')
+    return bucket.object(file).exists?
   end
 
   private

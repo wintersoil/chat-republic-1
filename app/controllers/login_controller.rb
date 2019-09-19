@@ -9,7 +9,6 @@ class LoginController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "You have successfully logged in."
       redirect_to root_path
-    end
     else
       flash[:success] = "You could not be logged in. Please check your username and password and try again."
       redirect_to login_path

@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
     @user = current_user
   end
 
-  def editpassword
+  def update
     if @user.save
       redirect_to profile_path
     else

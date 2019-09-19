@@ -1,7 +1,7 @@
 <div class="griddy">
   <div class="white-glassy">
     <div class="white-glassy-intro" id="intro">
-      <%= form_for @user, url: {action: "editpassword"} do |f| %>
+      <%= form_for @user, url: {action: "update"} do |f| %>
       <div class="form-contents">
          <div class="form-individual">
            <%= f.password_field :password, class:"big-inputting", placeholder:"Password", autocomplete: :off %>

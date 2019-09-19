@@ -6,9 +6,9 @@ class ProfileController < ApplicationController
 
   def update
     if @user.save
-      redirect_to profile_path
+      redirect_to profile_path(@user)
     else
-      redirect_to profile_path
+      render "new"
     end
   end
 

@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
   def is_owner?
-    return current_user.user_name == "wintersoil"
+    if logged_in?
+      return current_user.user_name == "wintersoil"
+    else
+      return false
+    end
   end
 
 end

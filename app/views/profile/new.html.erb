@@ -1,7 +1,16 @@
 <div class="griddy">
   <div class="white-glassy">
     <div class="white-glassy-intro" id="intro">
-      <input type="password" placeholder="Password" />
+      <%= form_for @user, url: {action: "editpassword"} do |f| %>
+      <div class="form-contents">
+         <div class="form-individual">
+           <%= f.password_field :password, class:"big-inputting", placeholder:"Password", autocomplete: :off %>
+         </div>
+         <div class="form-individual">
+           <%= f.password_field :confirm_password, class:"big-inputting", placeholder:"Confirm Password", autocomplete: :off %>
+         </div>
+       </div>
+      <% end %>
       <h3>Change your password</h3>
       <p>You can change your password here. It is recommended to change your password every 3 months.</p>
       <p>Caution: Do not share your password with anyone or write it in the chatrooms, group or private chats</p>

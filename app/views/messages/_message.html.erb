@@ -1,8 +1,8 @@
 <div>
   <div class="message-outer">
     <div class="message-wrap">
-      <% if @user.profile_picture.file.exists? %>
-        <%= image_tag(@user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
+      <% if msg.user.profile_picture.file.exists? %>
+        <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
       <% end %>
       <div class="message-boxing">
           <div class="message-body">

@@ -339,7 +339,7 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   }
   .whitechat{
     height: 70vh;
-    width: 92%;
+    width: 96%;
     padding: 20px 5px;
   }
   .message-outer{
@@ -378,5 +378,11 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   .profile-picture {
     height: 70px;
     width: 70px;
+  }
+  .messages-input-button {
+    margin-left: 0px;
+  }
+  .messages-input-field {
+    width: 60%;
   }
 }

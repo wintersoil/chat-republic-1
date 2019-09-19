@@ -21,5 +21,23 @@
     </div>
   </div>
   <div class="white-glassy">
+    <div class="white-glassy-name" id="name">
+      <%= image_tag("name-edit.svg", height:'200', width:'200') %>
+      <%= form_for @user, url: {action: "update"} do |f| %>
+      <div class="form-contents">
+         <div class="form-individual">
+           <%= f.password_field :first_name, class:"big-inputting", placeholder:"First Name", autocomplete: :off %>
+         </div>
+         <div class="form-individual">
+           <%= f.password_field :last_name, class:"big-inputting", placeholder:"Last Name", autocomplete: :off %>
+         </div>
+         <div class="form-individual">
+           <%= f.submit "Edit Name", class:"submitting" %>
+         </div>
+       </div>
+      <% end %>
+      <h3>Change your first and last name</h3>
+      <p>You can change your first and last name here. This name is used to recognise you in chats and if someone visits your profile. Please use your real name so people find it easy to recognise you!</p>
+    </div>
   </div>
 </div>

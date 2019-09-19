@@ -7,10 +7,10 @@
      </div>
      <div class="form-contents">
        <div class="form-individual">
-         <%= f.text_field :user_name, class:"big-inputting", placeholder:"Username" %>
+         <%= f.text_field :user_name, class:"big-inputting", placeholder:"Username", autocomplete: :off %>
        </div>
        <div class="form-individual">
-         <%= f.password_field :password, class:"big-inputting", placeholder:"Password" %>
+         <%= f.password_field :password, class:"big-inputting", placeholder:"Password", autocomplete: :off %>
        </div>
        <div class="form-individual">
          <%= f.submit "Log In", class:"submitting" %>

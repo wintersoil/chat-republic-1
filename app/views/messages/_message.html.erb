@@ -2,7 +2,7 @@
   <div class="message-outer">
     <div class="message-wrap">
       <% if @user.profile_picture %>
-        <%= image_tag(@user.profile_picture.to_s, height:'50', width:'50') %>
+        <%= image_tag(@user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
       <% end %>
       <div class="message-boxing">
           <div class="message-body">

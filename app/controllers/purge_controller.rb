@@ -1,7 +1,7 @@
 class PurgeController < ApplicationController
 
   def deleting
-    Messages.delete_all
+    Message.delete_all
     redirect_to root_path
   end
 

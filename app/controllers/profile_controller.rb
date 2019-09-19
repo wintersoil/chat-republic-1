@@ -7,8 +7,10 @@ class ProfileController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
+      flash[:success] = "Your profile has been updated!"
       redirect_to profile_path(@user)
     else
+      flash.now[:success] = "Your profile could not be updated!"
       render "new"
     end
   end
@@ -20,8 +22,10 @@ class ProfileController < ApplicationController
     else
     end
     if @user.update(user_params)
+      flash[:success] = "Your profile picture has been updated"
       redirect_to profile_path(@user)
     else
+      flash[:success] = "Your profile picture could not be updated"
       render "new"
     end
   end

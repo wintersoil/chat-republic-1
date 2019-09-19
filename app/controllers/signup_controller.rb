@@ -7,8 +7,10 @@ class SignupController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "New account has been created. You can sign on using #{@user.user_name} and your password."
       redirect_to login_path
     else
+      flash[:success] = "User account could not be created please try again!"
       render "new"
     end
   end

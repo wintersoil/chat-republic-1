@@ -298,6 +298,41 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   border: 3px solid teal;
   box-shadow: 3px 6px 12px #aaa;
 }
+
+
+.flash-header {
+  background-image: linear-gradient(to bottom, #28E367, #A8EB12);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 8px 8px 0px 0px;
+}
+.flash-outer {
+  width: 35vw;
+  position: fixed;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Titillium Web";
+  color: #666;
+  box-shadow: 1px 2px 13px #888, -1px -2px 13px #888;
+  border-radius: 8px;
+}
+.flash-message {
+  padding: 12px 20px;
+  letter-spacing: 1.5px;
+}
+.flash-exit {
+  cursor:pointer;
+  font-size: 20px;
+  color: #666;
+}
+
+
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

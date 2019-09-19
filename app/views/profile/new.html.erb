@@ -78,7 +78,7 @@
   <div class="white-glassy">
     <div class="white-glassy-name" id="name">
       <%= image_tag("https://cdn1.iconfinder.com/data/icons/skype-icons/512/skype_camera_s.png", height:'200', width:'200') %>
-        <% if !is_file_exist(@user.profile_picture.to_s) %>
+        <% if is_file_exist(@user.profile_picture.to_s) %>
             <%= image_tag(@user.profile_picture.to_s, width:'270') %>
         <% end %>
       <%= form_for @user, :html => { multipart: true }, url: { action: 'uploadprofilepicture' } do |f| %>

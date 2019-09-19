@@ -38,7 +38,9 @@ class ProfileController < ApplicationController
     directory = connection.directories.get(ENV['S3_BUCKET'])
     unless !directory.files.head(file).nil?
          #do something, like creating the file
+         return true
     end
+    return false
   end
 
   private

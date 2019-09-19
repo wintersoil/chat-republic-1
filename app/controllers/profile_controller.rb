@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
 
-  helper_method: is_file_exist?
+  helper_method :is_file_exist?
 
   def new
     @user = current_user

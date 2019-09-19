@@ -28,7 +28,7 @@ class ProfileController < ApplicationController
     end
   end
 
-  def  is_file_exist?(file)
+  def is_file_exist?(file)
     connection = Fog::Storage.new({
       :provider                 => 'AWS',
       :aws_access_key_id        => ENV['S3_ACCESS_KEY'],
@@ -39,7 +39,6 @@ class ProfileController < ApplicationController
     if !file.nil?
       return unless directory.files.head(file)
          #do something, like creating the file
-      end
     else
       return false
     end

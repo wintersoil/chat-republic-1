@@ -348,4 +348,11 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   .containing{
     padding-left: 0px;
   }
+  .white-glassy {
+    width: 95%;
+  }
+  .griddy {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }

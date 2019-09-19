@@ -1,32 +1,34 @@
 <%= form_for @user, url: {action: "create"}  do |f| %>
 
 <div class="form-outer">
-  <div class="form-container-2">
-    <h2 align="center">SIGNUP</h2>
-    <div class="login-grid">
-      <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:first_name, "First Name") %></span><%= f.text_field :first_name, class:"big-inputting", placeholder:"First Name" %></div>
-      </div>
-      <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:last_name, "Last Name") %></span><%= f.text_field :last_name, class:"big-inputting", placeholder:"Last Name" %></div>
-      </div>
-      <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:user_name, "Username") %></span><%= f.text_field :user_name, class:"big-inputting", placeholder:"Username" %></div>
-      </div>
-      <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:email, "Email") %></span><%= f.text_field :email, class:"big-inputting", placeholder:"Email" %></div>
-      </div>
-      <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:password, "Password") %></span><%= f.password_field :password, class:"big-inputting", placeholder:"Password" %></div>
-      </div>
-      <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        <div class="inputting"><span style="margin-right:15px;font-size:25px;"><%= f.label(:confirm_password, "Confirm password") %></span><%= f.password_field :confirm_password, class:"big-inputting", placeholder:"Confirm Password" %></div>
-      </div>
-      <div style="justify-content:center;display:flex;margin-top: 25px;">
-        <%= f.submit "Sign Up", class:"submitting" %>
-      </div>
-    </div>
-  </div>
+ <div class="forming">
+   <div class="forming-header">
+     Signup
+   </div>
+   <div class="form-contents">
+     <div class="form-individual">
+       <%= f.text_field :first_name, class:"big-inputting", placeholder:"First Name", autocomplete: :off %>
+     </div>
+     <div class="form-individual">
+       <%= f.text_field :last_name, class:"big-inputting", placeholder:"Last Name", autocomplete: :off %>
+     </div>
+     <div class="form-individual">
+       <%= f.text_field :user_name, class:"big-inputting", placeholder:"Username", autocomplete: :off %>
+     </div>
+     <div class="form-individual">
+       <%= f.text_field :email, class:"big-inputting", placeholder:"Email", autocomplete: :off %>
+     </div>
+     <div class="form-individual">
+       <%= f.password_field :password, class:"big-inputting", placeholder:"Password", autocomplete: :off %>
+     </div>
+     <div class="form-individual">
+       <%= f.password_field :confirm_password, class:"big-inputting", placeholder:"Confirm Password", autocomplete: :off %>
+     </div>
+     <div class="form-individual">
+       <%= f.submit "Sign Up", class:"submitting" %>
+     </div>
+   </div>
+ </div>
 </div>
 
 <% end %>

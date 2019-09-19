@@ -1,7 +1,5 @@
 class ProfileController < ApplicationController
 
-  helper_method :is_file_exist
-
   def new
     @user = current_user
   end
@@ -17,7 +15,7 @@ class ProfileController < ApplicationController
 
   def uploadprofilepicture
     @user = current_user
-    if @user.profile_picture
+    if @user.profile_picture.present?
       @user.profile_picture.file.delete
     else
     end
@@ -26,16 +24,6 @@ class ProfileController < ApplicationController
     else
       render "new"
     end
-  end
-
-  def is_file_exist(file)
-    connection = Fog::AWS::Storage.new({:aws_access_key_id => ENV['S3_ACCESS_KEY'],:aws_secret_access_key => ENV['S3_SECRET_KEY'],:region => ENV['AWS_REGION'],:provider => 'AWS'})
-    directory = connection.directories.get(ENV['S3_BUCKET'])
-    unless !directory.files.head(file.to_s).nil?
-         #do something, like creating the file
-         return true
-    end
-    return false
   end
 
   private

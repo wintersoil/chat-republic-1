@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'login#destroy'
   get 'chatroom', to: 'chatroom#new'
   post 'chatroom', to: 'chatroom#create'
+  get 'profile', to: 'profile#new'
 
   mount ActionCable.server, at: '/cable'
 end

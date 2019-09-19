@@ -36,8 +36,12 @@ class ProfileController < ApplicationController
       :region                   => ENV['AWS_REGION']
     })
     directory = connection.directories.get(ENV['S3_BUCKET'])
-    unless directory.files.head(file)
-       #do something, like creating the file
+    if !file.nil?
+      return unless directory.files.head(file)
+         #do something, like creating the file
+      end
+    else
+      return false
     end
   end
 

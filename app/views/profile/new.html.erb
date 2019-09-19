@@ -74,4 +74,25 @@
       <p>You can change your Email address here. The email is used for password recovery and sending push notifications about chat groups and private chats.</p>
     </div>
   </div>
+
+  <div class="white-glassy">
+    <div class="white-glassy-name" id="name">
+      <%= image_tag("https://icon-library.net/images/email-icon-3d/email-icon-3d-10.jpg", height:'200', width:'200') %>
+      <% if @user.profile_picture %>
+        <%= image_tag(@user.profile_picture.to_s, width:'200') %>
+      <% end %>
+      <%= form_for @user, :html => { multipart: true }, url: { action: 'uploadprofilepicture' } do |f| %>
+      <div class="form-contents">
+         <div class="form-individual">
+           <%= f.file_field :profile_picture, accept: 'image/jpeg,image/gif,image/png' %>
+         </div>
+         <div class="form-individual">
+           <%= f.submit "Upload Picture", class:"submitting" %>
+         </div>
+       </div>
+      <% end %>
+      <h3>Change your Profile Picture</h3>
+      <p>You can upload your profile picture. It helps friends identify you more accurately. Having a profile picture gives a more personalized experience.</p>
+    </div>
+  </div>
 </div>

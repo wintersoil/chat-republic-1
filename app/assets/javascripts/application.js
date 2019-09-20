@@ -62,6 +62,12 @@ $( document ).on('turbolinks:load', function() {
         $("#recordedAudio").attr("src", URL.createObjectURL(blob));
         $("#recordedAudio").attr("controls", "true");
         $("#recordedAudio").attr("autoplay", "true");
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/uploadMP3', true);
+        xhr.responseType = 'Blob';
+        xhr.setRequestHeader("x-csrf-token", csrf);
+        xhr.onload = function(e){};
+        xhr.send(blob);
       }
     }
   }

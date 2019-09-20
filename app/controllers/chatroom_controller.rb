@@ -17,6 +17,24 @@ class ChatroomController < ApplicationController
     end
   end
 
+  def mp3audio
+    @message = Message.new(body: "mp3")
+    @message.user = current_user
+    @user = current_user
+    audio = params[:blob]
+    if @message.mp3.present?
+      @message.mp3.file.delete
+    else
+    end
+    @message.mp3 = audio
+    if @message.save
+      ActionCable.server.broadcast "chatroom_channel", mod_message: mp3_message_render(@message)
+    else
+    end
+  end
+
+  end
+
   private
 
   def msg_params
@@ -25,6 +43,10 @@ class ChatroomController < ApplicationController
 
   def message_render(message)
     render(partial: 'messages/message', locals: {msg: message})
+  end
+
+  def mp3_message_render(message)
+    render(partial: 'messages/mp3message', locals: {msg: message})
   end
 
 end

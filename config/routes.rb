@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'login#destroy'
   get 'chatroom', to: 'chatroom#new'
   post 'chatroom', to: 'chatroom#create'
+  post 'uploadMP3', to: 'chatroom#mp3audio'
   get 'profile', to: 'profile#new'
   patch 'profile', to: 'profile#update'
   get 'purge', to: 'purge#deleting'

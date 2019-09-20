@@ -35,4 +35,34 @@ $( document ).on('turbolinks:load', function() {
     $(".flash-outer").css("display", "none")
   });
 
+  $("#record").click(function(e){
+    console.log('I was clicked');
+    $("#record").disabled = true;
+    $("#record").css("background-color", "blue");
+    $("#stopRecord").disabled = false;
+    audioChunks = [];
+    rec.start();
+  });
+  $("#stopRecord").click(function(e){
+    console.log("I was clicked");
+    $("#record").disabled = false;
+    $("#stopRecord").disabled = true;
+    $("#record").css("background-color", "red");
+    rec.stop();
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+  });
+
+  function handlerFunction(stream) {
+    rec = new MediaRecorder(stream);
+    rec.ondataavailable = e => {
+      audioChunks.push(e.data);
+      if(rec.state == "inactive"){
+        let blob = new Blob(audioChunks,{type:"audio/mpeg-3"});
+        $("#recordedAudio").src = URL.createObjectURL(blob);
+        $("#recordedAudio").controls=true;
+        $("#recordedAudio").autoplay=true;
+      }
+    }
+  }
+
 });

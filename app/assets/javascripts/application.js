@@ -49,14 +49,12 @@ $( document ).on('turbolinks:load', function() {
     $("#stopRecord").disabled = true;
     $("#record").css("background-color", "red");
     rec.stop();
-    navigator.mediaDevices.getUserMedia({audio:true}, function() {
-      handlerFunction(stream);
-    });
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   });
 
   function handlerFunction(stream) {
     rec = new MediaRecorder(stream);
-    rec.ondataavailable = function processAudio(e) {
+    rec.ondataavailable = e => {
       audioChunks.push(e.data);
       if(rec.state == "inactive"){
         let blob = new Blob(audioChunks,{type:"audio/mpeg-3"});

@@ -27,7 +27,7 @@ class ChatroomController < ApplicationController
     else
     end
     s3 = Fog::AWS::Storage.new(:provider => "AWS", :aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'])
-    directory = s3.directories.create(:key => "uploads1", :public => true)
+    directory = s3.directories.get(:key => "uploads1", options = {})
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
     data = audio
     extension = 'mp3'

@@ -36,6 +36,7 @@ $( document ).on('turbolinks:load', function() {
   });
 
   $("#record").click(function(e){
+    window.rec = new MediaRecorder(stream);
     console.log('I was clicked');
     $("#record").disabled = true;
     $("#record").css("background-color", "blue");
@@ -53,7 +54,6 @@ $( document ).on('turbolinks:load', function() {
   });
 
   function handlerFunction(stream) {
-    rec = new MediaRecorder(stream);
     rec.ondataavailable = e => {
       audioChunks.push(e.data);
       if(rec.state == "inactive"){

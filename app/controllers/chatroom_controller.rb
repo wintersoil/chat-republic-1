@@ -32,7 +32,7 @@ class ChatroomController < ApplicationController
     extension = 'mp3'
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
     data = audio
-    file = directory.files.create(:key => "uploads/" + name,:body => data,:public => true)
+    file = directory.files.create(:key => name,:body => data,:public => true)
     file.save
     url = file.public_url
     @message.mp3 = url

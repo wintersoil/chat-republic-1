@@ -41,14 +41,14 @@ $( document ).on('turbolinks:load', function() {
     console.log('I was clicked');
     $("#record").disabled = true;
     $("#record").css("background-color", "blue");
-    $("#stopRecord").disabled = false;
+    $("#stopRecord").attr("disabled", "false");
     audioChunks = [];
     window.rec.start();
   });
   $("#stopRecord").click(function(e){
     console.log("I was clicked");
     $("#record").disabled = false;
-    $("#stopRecord").disabled = true;
+    $("#stopRecord").attr("disabled", "true");
     $("#record").css("background-color", "red");
     window.rec.stop();
   });

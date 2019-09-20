@@ -35,26 +35,27 @@ $( document ).on('turbolinks:load', function() {
     $(".flash-outer").css("display", "none")
   });
 
+  navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+
   $("#record").click(function(e){
-    window.rec = new MediaRecorder(stream);
     console.log('I was clicked');
     $("#record").disabled = true;
     $("#record").css("background-color", "blue");
     $("#stopRecord").disabled = false;
     audioChunks = [];
-    rec.start();
+    window.rec.start();
   });
   $("#stopRecord").click(function(e){
     console.log("I was clicked");
     $("#record").disabled = false;
     $("#stopRecord").disabled = true;
     $("#record").css("background-color", "red");
-    rec.stop();
-    navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    window.rec.stop();
   });
 
   function handlerFunction(stream) {
-    rec.ondataavailable = e => {
+    window.rec = new MediaRecorder(stream);
+    window.rec.ondataavailable = e => {
       audioChunks.push(e.data);
       if(rec.state == "inactive"){
         let blob = new Blob(audioChunks,{type:"audio/mpeg-3"});

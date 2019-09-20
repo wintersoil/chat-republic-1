@@ -28,12 +28,11 @@ class ChatroomController < ApplicationController
     end
     s3 = Fog::AWS::Storage.new(:aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'], :region => "ca-central-1")
     directory = s3.directories.get("aliphotoappimages")
-    directory = directory.get("uploads")
 
     extension = 'mp3'
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
     data = audio
-    file = directory.files.create(:key => name,:body => data,:public => true)
+    file = directory.files.create(:key => "uploads/" + name,:body => data,:public => true)
     file.save
     url = file.public_url
     @message.mp3 = url

@@ -39,16 +39,16 @@ $( document ).on('turbolinks:load', function() {
 
   $("#record").click(function(e){
     console.log('I was clicked');
-    $("#record").disabled = true;
+    document.getElementById("record").disabled = true;
     $("#record").css("background-color", "blue");
-    $("#stopRecord").attr("disabled", "false");
+    document.getElementById("stopRecord").disabled = false;
     audioChunks = [];
     window.rec.start();
   });
   $("#stopRecord").click(function(e){
     console.log("I was clicked");
-    $("#record").disabled = false;
-    $("#stopRecord").attr("disabled", "true");
+    document.getElementById("record").disabled = false;
+    document.getElementById("stopRecord").disabled = true;
     $("#record").css("background-color", "red");
     window.rec.stop();
   });

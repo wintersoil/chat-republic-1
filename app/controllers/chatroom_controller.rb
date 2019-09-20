@@ -28,7 +28,7 @@ class ChatroomController < ApplicationController
     end
     s3 = Fog::AWS::Storage.new(:aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'], :region => "ca-central-1")
     directory = s3.directories.get("aliphotoappimages")
-    directory = directory.directories.get("uploads")
+    directory = directory.get("uploads")
 
     extension = 'mp3'
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"

@@ -33,8 +33,6 @@ class ChatroomController < ApplicationController
     end
   end
 
-  end
-
   private
 
   def msg_params

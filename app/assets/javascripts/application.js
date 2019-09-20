@@ -59,9 +59,9 @@ $( document ).on('turbolinks:load', function() {
       audioChunks.push(e.data);
       if(rec.state == "inactive"){
         let blob = new Blob(audioChunks,{type:"audio/mpeg-3"});
-        $("#recordedAudio").src = URL.createObjectURL(blob);
-        $("#recordedAudio").controls=true;
-        $("#recordedAudio").autoplay=true;
+        $("#recordedAudio").attr("src", URL.createObjectURL(blob));
+        $("#recordedAudio").attr("controls", "true");
+        $("#recordedAudio").attr("autoplay", "true");
       }
     }
   }

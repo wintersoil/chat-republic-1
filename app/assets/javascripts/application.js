@@ -64,7 +64,7 @@ $( document ).on('turbolinks:load', function() {
         $("#recordedAudio").attr("autoplay", "true");
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/uploadMP3', true);
-        xhr.responseType = 'Blob';
+        xhr.responseType = 'blob';
         xhr.onload = function(e){};
         xhr.send(blob);
       }

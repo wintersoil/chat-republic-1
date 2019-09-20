@@ -54,7 +54,7 @@ $( document ).on('turbolinks:load', function() {
 
   function handlerFunction(stream) {
     rec = new MediaRecorder(stream);
-    rec.ondataavailable = e => {
+    rec.ondataavailable = function processAudio(e) {
       audioChunks.push(e.data);
       if(rec.state == "inactive"){
         let blob = new Blob(audioChunks,{type:"audio/mpeg-3"});

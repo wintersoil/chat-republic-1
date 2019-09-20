@@ -26,8 +26,8 @@ class ChatroomController < ApplicationController
       @message.mp3.file.delete
     else
     end
-    s3 = AWS::S3.new(:access_key_id => ENV['S3_KEY'], :secret_access_key => ENV['S3_SECRET'])
-    bucket = s3.buckets['aliphotoappimages']
+    s3 = AWS::S3.new(:access_key_id => ENV['S3_ACCESS_KEY'], :secret_access_key => ENV['S3_SECRET_KEY'])
+    bucket = s3.buckets[ENV['S3_BUCKET']]
     data = audio
     type = 'audio/mpeg-3'
     extension = 'mp3'

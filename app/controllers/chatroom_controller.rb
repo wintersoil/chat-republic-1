@@ -26,7 +26,15 @@ class ChatroomController < ApplicationController
       @message.mp3.file.delete
     else
     end
-    @message.mp3 = audio
+    s3 = AWS::S3.new(:access_key_id => ENV['S3_KEY'], :secret_access_key => ENV['S3_SECRET'])
+    bucket = s3.buckets['aliphotoappimages']
+    data = audio
+    type = 'audio/mpeg-3'
+    extension = 'mp3'
+    name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
+    obj = bucket.objects.create(name,data,{content_type:type,acl:"public_read"})
+    url = obj.public_url().to_s
+    @message.mp3 = name
     if @message.save
       ActionCable.server.broadcast "chatroom_channel", mod_message: mp3_message_render(@message)
     else

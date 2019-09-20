@@ -26,8 +26,9 @@ class ChatroomController < ApplicationController
       @message.mp3.file.delete
     else
     end
+    Fog::Storage::AWS::DEFAULT_REGION = 'ca-central-1'
     s3 = Fog::AWS::Storage.new(:aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'], :region => "ca-central-1")
-    directory = s3.directories.get("uploads1")
+    directory = s3.directories.get("uploads")
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
     data = audio
     extension = 'mp3'

@@ -26,7 +26,7 @@ class ChatroomController < ApplicationController
       @message.mp3.file.delete
     else
     end
-    s3 = Fog::AWS::Storage.new(:provider => "AWS", :access_key_id => ENV['S3_ACCESS_KEY'], :secret_access_key => ENV['S3_SECRET_KEY'])
+    s3 = Fog::AWS::Storage.new(:provider => "AWS", :aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'])
     bucket = s3.buckets[ENV['S3_BUCKET']]
     directory = connection.directories.create(:key => "uploads1", :public => true)
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"

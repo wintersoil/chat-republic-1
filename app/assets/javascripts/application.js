@@ -49,7 +49,9 @@ $( document ).on('turbolinks:load', function() {
     $("#stopRecord").disabled = true;
     $("#record").css("background-color", "red");
     rec.stop();
-    navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    navigator.mediaDevices.getUserMedia({audio:true}, function() {
+      handlerFunction(stream);
+    });
   });
 
   function handlerFunction(stream) {

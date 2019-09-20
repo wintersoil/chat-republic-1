@@ -84,7 +84,7 @@ Rails.application.configure do
   config.web_socket_server_url = "DemoApplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable"
   config.action_cable.url = "https://DemoApplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable"
   config.action_cable.disable_request_forgery_protection = true
-  config.force_ssl = false
+  config.force_ssl = true
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

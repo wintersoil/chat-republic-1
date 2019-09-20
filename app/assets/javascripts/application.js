@@ -26,7 +26,7 @@ scroll_bottom = function() {
 }
 $( document ).on('turbolinks:load', function() {
   scroll_bottom();
-
+  $("#troubly-link").click();
   $('#new_message').bind("ajax:complete", function(event,xhr,status){
     $('#message_body').val('');
   });

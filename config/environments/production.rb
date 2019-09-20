@@ -84,7 +84,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.web_socket_server_url = "wss://DemoApplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable"
-  config.action_cable.url = "http://DemoApplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable"
+  config.action_cable.url = "wss://DemoApplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable"
   config.action_cable.disable_request_forgery_protection = true
   config.force_ssl = false
 

@@ -57,9 +57,17 @@ $( document ).on('turbolinks:load', function() {
     window.rec = new MediaRecorder(stream);
     window.rec.ondataavailable = e => {
       audioChunks.push(e.data);
+      let url1;
       if(rec.state == "inactive"){
         let blob = new Blob(audioChunks,{type:"audio/mpeg"});
-        $("#recordedAudio").attr("src", URL.createObjectURL(blob));
+        try{
+         url1 = webkitURL.createObjectURL(blob);
+      }
+      catch(err)
+      {
+        url1 = URL.createObjectURL(blob);
+      }
+      $("#recordedAudio").attr("src", url1);
         $("#recordedAudio").attr("controls", "true");
         $("#recordedAudio").attr("autoplay", "true");
         var reader = new FileReader();

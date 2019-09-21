@@ -21,7 +21,7 @@ class ChatroomController < ApplicationController
     @message = Message.new(body: "mp3")
     @message.user = current_user
     @user = current_user
-    audio = ActiveSupport::JSON.decode(request.body.read).data.data
+    audio = params[:data]
     puts audio
     if @message.mp3.present?
       @message.mp3.file.delete
@@ -36,6 +36,7 @@ class ChatroomController < ApplicationController
     file = directory.files.create(:key => name,:body => data,:public => true)
     file.save
     url = file.public_url
+    puts url
     @message.mp3 = url
     if @message.save
       ActionCable.server.broadcast "chatroom_channel", mod_message: mp3_message_render(@message)

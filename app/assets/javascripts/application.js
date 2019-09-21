@@ -26,7 +26,9 @@ scroll_bottom = function() {
 }
 $( document ).on('turbolinks:load', function() {
   scroll_bottom();
-  $("#troubly-link").click();
+  const audio1 = new Audio();
+  audio1.play();
+
   $('#new_message').bind("ajax:complete", function(event,xhr,status){
     $('#message_body').val('');
   });
@@ -45,7 +47,7 @@ $( document ).on('turbolinks:load', function() {
     navigator.mediaDevices.mozGetUserMedia.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
   catch(err2){
-    
+
   }
 
   $("#record").click(function(e){

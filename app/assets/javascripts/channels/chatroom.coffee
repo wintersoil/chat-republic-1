@@ -11,3 +11,5 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     scroll_bottom();
     document.getElementById('hollow-copy').play();
     document.getElementById('hollow-copy-1').play();
+
+    $("#online").append(data.online)

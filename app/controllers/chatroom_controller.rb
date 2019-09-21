@@ -5,12 +5,14 @@ class ChatroomController < ApplicationController
     @message = Message.new
     @messaging = Message.all
     @user = current_user
+    @users = User.all
   end
 
   def create
     @message = Message.new(msg_params)
     @message.user = current_user
     @user = current_user
+    @users = User.all
     if @message.save
       ActionCable.server.broadcast "chatroom_channel", mod_message: message_render(@message)
     else

@@ -18,7 +18,7 @@ class ChatroomController < ApplicationController
   end
 
   def mp3audio
-    @message = Message.new
+    @message = Message.new(body: "msg", mp3: "www.google.com")
     @message.body = params[:body]
     @message.user = current_user
     @user = current_user
@@ -49,7 +49,7 @@ class ChatroomController < ApplicationController
   private
 
   def msg_params
-    params.require(:message).permit(:body, :mp3)
+    params.require(:message).permit(:body)
   end
 
   def message_render(message)

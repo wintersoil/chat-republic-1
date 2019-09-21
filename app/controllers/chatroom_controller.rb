@@ -18,7 +18,7 @@ class ChatroomController < ApplicationController
   end
 
   def mp3audio
-    @message = Message.new(msg_params)
+    @message = Message.new
     @message.body = params[:body]
     @message.user = current_user
     @user = current_user

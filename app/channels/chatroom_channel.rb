@@ -22,7 +22,7 @@ class ChatroomChannel < ApplicationCable::Channel
   end
 
   def online_render(arraying)
-    render(partial: "online/people", locals: {online: arraying})
+    ApplicationController.render(partial: "online/people", locals: {online: arraying})
   end
 
 end

@@ -35,7 +35,8 @@ $( document ).on('turbolinks:load', function() {
     $(".flash-outer").css("display", "none")
   });
 
-  navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+  getUserMedia = navigator.mediaDevices.getUserMedia || navigator.mediaDevices.webkitGetUserMedia || navigator.mediaDevices.mozGetUserMedia;
+  getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
 
   $("#record").click(function(e){
     console.log('I was clicked');

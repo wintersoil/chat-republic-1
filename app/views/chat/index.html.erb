@@ -61,8 +61,8 @@
       <div class="white-glassy" id="history">
         <div class="white-glassy-intro" id="">
           <% @users.each do |user| %>
-            <li><%= @user.first_name %> <%= @user.last_name %>&nbsp;&nbsp;
-              <% if @user.is_online? %>
+            <li><%= user.first_name %> <%= user.last_name %>&nbsp;&nbsp;
+              <% if user.is_online? %>
                 <span style="color:white;background-color:lightgreen">&nbsp;Online</span>
               <% end %>
             </li>

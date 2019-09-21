@@ -41,7 +41,7 @@ $( document ).on('turbolinks:load', function() {
   catch(err){
     navigator.mediaDevices.webkitGetUserMedia.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
-  catch(err){
+  catch(err2){
     navigator.mediaDevices.mozGetUserMedia.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
 

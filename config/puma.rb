@@ -36,7 +36,6 @@ end
 # process behavior so workers use less memory.
 #
 # preload_app!
-daemonize true
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart

@@ -6,15 +6,15 @@ class ChatroomChannel < ApplicationCable::Channel
     # stream_from "some_channel"
     current_user.is_online = 1
     current_user.save
-    @arraying.push({user_name: current_user.user_name, first_name: current_user.first_name, last_name: current_user.last_name})
-    ActionCable.server.broadcast "chatroom_channel", online: online_render(@arraying)
+    self.class.arraying.push({user_name: current_user.user_name, first_name: current_user.first_name, last_name: current_user.last_name})
+    ActionCable.server.broadcast "chatroom_channel", online: online_render(self.class.arraying)
     stream_from "chatroom_channel"
   end
 
   def unsubscribed
     current_user.is_online = 0
     current_user.save
-    result = @arraying.select do |elem|
+    result = self.class.arraying.select do |elem|
       elem.user_name != current_user.user_name
     end
     ActionCable.server.broadcast "chatroom_channel", online: online_render(result)

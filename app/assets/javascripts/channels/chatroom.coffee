@@ -12,4 +12,4 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     document.getElementById('hollow-copy').play();
     document.getElementById('hollow-copy-1').play();
 
-    $("#online").append(data.online)
+    $("#online").html(data.online)

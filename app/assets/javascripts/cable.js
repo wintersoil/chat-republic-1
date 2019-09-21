@@ -11,7 +11,9 @@
 try{
   App.cable = ActionCable.createConsumer();
 } catch(e) {
-  console.log(e)
+  console.log(e);
 }
+App.cable.connection.events.error = function(e) { console.log("My error handler:", e) }
+
 
 }).call(this);

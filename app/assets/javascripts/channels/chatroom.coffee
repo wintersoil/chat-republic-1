@@ -1,7 +1,6 @@
 App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   connected: ->
     # Called when the subscription is ready for use on the server
-    App.cable.connection.events.error = function(e) { console.log("My error handler:", e) }
 
   disconnected: ->
     # Called when the subscription has been terminated by the server

@@ -1,7 +1,6 @@
 App.cable.subscriptions.create "AppearanceChannel",
 
   connected: ->
-    @install()
     @appear()
 
   disconnected: ->

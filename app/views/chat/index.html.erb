@@ -57,7 +57,7 @@
         <p>Keep a history of all your public, private and group chats. You can also download the history to any device through the backup feature.</p>
       </div>
     </div>
-    <%= if logged_in? %>
+    <% if logged_in? %>
       <div class="white-glassy" id="history">
         <div class="white-glassy-intro" id="">
           <% @users.each do |user| %>

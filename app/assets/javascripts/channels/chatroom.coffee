@@ -11,7 +11,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     scroll_bottom();
     let audio1 = new Audio();
     audio1.play();
-    audio1.src = document.getElementById('hollow-copy').attr("src");
+    audio1.src = document.getElementById('hollow-copy').src;
     audio1.play();
-    audio1.src = document.getElementById('hollow-copy-1').attr("src");
+    audio1.src = document.getElementById('hollow-copy-1').src;
     audio1.play();

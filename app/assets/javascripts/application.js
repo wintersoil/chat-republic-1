@@ -67,7 +67,6 @@ $( document ).on('turbolinks:load', function() {
           var fd = {};
           fd["fname"] = "test.mp3";
           fd["data"] = event.target.result;
-          fd["message"] = {body: "msg", mp3: "www.google.com"}
           $.ajax({
             type: "POST",
             url: "/uploadMP3",

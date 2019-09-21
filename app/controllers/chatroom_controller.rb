@@ -23,7 +23,6 @@ class ChatroomController < ApplicationController
     @user = current_user
     audio = params[:data]
     audio1 = Base64.decode64(audio)
-    puts audio1
     if @message.mp3.present?
       @message.mp3.file.delete
     else

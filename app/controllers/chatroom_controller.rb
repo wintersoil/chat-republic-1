@@ -48,7 +48,7 @@ class ChatroomController < ApplicationController
   private
 
   def msg_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :mp3)
   end
 
   def message_render(message)

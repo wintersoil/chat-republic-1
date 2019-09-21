@@ -7,8 +7,8 @@ class AppearanceChannel < ApplicationCable::Channel
     current_user.disappear
   end
 
-  def appear(data)
-    current_user.appear(on: data['appearing_on'])
+  def appear
+    current_user.appear
   end
 
   def away

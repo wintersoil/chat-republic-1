@@ -15,7 +15,7 @@ class ChatroomChannel < ApplicationCable::Channel
     current_user.is_online = 0
     current_user.save
     result = @@arraying.select do |elem|
-      elem.user_name != current_user.user_name
+      elem[:user_name] != current_user.user_name
     end
     ActionCable.server.broadcast "chatroom_channel", online: online_render(result)
     # Any cleanup needed when channel is unsubscribed

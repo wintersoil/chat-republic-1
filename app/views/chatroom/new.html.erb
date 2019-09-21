@@ -24,7 +24,7 @@
 </div>
 <div id="online2">
   <% @users.each do |usering| %>
-    <%= content_tag(:div, usering.first_name + " " + usering.last_name ,id: "user_" + usering.id) %>
+    <%= content_tag(:div, usering.first_name + " " + usering.last_name ,id: "user_" + usering.id.to_s) %>
   <% end %>
 </div>
 <%= audio_tag("definite.mp3", autoplay: false, controls: true, style: "display:none", id:"hollow-copy") %>

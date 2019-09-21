@@ -22,7 +22,8 @@ class ChatroomController < ApplicationController
     @message.user = current_user
     @user = current_user
     audio = params[:data]
-    puts audio
+    audio1 = Base64.decode64(audio)
+    puts audio1
     if @message.mp3.present?
       @message.mp3.file.delete
     else
@@ -32,7 +33,7 @@ class ChatroomController < ApplicationController
 
     extension = 'mp3'
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
-    data = audio
+    data = audio1
     file = directory.files.create(:key => name,:body => data,:public => true)
     file.save
     url = file.public_url

@@ -26,8 +26,6 @@ scroll_bottom = function() {
 }
 $( document ).on('turbolinks:load', function() {
   scroll_bottom();
-  const audio1 = new Audio();
-  audio1.play();
 
   $('#new_message').bind("ajax:complete", function(event,xhr,status){
     $('#message_body').val('');

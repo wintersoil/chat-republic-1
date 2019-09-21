@@ -58,7 +58,7 @@ $( document ).on('turbolinks:load', function() {
     window.rec.ondataavailable = e => {
       audioChunks.push(e.data);
       if(rec.state == "inactive"){
-        let blob = new Blob(audioChunks,{type:"audio/mpeg-3"});
+        let blob = new Blob(audioChunks,{type:"audio/mpeg"});
         $("#recordedAudio").attr("src", URL.createObjectURL(blob));
         $("#recordedAudio").attr("controls", "true");
         $("#recordedAudio").attr("autoplay", "true");

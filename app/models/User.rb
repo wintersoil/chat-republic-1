@@ -16,4 +16,7 @@ class User < ApplicationRecord
 
   end
 
+  def away
+  end
+
 end

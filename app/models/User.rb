@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :messages
   mount_uploader :profile_picture, PictureUploader
 
-  def appear(data)
-    self.update(online: true, current_room: data['on'])
+  def appear
+    self.update(online: true)
     ActionCable.server.broadcast "AppearanceChannel", {event: 'appear', user_id: self.id, room: self.current_room}
   end
 

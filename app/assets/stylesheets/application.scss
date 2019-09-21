@@ -329,6 +329,11 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   font-size: 20px;
   color: #666;
 }
+.green-background-online {
+  padding: 5px 15px;
+  background-color: lightgreen;
+  color: white;
+}
 
 
 @media only screen and (max-width: 480px)

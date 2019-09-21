@@ -13,3 +13,10 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     document.getElementById('hollow-copy-1').play();
 
     $("#online").html(data.online)
+
+    userId = data.user_id
+    eventType = data.event
+    if eventType == 'appear'
+      $('#user_' + userId).addClass 'background-green-online'
+    else
+      $('#user_' + userId).removeClass 'background-green-online'

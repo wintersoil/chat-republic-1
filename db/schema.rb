@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_20_203916) do
+ActiveRecord::Schema.define(version: 2019_09_21_094500) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_09_20_203916) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "profile_picture"
+    t.boolean "is_online"
   end
 
 end

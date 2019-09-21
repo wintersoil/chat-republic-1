@@ -63,7 +63,7 @@
           <% @users.each do |user| %>
             <li><%= user.first_name %> <%= user.last_name %>&nbsp;&nbsp;
               <% if user.is_online? %>
-                <span style="color:white;background-color:lightgreen">&nbsp;Online</span>
+                <span style="color:white;background-color:lightgreen;padding:5px 13px;border:1px solid teal;box-shadow: 2px 6px 10px #666;">&nbsp;Online</span>
               <% end %>
             </li>
           <% end %>

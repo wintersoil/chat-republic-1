@@ -30,3 +30,11 @@ App.cable.subscriptions.create "AppearanceChannel",
   uninstall: ->
     $(document).off(".appearance")
     $(buttonSelector).hide()
+
+    received: (data) ->
+      userId = data.user_id
+      eventType = data.event
+      if eventType == 'appear'
+        $('#user_' + userId).addClass 'background-green-online'
+      else
+        $('#user_' + userId).removeClass 'background-green-online'

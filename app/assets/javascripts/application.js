@@ -62,11 +62,21 @@ $( document ).on('turbolinks:load', function() {
         $("#recordedAudio").attr("src", URL.createObjectURL(blob));
         $("#recordedAudio").attr("controls", "true");
         $("#recordedAudio").attr("autoplay", "true");
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/uploadMP3', true);
-        xhr.responseType = 'blob';
-        xhr.onload = function(e){};
-        xhr.send(blob);
+        var reader = new FileReader();
+        reader.onload = function(event){
+          var fd = {};
+          fd["fname"] = "test.mp3";
+          fd["data"] = event.target.result;
+          $.ajax({
+            type: "POST",
+            url: "/uploadMP3",
+            data: fd,
+            dataType: "text"
+          }).done(function(data){
+            console.log(data);
+          });
+        };
+        reader.readAsDataURL(blob);
       }
     }
   }

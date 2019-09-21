@@ -21,7 +21,7 @@ class ChatroomController < ApplicationController
     @message = Message.new(body: "mp3")
     @message.user = current_user
     @user = current_user
-    audio = params[:blob]
+    audio = request.body.read
     if @message.mp3.present?
       @message.mp3.file.delete
     else

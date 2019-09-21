@@ -17,6 +17,11 @@ class ChatroomChannel < ApplicationCable::Channel
     result = @@arraying.select do |elem|
       elem[:user_name] != current_user.user_name
     end
+    difference = @@arraying.length - result.length
+    while difference > 1 do
+      result.push({user_name: current_user.user_name, first_name: current_user.first_name, last_name: current_user.last_name})
+      difference = difference - 1
+    end
     @@arraying = result
     ActionCable.server.broadcast "chatroom_channel", online: online_render(result)
     # Any cleanup needed when channel is unsubscribed

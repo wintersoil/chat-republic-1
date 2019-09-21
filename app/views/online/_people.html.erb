@@ -1,6 +1,6 @@
 <div>
   People currently online
   <% online.each do |onlining| %>
-    <li><%= onlining.first_name %> <%= onlining.last_name %></li>
+    <li><%= onlining[:first_name] %> <%= onlining[:last_name] %></li>
   <% end %>
 </div>

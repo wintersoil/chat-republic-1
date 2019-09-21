@@ -41,8 +41,11 @@ $( document ).on('turbolinks:load', function() {
   catch(err){
     navigator.mediaDevices.webkitGetUserMedia.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
-  catch(err2){
+  try{
     navigator.mediaDevices.mozGetUserMedia.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+  }
+  catch(err2){
+    
   }
 
   $("#record").click(function(e){

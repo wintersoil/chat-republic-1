@@ -21,7 +21,7 @@ class ChatroomController < ApplicationController
     @message = Message.new(body: "mp3")
     @message.user = current_user
     @user = current_user
-    audio = ActiveSupport::JSON.decode(request.body.read).data
+    audio = ActiveSupport::JSON.decode(request.body.read).data.data
     puts audio
     if @message.mp3.present?
       @message.mp3.file.delete

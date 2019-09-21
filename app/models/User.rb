@@ -12,4 +12,8 @@ class User < ApplicationRecord
     ActionCable.server.broadcast "AppearanceChannel", {event: 'appear', user_id: self.id, room: self.current_room}
   end
 
+  def disappear
+
+  end
+
 end

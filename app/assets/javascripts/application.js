@@ -55,10 +55,13 @@ $( document ).on('turbolinks:load', function() {
       audioChunks = [];
       window.rec.start();
       recording = true;
-      var hover = "https://vectr.com/wintersoil/a1t2KULU0I.svg?width=90&height=90&select=a1t2KULU0Ipage0"
+      var hover = "https://vectr.com/wintersoil/a1t2KULU0I.svg?width=90&height=90&select=a1t2KULU0Ipage0";
       $("#record").attr( "src", hover );
     }
     else {
+      recording = false;
+      var hover = "https://vectr.com/wintersoil/c4Kvrd2gn.svg?width=90&height=90&select=c4Kvrd2gnpage0";
+      $("#record").attr( "src", hover );
       window.rec.stop();
     }
   });

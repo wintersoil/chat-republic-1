@@ -55,13 +55,17 @@ $( document ).on('turbolinks:load', function() {
       audioChunks = [];
       window.rec.start();
       recording = true;
-      var hover = "https://vectr.com/wintersoil/a1t2KULU0I.svg?width=90&height=90&select=a1t2KULU0Ipage0";
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
       $("#record").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");
     }
     else {
       recording = false;
-      var hover = "https://vectr.com/wintersoil/c4Kvrd2gn.svg?width=90&height=90&select=c4Kvrd2gnpage0";
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
       $("#record").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");
       window.rec.stop();
     }
   });

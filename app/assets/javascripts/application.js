@@ -80,9 +80,6 @@ $( document ).on('turbolinks:load', function() {
       {
         url1 = URL.createObjectURL(blob);
       }
-      $("#recordedAudio").attr("src", url1);
-        $("#recordedAudio").attr("controls", "true");
-        $("#recordedAudio").attr("autoplay", "true");
         var reader = new FileReader();
         reader.onload = function(event){
           var fd = {};

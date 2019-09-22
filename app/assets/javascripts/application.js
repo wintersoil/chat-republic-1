@@ -17,7 +17,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require microphone
 //= require_tree .
 
 scroll_bottom = function() {

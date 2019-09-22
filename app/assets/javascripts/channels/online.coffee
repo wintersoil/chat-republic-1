@@ -7,14 +7,13 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-        received: (data) ->
-          console.log(data)
-          userId = data.user_id
-          eventType = data.event
-          if eventType == 'appear'
-            $("#online2").append("found you now " + data.user_id)
-          else
-            $('#user_' + userId).removeClass 'background-green-online'
+    console.log data
+    userId = data.user_id
+    eventType = data.event
+    if eventType == 'appear'
+      $("#online2").append("found you now " + data.user_id)
+    else
+      $('#user_' + userId).removeClass 'background-green-online'
 
 
             #$('#user_' + userId).addClass 'background-green-online'

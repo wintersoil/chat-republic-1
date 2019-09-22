@@ -108,13 +108,13 @@ $( document ).on('turbolinks:load', function() {
 
   //video streaming
   try{
-    navigator.mediaDevices.getUserMedia({video:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   catch(err){
-    navigator.mediaDevices.webkitGetUserMedia.getUserMedia({video:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.webkitGetUserMedia.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   try{
-    navigator.mediaDevices.mozGetUserMedia.getUserMedia({video:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.mozGetUserMedia.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   catch(err2){
 

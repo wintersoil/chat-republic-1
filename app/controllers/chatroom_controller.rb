@@ -47,6 +47,36 @@ class ChatroomController < ApplicationController
     end
   end
 
+  #mp4 streaming
+  def mp4video
+    @message = Message.new(body: "mp4")
+    @message.user = current_user
+    @user = current_user
+    metadata_size = "data:video/mp4;base64,".length
+    audio = params[:data][metadata_size, params[:data].length]
+    audio1 = Base64.decode64(audio)
+    if @message.mp4.present?
+      @message.mp4.file.delete
+    else
+    end
+    s3 = Fog::AWS::Storage.new(:aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'], :region => "ca-central-1")
+    directory = s3.directories.get("aliphotoappimages")
+
+    extension = 'mp4'
+    name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
+    data = audio1
+    file = directory.files.create(:key => name,:body => data,:public => true)
+    file.save
+    url = file.public_url
+    puts url
+    @message.mp4 = url
+    if @message.save
+      ActionCable.server.broadcast "chatroom_channel", mod_message: mp4_message_render(@message)
+    else
+    end
+  end
+
+
   private
 
   def msg_params
@@ -59,6 +89,10 @@ class ChatroomController < ApplicationController
 
   def mp3_message_render(message)
     render(partial: 'messages/mp3message', locals: {msg: message})
+  end
+
+  def mp4_message_render(message)
+    render(partial: 'messages/mp4message', locals: {msg: message})
   end
 
 end

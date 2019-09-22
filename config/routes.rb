@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'chatroom', to: 'chatroom#new'
   post 'chatroom', to: 'chatroom#create'
   post 'uploadMP3', to: 'chatroom#mp3audio'
+  post 'uploadMP4', to: 'chatroom#mp4video'
   get 'profile', to: 'profile#new'
   patch 'profile', to: 'profile#update'
   get 'purge', to: 'purge#deleting'

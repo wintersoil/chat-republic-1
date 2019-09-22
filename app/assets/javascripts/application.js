@@ -103,4 +103,76 @@ $( document ).on('turbolinks:load', function() {
     }
   }
 
+
+
+
+  //video streaming
+  try{
+    navigator.mediaDevices.getUserMedia({video:true}).then(stream => {handlerFunctionVideo(stream)});
+  }
+  catch(err){
+    navigator.mediaDevices.webkitGetUserMedia.getUserMedia({video:true}).then(stream => {handlerFunctionVideo(stream)});
+  }
+  try{
+    navigator.mediaDevices.mozGetUserMedia.getUserMedia({video:true}).then(stream => {handlerFunctionVideo(stream)});
+  }
+  catch(err2){
+
+  }
+  let recordingVideo = false;
+  $("#recordVideo").click(function(e){
+    if(recordingVideo == false)
+    {
+      audioChunks = [];
+      window.recVideo.start();
+      recordingVideo = true;
+      /*var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
+      $("#recordVideo").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");*/
+    }
+    else {
+      recordingVideo = false;
+      /*
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
+      $("#record").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");*/
+      window.recVideo.stop();
+    }
+  });
+
+  function handlerFunctionVideo(stream) {
+    window.recVideo = new MediaRecorder(stream);
+    window.recVideo.ondataavailable = e => {
+      audioChunks.push(e.data);
+      let url1;
+      if(recVideo.state == "inactive"){
+        let blob = new Blob(audioChunks,{type:"video/mp4"});
+        try{
+         url1 = webkitURL.createObjectURL(blob);
+      }
+      catch(err)
+      {
+        url1 = URL.createObjectURL(blob);
+      }
+        var reader = new FileReader();
+        reader.onload = function(event){
+          var fd = {};
+          fd["fname"] = "test.mp4";
+          fd["data"] = event.target.result;
+          $.ajax({
+            type: "POST",
+            url: "/uploadMP4",
+            data: fd,
+            dataType: "text"
+          }).done(function(data){
+            console.log(data);
+          });
+        };
+        reader.readAsDataURL(blob);
+      }
+    }
+  }
+
 });

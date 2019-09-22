@@ -19,7 +19,7 @@ $( document ).on('turbolinks:load', function() {
       audioChunks = [];
       window.rec.start();
       recording = true;
-      $("#record").attr("src", <%= asset_path('microphone_off.svg') %>);
+      $("#record").attr("src", <%= asset_path('microphone_off') %>);
     }
     else {
       window.rec.stop();

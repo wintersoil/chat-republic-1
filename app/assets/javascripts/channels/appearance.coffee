@@ -32,6 +32,7 @@ App.appearance = App.cable.subscriptions.create "AppearanceChannel",
 #    $(buttonSelector).hide()
 
     received: (data) ->
+      console.log(data)
       userId = data.user_id
       eventType = data.event
       if eventType == 'appear'

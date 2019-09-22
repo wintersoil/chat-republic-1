@@ -21,10 +21,11 @@
   </div>
 </div>
 <div id="online2">
+  <h2>People currently in chatroom (online)</h2>
   <% @users.each do |usering| %>
     <%= content_tag(:div, id: "user_" + usering.id.to_s, class:"hidden-user") do -%>
       <div>
-        <%= image_tag(usering.profile_picture.to_s, width:'100', height:'100') %> <span style="font-siize:25px;margin-left: 20px;"><%= usering.first_name + " " + usering.last_name %></span>
+        <%= image_tag(usering.profile_picture.to_s, width:'100', height:'100') %> <span style="font-size:25px;margin-left: 20px;"><%= usering.first_name + " " + usering.last_name %></span>
       </div>
     <% end -%>
   <% end %>

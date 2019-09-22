@@ -7,11 +7,11 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    if Object.keys(data).length > 1
+    if data.arrayez.length > 1
       i = 0
-      while i < Object.keys(data).length
-        userId = data[i].user_id
-        eventType = data[i].event
+      while i < data.arrayez.length
+        userId = data.arrayez[i].user_id
+        eventType = data.arrayez[i].event
         if eventType == 'appear'
           $('#user_' + userId).addClass 'background-green-online'
         else

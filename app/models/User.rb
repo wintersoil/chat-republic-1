@@ -17,7 +17,7 @@ class User < ApplicationRecord
     all_online.each do |elm|
       only_relevant.push({event: 'appear', user_id: elm.id})
     end
-    ActionCable.server.broadcast "online_channel", {only_relevant}
+    ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end
 
   def disappear

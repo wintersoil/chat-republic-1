@@ -12,6 +12,9 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           userId = data.user_id
           eventType = data.event
           if eventType == 'appear'
+          {
             $('#user_' + userId).addClass 'background-green-online'
+            $("#online2").append("found you now " + data.user_id)
+          }
           else
             $('#user_' + userId).removeClass 'background-green-online'

@@ -7,7 +7,7 @@
       <div class="message-boxing">
           <div class="message-body">
             <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong>
-            <%= video_tag(msg.mp4, autoplay:false, controls:true, type:"video/mpeg", height:'300', width:'400') %>
+            <%= video_tag(msg.mp4, autoplay:false, controls:true, type:"video/mpeg", height:'180', width:'300') %>
           </div>
           <div class="message-timing">
             <span style="font-size:16px;color:grey;"><%= time_ago_in_words(msg.created_at) %> ago</span>

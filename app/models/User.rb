@@ -9,7 +9,15 @@ class User < ApplicationRecord
 
   def appear
     self.update(online: true)
-    ActionCable.server.broadcast "online_channel", {event: 'appear', user_id: self.id}
+    users = User.all
+    all_online = users.select do |elm|
+      elm.online?
+    end
+    only_relevant = []
+    all_online.each do |elm|
+      only_relevant.push({event: 'appear', user_id: elm.id})
+    end
+    ActionCable.server.broadcast "online_channel", {only_relevant}
   end
 
   def disappear

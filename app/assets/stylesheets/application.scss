@@ -373,7 +373,7 @@ div[id^="user_"] {
 {
   .message-boxing{
     font-size: 20px;
-    padding: 25px 35px;
+    padding: 25px 5px 25px 35px;
     margin-left: -20px;
   }
   .nav-link {
@@ -383,6 +383,12 @@ div[id^="user_"] {
     height: 83vh;
     width: 96%;
     padding: 20px 5px;
+  }
+  .message-body audio {
+    width: 260px;
+  }
+  .message-body video {
+    width: 260px;
   }
   #online2 {
     width: 96%;

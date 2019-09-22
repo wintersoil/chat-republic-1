@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   def appear
     self.update(online: true)
-    ActionCable.server.broadcast "AppearanceChannel", {event: 'appear', user_id: self.id}
+    ActionCable.server.broadcast "appearance_channel", {event: 'appear', user_id: self.id}
   end
 
   def disappear

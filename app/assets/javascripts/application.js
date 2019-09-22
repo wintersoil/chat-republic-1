@@ -136,7 +136,7 @@ $( document ).on('turbolinks:load', function() {
       var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoPlay.svg";
       $("#recordVideo").attr( "src", hover );
       $("#recordVideo").attr( "height", "90px" );
-      $("#recordVideo").attr( "width", "90px");*/
+      $("#recordVideo").attr( "width", "90px");
       window.recVideo.stop();
     }
   });

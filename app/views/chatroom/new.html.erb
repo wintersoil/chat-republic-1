@@ -8,13 +8,11 @@
       </div>
     </div>
     <div class="messages-input">
-      <%= form_for @message, url: {action: "create"}, remote: true do |f| %>
+      <%= form_for @message, url: {action: "create"}, html: {class: "form-chatroom"}, remote: true do |f| %>
         <%= f.text_field :body, class:"messages-input-field", autocomplete: :off %>
         <%= f.submit "Send", class:"messages-input-button", placeholder: "Type text and send to everyone!" %>
       <% end %>
-      <p>
-        <%= image_tag("microphone.svg", id:"record", height:'40px', width:'40px') %>
-      </p>
+      <%= image_tag("microphone.svg", id:"record", height:'40px', width:'40px') %>
       <audio id="recordedAudio"></audio>
     </div>
   </div>

@@ -54,7 +54,7 @@ $( document ).on('turbolinks:load', function() {
       audioChunks = [];
       window.rec.start();
       recording = true;
-      $("#record").attr("src", "microphone_off.svg");
+      $("#record").attr("src", "/assets/microphone_off.svg");
     }
     else {
       window.rec.stop();

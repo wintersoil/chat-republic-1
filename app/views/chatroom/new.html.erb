@@ -22,7 +22,7 @@
 </div>
 <div class="online2-outer">
   <div id="online2">
-    <h2 style="padding:13px;">People currently in chatroom (online)</h2>
+    <h2 style="padding:13px;margin-block-start: 0px;">People currently in chatroom (online)</h2>
     <% @users.each do |usering| %>
       <%= content_tag(:div, id: "user_" + usering.id.to_s, class:"hidden-user") do -%>
         <div>

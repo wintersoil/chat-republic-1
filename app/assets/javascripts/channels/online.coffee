@@ -7,7 +7,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    if data.arrayez.length > 1
+    if data.arrayez.length > 0
       i = 0
       while i < data.arrayez.length
         userId = data.arrayez[i].user_id
@@ -16,7 +16,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           $('#user_' + userId).addClass 'background-green-online'
         else
           $('#user_' + userId).removeClass 'background-green-online'
-        i++
+        i=i+1
     else
       userId = data.user_id
       eventType = data.event

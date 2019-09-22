@@ -7,9 +7,9 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    if(data.length > 1)
+    if(Object.keys(data).length > 1)
     {
-      for (i = 0; i < data.length; i++)
+      for (i = 0; i < Object.keys(data).length; i++)
         {
           userId = data[i].user_id
           eventType = data[i].event

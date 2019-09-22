@@ -1,10 +1,10 @@
 App.appearance = App.cable.subscriptions.create "AppearanceChannel",
 
   connected: ->
-    @appear()
+  #  @appear()
 
   disconnected: ->
-    @uninstall()
+#    @uninstall()
 
   #rejected: ->
   #  @uninstall()

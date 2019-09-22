@@ -431,11 +431,14 @@ div[id^="user_"] {
     margin-left: 0px;
     padding: 10px 10px;
   }
+  .messages-input{
+    display: block;
+  }
   #new_message{
     width: 85%;
   }
   .messages-input-field {
-    width: 85%;
+    width: 72%;
     padding: 10px 3px;
   }
 }

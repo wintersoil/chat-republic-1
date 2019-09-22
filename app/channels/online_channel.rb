@@ -6,5 +6,7 @@ class OnlineChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    stream_from "online_channel"
+    current_user.disappear
   end
 end

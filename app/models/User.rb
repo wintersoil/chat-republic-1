@@ -13,7 +13,8 @@ class User < ApplicationRecord
   end
 
   def disappear
-
+    self.update(online: false)
+    ActionCable.server.broadcast "online_channel", {event: 'disappear', user_id: self.id}
   end
 
   def away

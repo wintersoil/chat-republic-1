@@ -9,7 +9,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
     # Called when there's incoming data on the websocket for this channel
     if data.arrayez.length > 0
       i = 0
-      while i < data.arrayez.length
+      while i <= data.arrayez.length
         userId = data.arrayez[i].user_id
         eventType = data.arrayez[i].event
         if eventType == 'appear'

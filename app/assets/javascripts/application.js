@@ -47,21 +47,18 @@ $( document ).on('turbolinks:load', function() {
   catch(err2){
 
   }
-
+  let recording = false;
   $("#record").click(function(e){
-    console.log('I was clicked');
-    document.getElementById("record").disabled = true;
-    $("#record").css("background-color", "blue");
-    document.getElementById("stopRecord").disabled = false;
-    audioChunks = [];
-    window.rec.start();
-  });
-  $("#stopRecord").click(function(e){
-    console.log("I was clicked");
-    document.getElementById("record").disabled = false;
-    document.getElementById("stopRecord").disabled = true;
-    $("#record").css("background-color", "red");
-    window.rec.stop();
+    if(recording == false)
+    {
+      audioChunks = [];
+      window.rec.start();
+      recording = true;
+      $("#record").attr("src", "microphone_off.svg");
+    }
+    else {
+      window.rec.stop();
+    }
   });
 
   function handlerFunction(stream) {

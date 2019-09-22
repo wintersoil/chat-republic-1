@@ -13,8 +13,7 @@
         <%= f.submit "Send", class:"messages-input-button", placeholder: "Type text and send to everyone!" %>
       <% end %>
       <p>
-        <button id="record"></button>
-        <button id="stopRecord" disabled>Stop</button>
+        <%= image_tag("microphone.svg", id:"record", height:'40px', width:'40px') %>
       </p>
       <audio id="recordedAudio"></audio>
     </div>

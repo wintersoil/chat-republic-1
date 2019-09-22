@@ -128,15 +128,15 @@ $( document ).on('turbolinks:load', function() {
       recordingVideo = true;
       var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoStop.svg";
       $("#recordVideo").attr( "src", hover );
-      $("#record").attr( "height", "90px" );
-      $("#record").attr( "width", "90px");
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");
     }
     else {
       recordingVideo = false;
       var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoPlay.svg";
-      $("#record").attr( "src", hover );
-      $("#record").attr( "height", "90px" );
-      $("#record").attr( "width", "90px");*/
+      $("#recordVideo").attr( "src", hover );
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");*/
       window.recVideo.stop();
     }
   });

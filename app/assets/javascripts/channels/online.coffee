@@ -14,11 +14,14 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         eventType = data.arrayez[i].event
         if eventType == 'appear'
           $('#user_' + userId).addClass 'background-green-online'
+          $('#user_' + userId).removeClass 'hidden-user'
         else
           $('#user_' + userId).removeClass 'background-green-online'
+          $('#user_' + userId).addClass 'hidden-user'
         i=i+1
     else
       userId = data.user_id
       eventType = data.event
       if eventType == 'disappear'
         $('#user_' + userId).removeClass 'background-green-online'
+        $('#user_' + userId).addClass 'hidden-user'

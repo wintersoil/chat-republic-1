@@ -1,35 +1,35 @@
 App.cable.subscriptions.create "AppearanceChannel",
 
   connected: ->
-    @appear()
+    #@appear()
 
   disconnected: ->
-    @uninstall()
+    #@uninstall()
 
   rejected: ->
-    @uninstall()
+    #@uninstall()
 
   appear: ->
-    @perform("appear", appearing_on: $("main").data("appearing-on"))
+    #@perform("appear", appearing_on: $("main").data("appearing-on"))
 
   away: ->
-    @perform("away")
+    #@perform("away")
 
-  buttonSelector = "[data-behavior~=appear_away]"
+  #buttonSelector = "[data-behavior~=appear_away]"
 
   install: ->
-    $(document).on "turbolinks:load.appearance", =>
-      @appear()
+    #$(document).on "turbolinks:load.appearance", =>
+      #@appear()
 
-    $(document).on "click.appearance", buttonSelector, =>
-      @away()
-      false
+    #$(document).on "click.appearance", buttonSelector, =>
+      #@away()
+      #false
 
-    $(buttonSelector).show()
+    #$(buttonSelector).show()
 
   uninstall: ->
-    $(document).off(".appearance")
-    $(buttonSelector).hide()
+    #$(document).off(".appearance")
+    #$(buttonSelector).hide()
 
     received: (data) ->
       userId = data.user_id

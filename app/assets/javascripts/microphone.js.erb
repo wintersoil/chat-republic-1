@@ -19,7 +19,8 @@ $( document ).on('turbolinks:load', function() {
       audioChunks = [];
       window.rec.start();
       recording = true;
-      $("#record").attr("src", "<%= image_url 'microphone_off.svg' %>");
+      var hover = "<%= image_url 'microphone_off.svg' %>"
+      $("#record").attr( "src", hover );
     }
     else {
       window.rec.stop();

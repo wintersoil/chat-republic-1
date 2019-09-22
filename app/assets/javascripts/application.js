@@ -126,15 +126,14 @@ $( document ).on('turbolinks:load', function() {
       audioChunks = [];
       window.recVideo.start();
       recordingVideo = true;
-      /*var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoStop.svg";
       $("#recordVideo").attr( "src", hover );
       $("#record").attr( "height", "90px" );
-      $("#record").attr( "width", "90px");*/
+      $("#record").attr( "width", "90px");
     }
     else {
       recordingVideo = false;
-      /*
-      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoPlay.svg";
       $("#record").attr( "src", hover );
       $("#record").attr( "height", "90px" );
       $("#record").attr( "width", "90px");*/

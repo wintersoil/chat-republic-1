@@ -7,9 +7,10 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    $('.messages-display').append(data.mod_message)
-    scroll_bottom();
-    #document.getElementById('hollow-copy').play();
-    #document.getElementById('hollow-copy-1').play();
-
-    $("#online").html(data.online)
+    if data.hasOwnProperty('mod_message')
+      $('.messages-display').append(data.mod_message)
+      scroll_bottom();
+      document.getElementById('hollow-copy').play();
+      document.getElementById('hollow-copy-1').play();
+    if data.hasOwnProperty('online')
+      $("#online").html(data.online)

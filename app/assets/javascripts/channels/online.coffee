@@ -22,4 +22,3 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
       eventType = data.event
       if eventType == 'disappear'
         $('#user_' + userId).removeClass 'background-green-online'
-            #$('#user_' + userId).addClass 'background-green-online'

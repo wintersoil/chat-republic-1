@@ -7,7 +7,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    if(Object.keys(data).length > 1)
+    if (Object.keys(data).length > 1)
     {
       for (i = 0; i < Object.keys(data).length; i++)
         {

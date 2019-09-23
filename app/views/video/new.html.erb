@@ -34,7 +34,7 @@ ws.onopen = () => {
 }
 ws.onmessage = message => {
   console.log(message);
-  img.src = message.image;
+  img.src = message.data.image;
 }
 
 </script>

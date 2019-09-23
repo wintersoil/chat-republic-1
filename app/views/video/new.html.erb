@@ -3,7 +3,7 @@
   <%= link_to "Destroy connection", video_path(id: @client.id), method: :delete %>
 </div>
 <video autoplay></video>
-<img src="">
+<img id="returned-photo" src="">
 
 <script>
 const video = document.querySelector('video');
@@ -21,19 +21,20 @@ const getFrame = () => {
 const WS_URL = "wss://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable";
 const FPS = 3;
 const ws = new WebSocket(WS_URL);
+id = { channel: current_user.user_name }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {
-    ws.send(getFrame());
+    ws.send(JSON.generate(command: 'message', identifier: JSON.generate(id), data: JSON.generate(action: 'handle_messages', id: current_user.id, client: @client.id , image: getFrame())));
   }, 1000 / FPS);
 }
 </script>
 <script>
-const img = document.querySelector('img');
+const img = document.getElementById("returned-photo");
 const WS_URL2 = 'wss://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable';
 const ws2 = new WebSocket(WS_URL2);
 ws2.onopen = () => console.log('Connected to ${WS_URL2}');
 ws2.onmessage = message => {
-  img.src = message.data;
+  img.src = message.image;
 }
 </script>

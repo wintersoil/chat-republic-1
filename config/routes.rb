@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'profile', to: 'profile#uploadprofilepicture'
   get 'live', to: 'live#new'
   post 'video', to: 'video#create'
-  post 'video_new', to: 'video#new'
+  get 'video_new', to: 'video#new'
   delete 'video', to: 'video#destroy'
 
   mount ActionCable.server, at: '/cable'

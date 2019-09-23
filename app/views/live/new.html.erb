@@ -1,8 +1,10 @@
 <% if logged_in? %>
   <div class="">
-    <%= @users.each do |usr| %>
+    <% @users.each do |usr| %>
       <div class="">
-        <%= usr.first_name %> <%= usr.last_name %>
+        <% if usr.id != current_user.id %>
+          <%= usr.first_name %> <%= usr.last_name %>
+        <% end %>
       </div>
     <% end %>
   </div>

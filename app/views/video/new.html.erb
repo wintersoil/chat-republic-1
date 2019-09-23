@@ -18,7 +18,7 @@ const getFrame = () => {
   return data;
 }
 
-const WS_URL = "wss://http://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/livevideo";
+const WS_URL = "wss://http://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable";
 const FPS = 3;
 const ws = new WebSocket(WS_URL);
 ws.onopen = () => {
@@ -30,10 +30,10 @@ ws.onopen = () => {
 </script>
 <script>
 const img = document.querySelector('img');
-const WS_URL = 'wss://http://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/livevideo';
-const ws = new WebSocket(WS_URL);
-ws.onopen = () => console.log('Connected to ${WS_URL}');
-ws.onmessage = message => {
+const WS_URL2 = 'wss://http://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable';
+const ws2 = new WebSocket(WS_URL2);
+ws2.onopen = () => console.log('Connected to ${WS_URL2}');
+ws2.onmessage = message => {
   img.src = message.data;
 }
 </script>

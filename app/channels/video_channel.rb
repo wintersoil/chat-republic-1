@@ -1,7 +1,7 @@
 class VideoChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    stream_for current_user.user_name
+    stream_for current_user
 
   end
 
@@ -13,7 +13,7 @@ class VideoChannel < ApplicationCable::Channel
     puts data
     @client = User.find(data.client)
     @user = User.find(data.id)
-    VideoChannel.broadcast_to(@client.user_name, { image: data.image })
-    VideoChannel.broadcast_to(@user.user_name, { image: data.image })
+    VideoChannel.broadcast_to(@client, { image: data.image })
+    VideoChannel.broadcast_to(@user, { image: data.image })
   end
 end

@@ -373,6 +373,11 @@ div[id^="user_"] {
 .super-menu {
   display:none;
 }
+.card-live {
+  border-radius: 13px;
+  box-shadow: 4px 8px 16px #777;
+  padding: 14px 22px;
+}
 
 @media only screen and (max-width: 480px)
 {

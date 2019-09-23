@@ -15,6 +15,8 @@ class VideoController < ApplicationController
       VideoChannel.broadcast_to(@videoClient.user, { notification: 'Test message' })
       redirect_to video_new_path(@videoClient.client)
     end
+    redirect_to video_new_path(@videoClient.client)
+
   end
 
   def destroy

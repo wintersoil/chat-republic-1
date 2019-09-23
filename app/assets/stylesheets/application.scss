@@ -367,7 +367,9 @@ div[id^="user_"] {
   display: flex;
   align-items:center;
 }
-
+.navbar-mobile {
+  display:none;
+}
 
 @media only screen and (max-width: 480px)
 {
@@ -446,5 +448,24 @@ div[id^="user_"] {
   .messages-input-field {
     width: 72%;
     padding: 10px 3px;
+  }
+  .navbar {
+    display:none;
+  }
+  .navbar-mobile{
+    display:flex;
+  }
+  .rounded-mobile-menu{
+    padding: 8px 8px;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    color: teal;
+    background-color: linear-gradient(to right bottom, #008cff, #124678);
+    border-radius: 50%;
+    box-shadow: 3px 7px 14px #666;
+    position: fixed;
+    top: 20px;
+    right: 20px;
   }
 }

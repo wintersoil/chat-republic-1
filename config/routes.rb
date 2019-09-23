@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch 'profile', to: 'profile#update'
   get 'purge', to: 'purge#deleting'
   post 'profile', to: 'profile#uploadprofilepicture'
+  get 'live', to: 'live#new'
 
   mount ActionCable.server, at: '/cable'
 end

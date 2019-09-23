@@ -13,7 +13,7 @@ class VideoController < ApplicationController
       #broadcast to both users the link
       VideoChannel.broadcast_to(@client, { notification: 'Test message' })
       VideoChannel.broadcast_to(@videoClient.user, { notification: 'Test message' })
-      redirect_to video_new_path(@videoClient.client_id)
+      redirect_to controller: 'video', action: 'new', id:@client.id
     end
   end
 

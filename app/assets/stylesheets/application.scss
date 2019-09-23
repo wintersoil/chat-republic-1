@@ -465,7 +465,7 @@ div[id^="user_"] {
     height: 50px;
     width: 50px;
     color: teal;
-    background-color: linear-gradient(to right bottom, #008cff, #124678);
+    background-image: linear-gradient(to right bottom, #008cff, #124678);
     border-radius: 50%;
     box-shadow: 3px 7px 14px #666;
     position: fixed;
@@ -487,6 +487,9 @@ div[id^="user_"] {
     width: 96vw;
     z-index: 20;
     background-color: white;
+  }
+  #menu-checkbox:checked .navbar-mobile {
+    height: 100%;
   }
   .super-menu-item {
     display:block;

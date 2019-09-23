@@ -4,15 +4,15 @@
       <div class="card-live">
         <% if usr.id != current_user.id %>
           <% if usr.profile_picture.nil? == false %>
-            <div>
-              <%= image_tag(usr.profile_picture.to_s, width: '100', height:'100', class:"profile-rounded") %>
+            <div class="image-card-live">
+              <%= image_tag(usr.profile_picture.to_s, width: '200', height:'200', class:"profile-rounded") %>
             </div>
           <% else %>
-            <div>
-              <%= image_tag("https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png", width:'100', height: '100', class:"profile-rounded") %>
+            <div class="image-card-live">
+              <%= image_tag("https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png", width:'200', height: '200', class:"profile-rounded") %>
             </div>
           <% end %>
-          <div>
+          <div class="name-card-live">
             <%= usr.first_name %> <%= usr.last_name %>
           </div>
         <% end %>

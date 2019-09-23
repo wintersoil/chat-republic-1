@@ -391,6 +391,15 @@ div[id^="user_"] {
   border: 4px solid white;
   box-shadow: 2px 4px 8px #888;
 }
+.image-card-live {
+  display: inline-block;
+  height: 100%;
+  background-color: rgb(234, 109, 111);
+}
+.name-card-live {
+  font-size: 30px;
+  color: #777;
+}
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

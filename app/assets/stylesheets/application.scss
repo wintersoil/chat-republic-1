@@ -385,6 +385,7 @@ div[id^="user_"] {
   margin-bottom: 30px;
   height: 300px;
   padding-bottom: 14px;
+  display: flex;
 }
 .profile-rounded {
   border-radius: 50%;
@@ -407,6 +408,8 @@ div[id^="user_"] {
   display:flex;
   width: 100%;
   height: 100%;
+  justify-content: center;
+  padding: 25px 10px 25px 10px;
 }
 @media only screen and (max-width: 480px)
 {

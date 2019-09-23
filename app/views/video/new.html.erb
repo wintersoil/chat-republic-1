@@ -34,8 +34,9 @@ ws.onopen = () => {
   setInterval(() => {
     ws.send(JSON.parse(JSON.stringify({command: 'message', identifier: id, data: {action:'handle_messages',id:'<%= current_user.id %>',client: '<%= @client.id %>',image:getFrame()}})));
   }, 1000 / FPS);
+  ws.onmessage = message => {
+    img.src = message.image;
+  }
 }
-ws.onmessage = message => {
-  img.src = message.image;
-}
+
 </script>

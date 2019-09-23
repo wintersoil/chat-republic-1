@@ -478,6 +478,9 @@ div[id^="user_"] {
   .not-logged-in-wrap{
     margin-top: 85px;
   }
+  .user-info{
+    margin-top: 85px;
+  }
   #menu-checkbox:checked ~ .super-menu{
     display: block;
     position: fixed;

@@ -464,7 +464,7 @@ div[id^="user_"] {
     font-size: 40px;
     height: 50px;
     width: 50px;
-    color: white;
+    color: lightgreen;
     background-image: linear-gradient(to right bottom, #008cff, #124678);
     border-radius: 50%;
     box-shadow: 3px 7px 14px #666;
@@ -474,6 +474,7 @@ div[id^="user_"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   .not-logged-in-wrap{
     margin-top: 85px;

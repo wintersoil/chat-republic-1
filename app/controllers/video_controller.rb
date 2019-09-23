@@ -8,7 +8,7 @@ class VideoController < ApplicationController
   def create
     id = params[:id]
     @client = User.find(id)
-    @videoClient = VideoClient.new(user: current_user, client: @client)
+    @videoClient = VideoClient.new(video_params)
     if @videoClient.save
       #broadcast to both users the link
       VideoChannel.broadcast_to(@videoClient.client, { notification: 'Test message' })
@@ -26,6 +26,10 @@ class VideoController < ApplicationController
     if @videoClient.destroy
       redirect_to live_path
     end
+  end
+
+  def video_params
+    params.require(:video_client).permit(:user, :client)
   end
 
 end

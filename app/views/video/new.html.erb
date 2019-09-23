@@ -25,7 +25,7 @@ id = { channel: current_user.user_name }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {
-    ws.send(JSON.generate(command: 'message', identifier: JSON.generate(id), data: JSON.generate(action: 'handle_messages', id: current_user.id, client: @client.id , image: getFrame())));
+    ws.send(JSON.generate(command: 'message', identifier: JSON.generate(id), data: JSON.generate(action: 'handle_messages', id: current_user.id, client: @client.id , image: getFrame() ) ) );
   }, 1000 / FPS);
 }
 </script>

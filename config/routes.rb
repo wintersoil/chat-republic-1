@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'purge', to: 'purge#deleting'
   post 'profile', to: 'profile#uploadprofilepicture'
   get 'live', to: 'live#new'
+  post 'video', to: 'video#create'
+  get 'video', to: 'video#new'
 
   mount ActionCable.server, at: '/cable'
 end

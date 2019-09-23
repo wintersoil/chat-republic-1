@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_22_104448) do
+ActiveRecord::Schema.define(version: 2019_09_23_110200) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2019_09_22_104448) do
     t.string "profile_picture"
     t.boolean "is_online"
     t.boolean "online"
+  end
+
+  create_table "video_clients", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_video_clients_on_client_id"
+    t.index ["user_id"], name: "index_video_clients_on_user_id"
   end
 
 end

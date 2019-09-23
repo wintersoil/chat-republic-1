@@ -11,11 +11,11 @@ class VideoController < ApplicationController
     @videoClient = VideoClient.new(user: current_user, client_id: @client.id)
     if @videoClient.save
       #broadcast to both users the link
-      VideoChannel.broadcast_to(@videoClient.client, { notification: 'Test message' })
+      VideoChannel.broadcast_to(@client, { notification: 'Test message' })
       VideoChannel.broadcast_to(@videoClient.user, { notification: 'Test message' })
-      redirect_to video_new_path(@videoClient.client)
+      redirect_to video_new_path(@videoClient.client_id)
     end
-    redirect_to video_new_path(@videoClient.client)
+    redirect_to video_new_path(@videoClient.client_id)
 
   end
 

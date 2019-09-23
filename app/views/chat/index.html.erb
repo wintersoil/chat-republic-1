@@ -36,7 +36,7 @@
     </div>
   <% end %>
   <% if !logged_in? %>
-    <div class="white-glassy">
+    <div class="white-glassy not-logged-in-wrap">
       <div class="not-logged-in">
         You are not logged in to the application. Please <%= link_to "Login", login_path, class:"nav-link-1" %> to continue.
       </div>

@@ -28,7 +28,7 @@ const ws = new WebSocket(WS_URL2);
 
 
 const FPS = 3;
-id = { channel: current_user.user_name }
+id = { channel: '<%= current_user.user_name %>' }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {

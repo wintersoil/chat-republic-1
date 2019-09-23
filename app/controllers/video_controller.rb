@@ -8,9 +8,7 @@ class VideoController < ApplicationController
   def create
     id = params[:id]
     @client = User.find(id)
-    @videoClient = VideoClient.new(video_params)
-    @videoClient.user = current_user
-    @videoClient.client = @client
+    @videoClient = VideoClient.new(user: current_user, client: @client)
     if @videoClient.save
       #broadcast to both users the link
       VideoChannel.broadcast_to(@videoClient.client, { notification: 'Test message' })

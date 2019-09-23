@@ -375,6 +375,7 @@ div[id^="user_"] {
 }
 .cards-live{
   display:flex;
+  flex-wrap: wrap;
 }
 .card-live {
   border-radius: 13px;
@@ -383,6 +384,7 @@ div[id^="user_"] {
   height: 250px;
   width: 400px;
   display: block;
+  margin-right: 30px;
 }
 @media only screen and (max-width: 480px)
 {

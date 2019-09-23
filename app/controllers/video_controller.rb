@@ -29,7 +29,7 @@ class VideoController < ApplicationController
   end
 
   def video_params
-    params.require(:video_client).permit(:user, :client)
+    params.require(:VideoClient).permit(:user, :client)
   end
 
 end

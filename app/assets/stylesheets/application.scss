@@ -478,12 +478,13 @@ div[id^="user_"] {
   .not-logged-in-wrap{
     margin-top: 65px;
   }
-  #menu-checkbox:checked .super-menu{
+  #menu-checkbox:checked ~ .super-menu{
     display: block;
     position: fixed;
     height: 96vh;
     width: 96vw;
     z-index: 20;
+    background-color: white;
   }
   .super-menu-item {
     display:block;

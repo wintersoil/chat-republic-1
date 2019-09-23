@@ -19,8 +19,15 @@ const getFrame = () => {
 }
 
 const WS_URL = 'wss://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable';
+
+</script>
+<script>
+const img = document.getElementById("returned-photo");
+const WS_URL2 = 'wss://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable';
+const ws = new WebSocket(WS_URL2);
+
+
 const FPS = 3;
-const ws = new WebSocket(WS_URL);
 id = { channel: current_user.user_name }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
@@ -28,13 +35,7 @@ ws.onopen = () => {
     ws.send(JSON.parse({command: 'message', identifier: id, data: {action:'handle_messages',id:current_user.id,client: '<%= @client.id %>',image:getFrame()}}));
   }, 1000 / FPS);
 }
-</script>
-<script>
-const img = document.getElementById("returned-photo");
-const WS_URL2 = 'wss://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable';
-const ws2 = new WebSocket(WS_URL2);
-ws2.onopen = () => console.log('Connected to ${WS_URL2}');
-ws2.onmessage = message => {
+ws.onmessage = message => {
   img.src = message.image;
 }
 </script>

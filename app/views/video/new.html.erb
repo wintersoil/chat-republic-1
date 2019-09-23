@@ -17,9 +17,6 @@ const getFrame = () => {
   const data = canvas.toDataURL('image/png');
   return data;
 }
-
-const WS_URL = 'wss://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable';
-
 </script>
 <script>
 const img = document.getElementById("returned-photo");
@@ -36,6 +33,7 @@ ws.onopen = () => {
   }, 1000 / FPS);
 }
 ws.onmessage = message => {
+  console.log(message);
   img.src = message.image;
 }
 

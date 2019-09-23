@@ -378,9 +378,7 @@ div[id^="user_"] {
   flex-wrap: wrap;
 }
 .card-live {
-  border-radius: 13px;
   box-shadow: 4px 8px 16px #777;
-  padding: 14px 22px;
   flex-basis: 30%;
   margin-right: 30px;
   margin-bottom: 30px;
@@ -395,10 +393,13 @@ div[id^="user_"] {
   display: inline-block;
   height: 100%;
   background-color: rgb(234, 109, 111);
+  padding: 14px 22px;
+  border-radius: 13px 0px 0px 13px;
 }
 .name-card-live {
   font-size: 30px;
   color: #777;
+  display:inline-block;
 }
 @media only screen and (max-width: 480px)
 {

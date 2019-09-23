@@ -10,6 +10,7 @@ class VideoChannel < ApplicationCable::Channel
   end
 
   def handle_messages(data)
+    console.log(data)
     @client = User.find(data.client)
     @user = User.find(data.id)
     VideoChannel.broadcast_to(@client.user_name, { image: data.image })

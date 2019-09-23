@@ -12,7 +12,7 @@ class VideoChannel < ApplicationCable::Channel
   def handle_messages(data)
     @client = User.find(data.data.client)
     @user = User.find(data.data.id)
-    VideoChannel.broadcast_to(@client, image: data.data.image)
-    VideoChannel.broadcast_to(@user, image: data.data.image)
+    VideoChannel.broadcast_to(@client, title: "hi", body: data.data.image )
+    VideoChannel.broadcast_to(@user, title: "hi",  body: data.data.image )
   end
 end

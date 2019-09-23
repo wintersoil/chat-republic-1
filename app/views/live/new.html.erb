@@ -2,9 +2,7 @@
   <div class="">
     <%= @users.each do |usr| %>
       <div class="">
-        <% if usr.id != current_user.id %>
-          <%= usr.first_name %> <%= usr.last_name %>
-        <% end %>
+        <%= usr.first_name %> <%= usr.last_name %>
       </div>
     <% end %>
   </div>

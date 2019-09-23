@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post 'video', to: 'video#create'
   get 'video_new', to: 'video#new'
   delete 'video', to: 'video#destroy'
+  post 'livevideo', to: 'livevideo#create'
 
   mount ActionCable.server, at: '/cable'
 end

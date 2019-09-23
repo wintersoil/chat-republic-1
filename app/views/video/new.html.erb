@@ -2,3 +2,38 @@
   I am on video page now!
   <%= link_to "Destroy connection", video_path(id: @client.id), method: :delete %>
 </div>
+<video autoplay></video>
+<img src="">
+
+<script>
+const video = document.querySelector('video');
+navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);
+
+const getFrame = () => {
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  const data = canvas.toDataURL('image/png');
+  return data;
+}
+
+const WS_URL = "wss://http://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/livevideo";
+const FPS = 3;
+const ws = new WebSocket(WS_URL);
+ws.onopen = () => {
+  console.log('Connected to ${WS_URL}');
+  setInterval(() => {
+    ws.send(getFrame());
+  }, 1000 / FPS);
+}
+</script>
+<script>
+const img = document.querySelector('img');
+const WS_URL = 'wss://http://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/livevideo';
+const ws = new WebSocket(WS_URL);
+ws.onopen = () => console.log('Connected to ${WS_URL}');
+ws.onmessage = message => {
+  img.src = message.data;
+}
+</script>

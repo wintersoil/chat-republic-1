@@ -20,6 +20,7 @@ class VideoController < ApplicationController
   def destroy
     id = params[:id]
     @client = User.find(id)
+    VideoClient.delete_all
     @videoClient = VideoClient.find_by(user: current_user, client_id: @client.id)
     if @videoClient.destroy
       redirect_to live_path

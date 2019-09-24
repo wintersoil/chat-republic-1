@@ -9,7 +9,9 @@ class VideoController < ApplicationController
     id = params[:id]
     @client = User.find(id)
     @videoClient = VideoClient.find_by(user: current_user, client_id: @client.id)
-    @videoClient.destroy
+    if @videoClient.nil? == false
+      @videoClient.destroy
+    end
     @videoClient = VideoClient.new(user: current_user, client_id: @client.id)
     if @videoClient.save
       #broadcast to both users the link

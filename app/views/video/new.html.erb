@@ -38,7 +38,7 @@ $( document ).on('turbolinks:load', function() {
       msg = {
         command: 'message',
         identifier: JSON.stringify({
-          channel: "video:<% @client.to_gid_param %>",
+          channel: "VideoChannel",
         }),
         data: JSON.stringify({
           action: 'handle_messages',

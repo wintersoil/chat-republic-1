@@ -33,6 +33,7 @@ let msg;
 id = { channel: vari }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
+  sleepFor(4000);
   setInterval(() => {
     msg = {
       command: 'message',

@@ -17,7 +17,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
         return c.substring(nameEQ.length, c.length).replace(/"/g, '')  if c.indexOf(nameEQ) is 0
         i++
       ca
-    if data.owner_id != App.Functions.readCookie('user_id');
+    if data.owner_id != App.Functions.readCookie('user_id')
       $('.experimental-messages').append(data.mod_message);
       $('.experimental-messages .message-outer').addClass('messages-of-others');
       $('.messages-display').append($('.experimental-messages').html())

@@ -1,10 +1,11 @@
+
 <div>
   I am on video page now!
   <%= link_to "Destroy connection", video_path(id: @client.id), method: :delete %>
 </div>
 <video autoplay></video>
 <img id="returned-photo" src="">
-
+<%= javascript_include_tag params[:controller] %>
 <script>
 const video = document.querySelector('video');
 navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);

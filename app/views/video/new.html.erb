@@ -32,7 +32,7 @@ id = { channel: vari }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {
-    ws.send(JSON.stringify({command: 'message', identifier: id, data: {action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()}}));
+    ws.send(JSON.stringify({command: 'message', identifier: JSON.stringify(id), data: JSON.stringify({action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()})}));
   }, 10000 / FPS);
 }
 

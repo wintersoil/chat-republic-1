@@ -29,7 +29,7 @@ let vari = '<%= current_user %>';
 vari = vari.substr(6);
 vari = vari.substr(0, vari.length-5);
 
-id = { channel: <%= current_user.to_s %> }
+id = { channel: vari }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {

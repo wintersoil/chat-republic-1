@@ -14,7 +14,7 @@ class VideoChannel < ApplicationCable::Channel
   end
 
   def handle_messages(data)
-    VideoChannel.server.broadcast("video_channel", data: { image: data["image"] })
+    ActionCable.server.broadcast("video_channel", data)
     #@videoClient = VideoClient.find_by(user: current_user)
     #@client1 = User.find(@videoClient.client_id)
     #VideoChannel.broadcast("#{self.channel_name}:#{@client1.to_gid_param}", data: { image: data["image"] })

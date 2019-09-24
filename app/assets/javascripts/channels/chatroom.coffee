@@ -8,6 +8,8 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     $('.experimental-messages').append(data.mod_message);
+    console.log $('.experimental-messages .message-outer').attr('data-attr').to_i
+    console.log $('.experimental-messages').attr('data-attr').to_i
     if $('.experimental-messages .message-outer').attr('data-attr').to_i != $('.experimental-messages').attr('data-attr').to_i
       $('.experimental-messages .message-outer').addClass('messages-of-others');
       $('.messages-display').append($('.experimental-messages').html())

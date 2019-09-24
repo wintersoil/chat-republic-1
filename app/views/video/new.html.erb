@@ -21,11 +21,6 @@ $( document ).on('turbolinks:load', function() {
   const img = document.getElementById("returned-photo");
   const WS_URL2 = 'wss://www.downlink.online/cable';
   const ws = new WebSocket(WS_URL2);
-  function sleepFor( sleepDuration ){
-      var now = new Date().getTime();
-      while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
-  }
-  sleepFor(4000);
 
   const FPS = 3;
   let vari = '<%= "video:"+ current_user.to_gid_param %>';
@@ -41,7 +36,6 @@ $( document ).on('turbolinks:load', function() {
   ws.onopen = () => {
     console.log('Connected to ${WS_URL}');
     ws.send(JSON.stringify(msg));
-    sleepFor(4000);
     setInterval(() => {
       msg = {
         command: 'message',

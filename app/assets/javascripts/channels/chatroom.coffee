@@ -7,12 +7,11 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    getCookie(name) {
+    getCookie(name) ->
       regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
       result = regexp.exec(document.cookie);
       incy = result[1];
       incy;
-    }
     if data.owner_id != getCookie('user_id')
       $('.experimental-messages').append(data.mod_message);
       $('.experimental-messages .message-outer').addClass('messages-of-others');

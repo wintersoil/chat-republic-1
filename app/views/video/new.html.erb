@@ -7,48 +7,49 @@
 <img id="returned-photo" src="">
 <%= javascript_include_tag params[:controller] %>
 <script>
-const video = document.querySelector('video');
-navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);
+$( document ).on('turbolinks:load', function() {
+  const video = document.querySelector('video');
+  navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);
 
-const getFrame = () => {
-  const canvas = document.createElement('canvas');
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  const data = canvas.toDataURL('image/png');
-  return data;
-}
-const img = document.getElementById("returned-photo");
-const WS_URL2 = 'wss://www.downlink.online/cable';
-const ws = new WebSocket(WS_URL2);
-function sleepFor( sleepDuration ){
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
-}
-sleepFor(4000);
-
-const FPS = 3;
-let vari = '<%= "video:"+ current_user.to_gid_param %>';
-vari = 'video_channel';
-let msg;
-id = { channel: vari }
-ws.onopen = () => {
-  console.log('Connected to ${WS_URL}');
+  const getFrame = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+    const data = canvas.toDataURL('image/png');
+    return data;
+  }
+  const img = document.getElementById("returned-photo");
+  const WS_URL2 = 'wss://www.downlink.online/cable';
+  const ws = new WebSocket(WS_URL2);
+  function sleepFor( sleepDuration ){
+      var now = new Date().getTime();
+      while(new Date().getTime() < now + sleepDuration){ /* do nothing */ }
+  }
   sleepFor(4000);
-  setInterval(() => {
-    msg = {
-      command: 'message',
-      identifier: JSON.stringify({
-        channel: 'VideoChannel',
-      }),
-      data: JSON.stringify({
-        action: 'handle_messages',
-        image: getFrame(),
-      }),
-    };
-    ws.send(JSON.stringify(msg));
-    //ws.send(JSON.stringify({command: 'message', identifier: JSON.stringify(id), data: JSON.stringify({action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()})}));
-  }, 10000 / FPS);
-}
 
+  const FPS = 3;
+  let vari = '<%= "video:"+ current_user.to_gid_param %>';
+  vari = 'video_channel';
+  let msg;
+  id = { channel: vari }
+  ws.onopen = () => {
+    console.log('Connected to ${WS_URL}');
+    sleepFor(4000);
+    setInterval(() => {
+      msg = {
+        command: 'message',
+        identifier: JSON.stringify({
+          channel: 'VideoChannel',
+        }),
+        data: JSON.stringify({
+          action: 'handle_messages',
+          image: getFrame(),
+        }),
+      };
+      ws.send(JSON.stringify(msg));
+      //ws.send(JSON.stringify({command: 'message', identifier: JSON.stringify(id), data: JSON.stringify({action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()})}));
+    }, 10000 / FPS);
+  }
+}
 </script>

@@ -25,9 +25,7 @@ const ws = new WebSocket(WS_URL2);
 
 
 const FPS = 3;
-let vari = '<%= current_user %>';
-vari = vari.substr(5);
-vari = vari.substr(0, vari.length-4);
+let vari = '<%= current_user.user_name %>';
 
 id = { channel: vari }
 ws.onopen = () => {

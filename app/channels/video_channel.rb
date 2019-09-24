@@ -1,7 +1,7 @@
 class VideoChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    stream_for current_user
+    stream_for current_user.user_name
 
   end
 

@@ -10,7 +10,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     getCookie(name) {
       regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
       result = regexp.exec(document.cookie);
-      if result is null
+      if result?
         null;
       else
         result[1];

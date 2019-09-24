@@ -8,8 +8,8 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     getCookie(name) {
-      var regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
-      var result = regexp.exec(document.cookie);
+      regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
+      result = regexp.exec(document.cookie);
       return (result === null) ? null : result[1];
     }
     if data.owner_id != getCookie('user_id')

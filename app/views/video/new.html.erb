@@ -4,7 +4,7 @@
   <%= link_to "Destroy connection", video_path(id: @client.id), method: :delete %>
 </div>
 <video autoplay id="sending-video" width="400px" height="225px"></video>
-<img id="returned-photo" src="" width="700px" height="395px" id="receiving-video">
+<img id="returned-photo" src="" width="700px" height="395px" class="receiving-video">
 <script>
 $( document ).on('turbolinks:load', function() {
   const video = document.querySelector('video');

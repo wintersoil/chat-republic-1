@@ -25,11 +25,11 @@ const ws = new WebSocket(WS_URL2);
 
 
 const FPS = 3;
-id = { channel: <%= current_user %> }
+id = { channel: "<%= current_user %>" }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {
-    ws.send(JSON.stringify({command: 'message', identifier: id, data: {action:'handle_messages',id:'<%= current_user.id %>',client: '<%= @client.id %>',image:getFrame()}}));
+    ws.send(JSON.stringify({command: 'message', identifier: id, data: {action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()}}));
   }, 1000 / FPS);
 }
 

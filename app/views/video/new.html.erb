@@ -17,8 +17,6 @@ const getFrame = () => {
   const data = canvas.toDataURL('image/png');
   return data;
 }
-</script>
-<script>
 const img = document.getElementById("returned-photo");
 const WS_URL2 = 'wss://www.downlink.online/cable';
 const ws = new WebSocket(WS_URL2);
@@ -27,22 +25,21 @@ const ws = new WebSocket(WS_URL2);
 const FPS = 3;
 let vari = '<%= "video:"+ current_user.to_gid_param %>';
 vari = 'video_channel';
-
-const msg = {
-  command: 'message',
-  identifier: JSON.stringify({
-    channel: 'video_channel',
-  }),
-  data: JSON.stringify({
-    action: 'handle_messages',
-    image: getFrame(),
-  }),
-};
-
+let msg;
 id = { channel: vari }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {
+    msg = {
+      command: 'message',
+      identifier: JSON.stringify({
+        channel: 'video_channel',
+      }),
+      data: JSON.stringify({
+        action: 'handle_messages',
+        image: getFrame(),
+      }),
+    };
     ws.send(JSON.stringify(msg));
     //ws.send(JSON.stringify({command: 'message', identifier: JSON.stringify(id), data: JSON.stringify({action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()})}));
   }, 10000 / FPS);

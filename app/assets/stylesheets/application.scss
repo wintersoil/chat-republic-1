@@ -459,15 +459,6 @@ div[id^="user_"] {
 .inner-sending-video-header .profile-rounded {
   margin-right: 18px;
 }
-.opaque-video {
-  height: 100vh;
-  width: 100vw;
-  background-color: rgb(59,59,59);
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  left:0;
-}
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

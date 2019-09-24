@@ -8,6 +8,6 @@
 (function() {
   this.App || (this.App = {});
 
-  App.cable = ActionCable.createConsumer("wss://DemoApplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable");
+  App.cable = ActionCable.createConsumer("wss://downlink.online/cable");
 
 }).call(this);

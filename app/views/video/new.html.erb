@@ -8,7 +8,7 @@
 <script>
 $( document ).on('turbolinks:load', function() {
   const video = document.querySelector('video');
-  navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);
+  navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}, audio: true}).then((stream) => video.srcObject = stream);
 
   const getFrame = () => {
     const canvas = document.createElement('canvas');
@@ -23,8 +23,6 @@ $( document ).on('turbolinks:load', function() {
   const ws = new WebSocket(WS_URL2);
 
   const FPS = 3;
-  let vari = '<%= "video:"+ current_user.to_gid_param %>';
-  vari = 'video_channel';
   let msg;
   id = { channel: vari }
   msg = {
@@ -40,15 +38,16 @@ $( document ).on('turbolinks:load', function() {
       msg = {
         command: 'message',
         identifier: JSON.stringify({
-          channel: 'VideoChannel',
+          channel: "video:<% @client.to_gid_param %>",
         }),
         data: JSON.stringify({
           action: 'handle_messages',
           image: getFrame(),
+          sender_id: <%= current_user.id %>,
+          receiver_id: <%= @client.id %>,
         }),
       };
       ws.send(JSON.stringify(msg));
-      //ws.send(JSON.stringify({command: 'message', identifier: JSON.stringify(id), data: JSON.stringify({action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()})}));
     }, 1000 / FPS);
   }
 });

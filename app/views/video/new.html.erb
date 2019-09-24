@@ -51,5 +51,5 @@ $( document ).on('turbolinks:load', function() {
       //ws.send(JSON.stringify({command: 'message', identifier: JSON.stringify(id), data: JSON.stringify({action:'handle_messages',id:<%= current_user.id %>,client:<%= @client.id %>,image:getFrame()})}));
     }, 10000 / FPS);
   }
-}
+});
 </script>

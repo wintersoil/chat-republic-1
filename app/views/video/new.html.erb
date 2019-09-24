@@ -4,11 +4,11 @@
   <%= link_to "Destroy connection", video_path(id: @client.id), method: :delete %>
 </div>
 <video autoplay></video>
-<img id="returned-photo" src="">
+<img id="returned-photo" src="" width="700px" height="395px">
 <script>
 $( document ).on('turbolinks:load', function() {
   const video = document.querySelector('video');
-  navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}, audio: true}).then((stream) => video.srcObject = stream);
+  navigator.mediaDevices.getUserMedia({video: {width: 100, height: 56}, audio: true}).then((stream) => video.srcObject = stream);
 
   const getFrame = () => {
     const canvas = document.createElement('canvas');

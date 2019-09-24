@@ -7,8 +7,8 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    if data.owner_id != $('.experimental-messages').attr('data-attr').to_i
-      $('.experimental-messages').append(data.mod_message);
+    $('.experimental-messages').append(data.mod_message);
+    if $('.experimental-messages .message-outer').attr('data-attr').to_i != $('.experimental-messages').attr('data-attr').to_i
       $('.experimental-messages .message-outer').addClass('messages-of-others');
       $('.messages-display').append($('.experimental-messages').html())
       $('.experimental-messages').empty();
@@ -16,6 +16,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
       document.getElementById('hollow-copy').play();
       document.getElementById('hollow-copy-1').play();
     else if data.hasOwnProperty('mod_message')
+      $('.experimental-messages').empty();
       $('.messages-display').append(data.mod_message);
       scroll_bottom();
       document.getElementById('hollow-copy').play();

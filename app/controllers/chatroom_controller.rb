@@ -14,7 +14,7 @@ class ChatroomController < ApplicationController
     @user = current_user
     @users = User.all
     if @message.save
-      ActionCable.server.broadcast "chatroom_channel", { mod_message: message_render(@message), owner_id:current_user.id }
+      ActionCable.server.broadcast "chatroom_channel", mod_message: message_render(@message)
     else
     end
   end

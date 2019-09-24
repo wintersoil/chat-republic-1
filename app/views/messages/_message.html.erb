@@ -1,6 +1,6 @@
 <% if (msg.mp3.nil? && msg.mp4.nil?) %>
 <div>
-  <div class="message-outer">
+  <div class="message-outer" data-attr="<%= msg.user.id %>">
     <div class="message-wrap">
       <% if msg.user.profile_picture.present? %>
         <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
@@ -19,7 +19,7 @@
 <% end %>
 <% if msg.mp3.nil? == false %>
   <div>
-    <div class="message-outer">
+    <div class="message-outer" data-attr="<%= msg.user.id %>">
       <div class="message-wrap">
         <% if msg.user.profile_picture.present? %>
           <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
@@ -39,7 +39,7 @@
 <% end %>
 <% if msg.mp4.nil? == false %>
   <div>
-    <div class="message-outer">
+    <div class="message-outer" data-attr="<%= msg.user.id %>">
       <div class="message-wrap">
         <% if msg.user.profile_picture.present? %>
           <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>

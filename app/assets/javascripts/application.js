@@ -40,10 +40,10 @@ $( document ).on('turbolinks:load', function() {
     navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
   catch(err){
-    navigator.mediaDevices.webkitGetUserMedia.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
   try{
-    navigator.mediaDevices.mozGetUserMedia.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
   catch(err2){
 
@@ -111,10 +111,10 @@ $( document ).on('turbolinks:load', function() {
     navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   catch(err){
-    navigator.mediaDevices.webkitGetUserMedia.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   try{
-    navigator.mediaDevices.mozGetUserMedia.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   catch(err2){
 

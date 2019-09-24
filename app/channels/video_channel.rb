@@ -1,10 +1,11 @@
 class VideoChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
+    stream_from "video_channel"
+
     stream_from "#{self.channel_name}:#{current_user.to_gid_param}"
     @videoClient = VideoClient.find_by(user: current_user)
     @client1 = User.find(@videoClient.client_id)
-    stream_from "video_channel"
   end
 
   def unsubscribed
@@ -12,14 +13,10 @@ class VideoChannel < ApplicationCable::Channel
     stop_all_streams
   end
 
-  def user
-    User.find_by(id: params[:id])
-  end
-
   def handle_messages(data)
-    VideoChannel.broadcast("video_channel", data: { image: data.data.image })
+    VideoChannel.broadcast("video_channel", data: { image: data["image"] })
     @videoClient = VideoClient.find_by(user: current_user)
     @client1 = User.find(@videoClient.client_id)
-    VideoChannel.broadcast("#{self.channel_name}:#{@client1.to_gid_param}", data: { image: data.data.image })
+    VideoChannel.broadcast("#{self.channel_name}:#{@client1.to_gid_param}", data: { image: data["image"] })
   end
 end

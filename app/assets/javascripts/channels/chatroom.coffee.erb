@@ -7,7 +7,17 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    if data.owner_id != <%= current_user.id %>
+    App.Functions.readCookie = (name) ->
+      nameEQ = name + "="
+      ca = document.cookie.split(";")
+      i = 0
+      while i < ca.length
+        c = ca[i]
+        c = c.substring(1, c.length)  while c.charAt(0) is " "
+        return c.substring(nameEQ.length, c.length).replace(/"/g, '')  if c.indexOf(nameEQ) is 0
+        i++
+      ca
+    if data.owner_id != App.Functions.readCookie('user_id');
       $('.experimental-messages').append(data.mod_message);
       $('.experimental-messages .message-outer').addClass('messages-of-others');
       $('.messages-display').append($('.experimental-messages').html())

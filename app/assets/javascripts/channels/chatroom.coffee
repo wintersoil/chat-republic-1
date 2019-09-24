@@ -11,9 +11,9 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
       regexp = new RegExp("(?:^" + name + "|;\s*"+ name + ")=(.*?)(?:;|$)", "g");
       result = regexp.exec(document.cookie);
       if result is null
-         null;
-       else
-         result[1];
+        null;
+      else
+        result[1];
     }
     if data.owner_id != getCookie('user_id')
       $('.experimental-messages').append(data.mod_message);

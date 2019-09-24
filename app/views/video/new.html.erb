@@ -20,12 +20,12 @@ const getFrame = () => {
 </script>
 <script>
 const img = document.getElementById("returned-photo");
-const WS_URL2 = 'wss://demoapplication1-env.hw7neqyjpm.ca-central-1.elasticbeanstalk.com/cable';
+const WS_URL2 = 'wss://www.downlink.online/cable';
 const ws = new WebSocket(WS_URL2);
 
 
 const FPS = 3;
-id = { channel: '<%= current_user.user_name %>' }
+id = { channel: '<%= current_user %>' }
 ws.onopen = () => {
   console.log('Connected to ${WS_URL}');
   setInterval(() => {

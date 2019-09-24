@@ -25,7 +25,7 @@ const ws = new WebSocket(WS_URL2);
 
 
 const FPS = 3;
-let vari = '<%= current_user.user_name %>';
+let vari = '<%= "video:"+ current_user.to_gid_param %>';
 
 id = { channel: vari }
 ws.onopen = () => {

@@ -431,16 +431,16 @@ div[id^="user_"] {
 }
 .sending-video-header {
   font-size:28px;
-  color: #444;
+  color: #ddd;
   width: 100%;
-  padding: 10px 0px 10px 25px;
+  padding: 10px -1px 10px 25px;
   background-image: linear-gradient(to bottom,#FF5733,#701010);
 }
 .receiving-video-header {
   font-size:28px;
   color: #ddd;
   width: 100%;
-  padding: 10px 0px 10px 25px;
+  padding: 10px -1px 10px 25px;
   background-image: linear-gradient(to bottom,#33B8FF,#114285);
 }
 @media only screen and (max-width: 480px)

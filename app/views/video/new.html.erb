@@ -32,9 +32,5 @@ ws.onopen = () => {
     ws.send(JSON.stringify({command: 'message', identifier: id, data: {action:'handle_messages',id:'<%= current_user.id %>',client: '<%= @client.id %>',image:getFrame()}}));
   }, 1000 / FPS);
 }
-ws.onmessage = message => {
-  console.log(message);
-  img.src = message.data.image;
-}
 
 </script>

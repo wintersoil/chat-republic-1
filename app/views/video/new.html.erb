@@ -32,11 +32,15 @@ $( document ).on('turbolinks:load', function() {
   vari = 'video_channel';
   let msg;
   id = { channel: vari }
-  string = '{"command":"subscribe","identifier":"{\"channel\":\"VideoChannel\"}"}';
-
+  msg = {
+    command: 'subscribe',
+    identifier: JSON.stringify({
+      channel: 'VideoChannel',
+    }),
+  };
   ws.onopen = () => {
     console.log('Connected to ${WS_URL}');
-    ws.send(string);
+    ws.send(JSON.stringify(msg));
     sleepFor(4000);
     setInterval(() => {
       msg = {

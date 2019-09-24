@@ -31,7 +31,7 @@ class VideoController < ApplicationController
     @client = User.find(id)
     @videoClient = VideoClient.find_by(user: current_user, client_id: @client.id)
     @videoClient2 = VideoClient.find_by(user: @client, client_id: current_user.id)
-    if @videoClient.destroy && @videoClient2.destroy
+    if @videoClient.nil? == false && @videoClient.destroy && @videoClient2.nil? == false && @videoClient2.destroy
       redirect_to live_path
     end
   end

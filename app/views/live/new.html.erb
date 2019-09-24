@@ -3,7 +3,7 @@
     <% @users.each do |usr| %>
       <% if usr.id != current_user.id %>
         <div class="card-live">
-            <% if usr.profile_picture.nil? == false %>
+            <% if usr.profile_picture.present? %>
               <div class="image-card-live">
                 <%= image_tag(usr.profile_picture.to_s, width: '150', height:'150', class:"profile-rounded") %>
               </div>

@@ -3,8 +3,8 @@ class VideoChannel < ApplicationCable::Channel
     # stream_from "some_channel"
     stream_from "#{self.channel_name}:#{current_user.to_gid_param}"
     @videoClient = VideoClient.find_by(user: current_user)
-    @client = User.find(@videoClient.client_id)
-    stream_from "#{self.channel_name}:#{@client.to_gid_param}"
+    @client1 = User.find(@videoClient.client_id)
+    stream_from "#{self.channel_name}:#{@client1.to_gid_param}"
   end
 
   def unsubscribed
@@ -19,7 +19,7 @@ class VideoChannel < ApplicationCable::Channel
   def handle_messages(data)
     VideoChannel.broadcast("#{self.channel_name}:#{current_user.to_gid_param}", data: { image: data.data.image })
     @videoClient = VideoClient.find_by(user: current_user)
-    @client = User.find(@videoClient.client_id)
-    VideoChannel.broadcast("#{self.channel_name}:#{@client.to_gid_param}", data: { image: data.data.image })
+    @client1 = User.find(@videoClient.client_id)
+    VideoChannel.broadcast("#{self.channel_name}:#{@client1.to_gid_param}", data: { image: data.data.image })
   end
 end

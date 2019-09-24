@@ -443,6 +443,22 @@ div[id^="user_"] {
   padding: 10px -1px 10px 25px;
   background-image: linear-gradient(to bottom,#33B8FF,#114285);
 }
+.inner-receiving-video-header {
+  display: flex;
+  align-items: center;
+  padding-left: 23px;
+}
+.inner-receiving-video-header .profile-rounded {
+  margin-right: 18px;
+}
+.inner-sending-video-header {
+  display: flex;
+  align-items: center;
+  padding-left: 23px;
+}
+.inner-sending-video-header .profile-rounded {
+  margin-right: 18px;
+}
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

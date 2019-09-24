@@ -433,15 +433,15 @@ div[id^="user_"] {
   font-size:28px;
   color: #444;
   width: 100%;
-  padding: 10px 25px;
-  background-color: #FF5733;
+  padding: 10px 0px 10px 25px;
+  background-image: linear-gradient(to bottom,#FF5733,#701010);
 }
 .receiving-video-header {
   font-size:28px;
   color: #ddd;
   width: 100%;
-  padding: 10px 25px;
-  background-color: #33B8FF;
+  padding: 10px 0px 10px 25px;
+  background-image: linear-gradient(to bottom,#33B8FF,#114285);
 }
 @media only screen and (max-width: 480px)
 {

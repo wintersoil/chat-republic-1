@@ -1,34 +1,35 @@
-
-<div>
-  I am on video page now!
-  <%= link_to "Destroy connection", video_path(id: @client.id), method: :delete %>
-</div>
-<div class="both-videos">
-  <div class="sending-video">
-    <div class="sending-video-header">
-      <div class="inner-sending-video-header">
-        <% if current_user.profile_picture.present? %>
-          <%= image_tag(current_user.profile_picture.to_s, height:'120px', width:'120px',class:"profile-rounded") %>
-        <% else %>
-          <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/avatar.png",width:'150',height:'150',class:"profile-rounded") %>
-        <% end %>
-        <%= current_user.first_name %> <%= current_user.last_name %>
-      </div>
-    </div>
-    <video autoplay id="sending-video" width="400px" height="225px"></video>
+<div class="opaque-video">
+  <div>
+    I am on video page now!
+    <%= link_to "Destroy connection", video_path(id: @client.id), method: :delete %>
   </div>
-  <div class="receiving-video">
-    <div class="receiving-video-header">
-      <div class="inner-receiving-video-header">
-        <% if @client.profile_picture.present? %>
-          <%= image_tag(@client.profile_picture.to_s, height:'120px', width:'120px',class:"profile-rounded") %>
-        <% else %>
-          <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/avatar.png",width:'150',height:'150',class:"profile-rounded") %>
-        <% end %>
-        <%= @client.first_name %> <%= @client.last_name %>
+  <div class="both-videos">
+    <div class="sending-video">
+      <div class="sending-video-header">
+        <div class="inner-sending-video-header">
+          <% if current_user.profile_picture.present? %>
+            <%= image_tag(current_user.profile_picture.to_s, height:'120px', width:'120px',class:"profile-rounded") %>
+          <% else %>
+            <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/avatar.png",width:'150',height:'150',class:"profile-rounded") %>
+          <% end %>
+          <%= current_user.first_name %> <%= current_user.last_name %>
+        </div>
       </div>
+      <video autoplay id="sending-video" width="400px" height="225px"></video>
     </div>
-    <img id="returned-photo" src="" width="700px" height="395px">
+    <div class="receiving-video">
+      <div class="receiving-video-header">
+        <div class="inner-receiving-video-header">
+          <% if @client.profile_picture.present? %>
+            <%= image_tag(@client.profile_picture.to_s, height:'120px', width:'120px',class:"profile-rounded") %>
+          <% else %>
+            <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/avatar.png",width:'150',height:'150',class:"profile-rounded") %>
+          <% end %>
+          <%= @client.first_name %> <%= @client.last_name %>
+        </div>
+      </div>
+      <img id="returned-photo" src="" width="700px" height="395px">
+    </div>
   </div>
 </div>
 <script>

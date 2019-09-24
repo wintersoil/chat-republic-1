@@ -43,7 +43,6 @@ $( document ).on('turbolinks:load', function() {
         data: JSON.stringify({
           action: 'handle_messages',
           image: getFrame(),
-          sender_id: <%= current_user.id %>,
           receiver_id: <%= @client.id %>,
         }),
       };

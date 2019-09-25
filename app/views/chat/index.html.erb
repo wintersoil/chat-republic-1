@@ -60,18 +60,22 @@
     <% if logged_in? %>
       <div class="white-glassy" id="online">
         <div class="white-glassy-intro" id="">
-          <ul>
+          <table>
           <% @users.each do |user| %>
-            <li>
+          <tr>
+            <td>
               <div class="online-users-home-page">
-                <%= user.first_name %> <%= user.last_name %>&nbsp;&nbsp;
-                <% if user.online? %>
-                  <span style="color:white;background-color:lightgreen;padding:5px 13px;border:1px solid teal;box-shadow: 2px 6px 10px #666;">&nbsp;Online</span>
-                <% end %>
+                <%= user.first_name %> <%= user.last_name %>
               </div>
-            </li>
+            </td>
+            <td>
+              <% if user.online? %>
+                <span style="color:white;background-color:lightgreen;padding:5px 13px;border:1px solid teal;box-shadow: 2px 6px 10px #666;">&nbsp;Online</span>
+              <% end %>
+            </td>
+          </tr>
           <% end %>
-        </ul>
+        </table>
         </div>
       </div>
     <% end %>

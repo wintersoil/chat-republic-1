@@ -1,7 +1,7 @@
 <% if (msg.mp3.nil? && msg.mp4.nil?) %>
 <div>
   <div class="message-outer" data-attr="<%= msg.user.id %>" class="
-    <% if !nobroadcast.nil? && nobroadcast && msg.user.id != current_user.id %>
+    <% if nobroadcast.nil? == false && nobroadcast && msg.user.id != current_user.id %>
       messages-of-others
     <% end %>
     ">
@@ -24,7 +24,7 @@
 <% if msg.mp3.nil? == false %>
   <div>
     <div class="message-outer" data-attr="<%= msg.user.id %>" class="
-      <% if !nobroadcast.nil? && nobroadcast && msg.user.id != current_user.id %>
+      <% if nobroadcast.nil? == false && nobroadcast && msg.user.id != current_user.id %>
         messages-of-others
       <% end %>
       ">
@@ -48,7 +48,7 @@
 <% if msg.mp4.nil? == false %>
   <div>
     <div class="message-outer" data-attr="<%= msg.user.id %>" class="
-      <% if !nobroadcast.nil? && nobroadcast && msg.user.id != current_user.id %>
+      <% if nobroadcast.nil? == false && nobroadcast && msg.user.id != current_user.id %>
         messages-of-others
       <% end %>
       ">

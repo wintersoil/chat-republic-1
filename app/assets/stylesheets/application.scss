@@ -249,10 +249,10 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 }
 .message-timing {
   position: absolute;
-  top: -12px;
+  top: -4px;
   right: 0px;
   background-color: transparent;
-  padding: 5px 7px;
+  padding: 9px 7px 0px 7px;
   border-radius: 25px;
   color: grey;
   font-size:16px;
@@ -287,10 +287,10 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 }
 .messages-of-others .message-timing {
   position: absolute;
-  top: -12px;
+  top: -4px;
   right: 0px;
   background-color: transparent;
-  padding: 5px 7px;
+  padding: 9px 7px 0px 7px;
   border-radius: 25px;
   color: #ccc;
 }

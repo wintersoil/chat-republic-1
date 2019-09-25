@@ -64,7 +64,7 @@
           <h3>People Online</h3>
           <table>
           <% @users.each do |user| %>
-          <tr>
+          <tr id="user_<%= user.id %>">
             <td>
               <div class="online-users-home-page">
                 <%= user.first_name %> <%= user.last_name %>

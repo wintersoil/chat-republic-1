@@ -254,6 +254,8 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   background-color: transparent;
   padding: 5px 7px;
   border-radius: 25px;
+  color: grey;
+  font-size:16px;
 }
 .message-wrap {
   filter: drop-shadow(4px 8px 15px #555);
@@ -290,7 +292,7 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   background-color: transparent;
   padding: 5px 7px;
   border-radius: 25px;
-  color: #ccc !important;
+  color: #ccc;
 }
 .griddy {
   display: grid;

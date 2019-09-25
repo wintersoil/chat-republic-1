@@ -492,9 +492,13 @@ div[id^="user_"] {
 .experimental-messages {
   display:none;
 }
+.online-users-home-page{
+  font-size: 20px;
+  margin-bottom: 15px;
+  padding: 5px 20px;
+}
 .online-users-home-page:hover{
   background-color: lightgreen;
-  margin-bottom: 15px;
 }
 #online ul{
   list-style-type: none;

@@ -5,7 +5,7 @@
     <div class="messages-display">
       <div class="inner-messages">
         <% @messaging.each do |msg| %>
-          <%= render "messages/message", msg: msg %>
+          <%= render "messages/message", msg: msg, nobroadcast:true %>
         <% end %>
       </div>
     </div>

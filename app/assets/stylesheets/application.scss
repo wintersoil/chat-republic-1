@@ -496,12 +496,12 @@ div[id^="user_"] {
   font-size: 20px;
   padding: 5px 20px;
 }
-.online-users-home-page:hover{
-  background-color: lightgreen;
-  cursor: pointer;
-}
 #online .white-glassy-intro{
   padding: 0px;
+}
+#online tr:hover {
+  background-color: lightgreen;
+  cursor: pointer;
 }
 #online td {
   vertical-align: middle;

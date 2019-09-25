@@ -7,6 +7,5 @@ App.video = App.cable.subscriptions.create "VideoChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    console.log data.image
     img = document.getElementById("returned-photo")
     img.src = data.image

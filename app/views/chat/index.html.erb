@@ -60,7 +60,7 @@
     <% if logged_in? %>
       <div class="white-glassy" id="online">
         <div class="white-glassy-intro" id="">
-          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Applications-internet.svg/1024px-Applications-internet.svg.png",height:'195',width:'195') %>
+          <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Applications-internet.svg/1024px-Applications-internet.svg.png",height:'195',width:'195',class:'online-heading-logo') %>
           <h3>People Online</h3>
           <table>
           <% @users.each do |user| %>

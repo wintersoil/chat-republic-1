@@ -495,7 +495,6 @@ div[id^="user_"] {
 .online-users-home-page{
   font-size: 20px;
   padding: 5px 20px;
-  display: flex;
 }
 #online .white-glassy-intro{
   padding: 0px;
@@ -504,11 +503,8 @@ div[id^="user_"] {
   background-color: lightgreen;
   cursor: pointer;
 }
-.online-user-home-page-wrapper {
+.online-users-home-page-wrapper {
   display:flex;
-}
-.online-logo {
-  display: flex;
 }
 #online table {
   width: 100%;

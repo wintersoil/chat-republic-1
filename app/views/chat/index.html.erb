@@ -67,6 +67,9 @@
               <div class="online-users-home-page">
                 <%= user.first_name %> <%= user.last_name %>
               </div>
+              <div class="online-logo">
+                <%= image_tag("online_logo.svg",height:'70',width:'70') %>
+              </div>
             </td>
             <td>
               <% if user.online? %>

@@ -492,6 +492,9 @@ div[id^="user_"] {
 .experimental-messages {
   display:none;
 }
+.online-users-home-page:hover{
+  background-color: lightgreen;
+}
 
 @media only screen and (max-width: 480px)
 {

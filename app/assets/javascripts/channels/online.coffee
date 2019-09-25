@@ -14,12 +14,10 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         eventType = data.arrayez[i].event
         if eventType == 'appear'
           $('#user_' + userId).addClass 'background-green-online'
-          $('#user_' + userId).removeClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'flex')
           $('#user_' + userId + ' .online-span').css('display', 'inline-block')
         else
           $('#user_' + userId).removeClass 'background-green-online'
-          $('#user_' + userId).addClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'none')
           $('#user_' + userId + ' .online-span').css('display', 'none')
         i=i+1
@@ -28,6 +26,5 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
       eventType = data.event
       if eventType == 'disappear'
         $('#user_' + userId).removeClass 'background-green-online'
-        $('#user_' + userId).addClass 'hidden-user'
         $('#user_' + userId + ' .online-logo').css('display', 'none')
         $('#user_' + userId + ' .online-span').css('display', 'none')

@@ -33,8 +33,13 @@
 <script>
 $( document ).on('turbolinks:load', function() {
   const video = document.querySelector('video');
-  navigator.mediaDevices.getUserMedia({video: {width: 100, height: 56}, audio: true}).then((stream) => video.srcObject = stream);
-
+  try{
+    navigator.mediaDevices.getUserMedia({video: {width: 100, height: 56}, audio: true}).then((stream) => video.srcObject = stream);
+  }
+  catch(err)
+  {
+    console.log("Live video failed:     Error:    " + err);
+  }
   const getFrame = () => {
     const canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;

@@ -40,13 +40,17 @@ $( document ).on('turbolinks:load', function() {
     navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
   catch(err){
-    navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
-  }
-  try{
-    navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
-  }
-  catch(err2){
-
+    try{
+      navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    }
+    catch(err){
+      try{
+      navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+      }
+      catch(err){
+        console.log("If all media requests fails,   Error:   " + err);
+      }
+    }
   }
   let recording = false;
   $("#record").click(function(e){
@@ -111,13 +115,18 @@ $( document ).on('turbolinks:load', function() {
     navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   catch(err){
+    try{
     navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
-  }
-  try{
-    navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
-  }
-  catch(err2){
-
+    }
+    catch(err){
+      try{
+      navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      }
+      catch(err)
+      {
+        console.log("If all media requests fails,    Error:   " + err);
+      }
+    }
   }
   let recordingVideo = false;
   $("#recordVideo").click(function(e){

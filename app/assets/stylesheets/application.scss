@@ -508,6 +508,9 @@ div[id^="user_"] {
   padding: 3px 0px;
   display:flex;
 }
+#online tr {
+  display:flex;
+}
 #online table {
   width: 100%;
 }

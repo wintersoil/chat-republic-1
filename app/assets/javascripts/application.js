@@ -135,14 +135,14 @@ $( document ).on('turbolinks:load', function() {
       audioChunks = [];
       window.recVideo.start();
       recordingVideo = true;
-      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoStop.svg";
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg";
       $("#recordVideo").attr( "src", hover );
       $("#recordVideo").attr( "height", "90px" );
       $("#recordVideo").attr( "width", "90px");
     }
     else {
       recordingVideo = false;
-      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoPlay.svg";
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
       $("#recordVideo").attr( "src", hover );
       $("#recordVideo").attr( "height", "90px" );
       $("#recordVideo").attr( "width", "90px");

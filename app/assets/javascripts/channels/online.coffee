@@ -15,9 +15,13 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         if eventType == 'appear'
           $('#user_' + userId).addClass 'background-green-online'
           $('#user_' + userId).removeClass 'hidden-user'
+          $('#user_' + userId + ' .online-logo').css('display', 'flex')
+          $('#user_' + userId + ' .online-span').css('display', 'flex')
         else
           $('#user_' + userId).removeClass 'background-green-online'
           $('#user_' + userId).addClass 'hidden-user'
+          $('#user_' + userId + ' .online-logo').css('display', 'none')
+          $('#user_' + userId + ' .online-span').css('display', 'none')
         i=i+1
     else
       userId = data.user_id
@@ -25,3 +29,5 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
       if eventType == 'disappear'
         $('#user_' + userId).removeClass 'background-green-online'
         $('#user_' + userId).addClass 'hidden-user'
+        $('#user_' + userId + ' .online-logo').css('display', 'none')
+        $('#user_' + userId + ' .online-span').css('display', 'none')

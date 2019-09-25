@@ -71,16 +71,12 @@
               </div>
             </td>
             <td>
-              <% if user.online? %>
-                <div class="online-logo">
-                  <%= image_tag("online_logo.svg",height:'36',width:'36') %>
-                </div>
-              <% end %>
+              <div class="online-logo">
+                <%= image_tag("online_logo.svg",height:'36',width:'36') %>
+              </div>
             </td>
             <td>
-              <% if user.online? %>
-                <span style="color:white;background-color:lightgreen;padding:5px 13px;border:1px solid teal;box-shadow: 2px 6px 10px #666;">&nbsp;Online</span>
-              <% end %>
+              <span class="online-span">Online</span>
             </td>
           </tr>
           <% end %>

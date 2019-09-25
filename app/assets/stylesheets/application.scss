@@ -498,13 +498,14 @@ div[id^="user_"] {
 }
 .online-users-home-page:hover{
   background-color: lightgreen;
+  cursor: pointer;
 }
 #online .white-glassy-intro{
   padding: 0px;
 }
 #online td {
   vertical-align: middle;
-  padding: 10px 0px;
+  padding: 3px 0px;
 }
 #online table {
   width: 100%;

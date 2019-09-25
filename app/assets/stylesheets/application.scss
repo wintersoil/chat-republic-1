@@ -290,7 +290,7 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   background-color: transparent;
   padding: 5px 7px;
   border-radius: 25px;
-  color: #ccc;
+  color: #ccc !important;
 }
 .griddy {
   display: grid;

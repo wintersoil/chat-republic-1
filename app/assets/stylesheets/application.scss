@@ -494,7 +494,6 @@ div[id^="user_"] {
 }
 .online-users-home-page{
   font-size: 20px;
-  margin-bottom: 15px;
   padding: 5px 20px;
 }
 .online-users-home-page:hover{
@@ -504,9 +503,10 @@ div[id^="user_"] {
   padding: 0px;
 }
 #online td {
-  vertical-align: center;
+  vertical-align: middle;
+  padding: 0px 20px;
 }
-#online tbody {
+#online table {
   width: 100%;
 }
 

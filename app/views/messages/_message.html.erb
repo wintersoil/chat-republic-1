@@ -20,10 +20,6 @@
 <% if msg.mp3.nil? == false %>
   <div>
     <div class="message-outer <% if defined?(nobroadcast).nil? == false && nobroadcast && msg.user.id != current_user.id %>messages-of-others<% end %>" data-attr="<%= msg.user.id %>">
-      <% if nobroadcast.nil? == false && nobroadcast && msg.user.id != current_user.id %>
-        class="messages-of-others"
-      <% end %>
-      >
       <div class="message-wrap">
         <% if msg.user.profile_picture.present? %>
           <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
@@ -44,10 +40,6 @@
 <% if msg.mp4.nil? == false %>
   <div>
     <div class="message-outer <% if defined?(nobroadcast).nil? == false && nobroadcast && msg.user.id != current_user.id %>messages-of-others<% end %>" data-attr="<%= msg.user.id %>">
-      <% if nobroadcast.nil? == false && nobroadcast && msg.user.id != current_user.id %>
-        class="messages-of-others"
-      <% end %>
-      >
       <div class="message-wrap">
         <% if msg.user.profile_picture.present? %>
           <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>

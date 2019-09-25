@@ -64,16 +64,16 @@
           <% @users.each do |user| %>
           <tr>
             <td>
-              <div class="online-users-home-page-wrapper">
-                <div class="online-users-home-page">
-                  <%= user.first_name %> <%= user.last_name %>
-                </div>
-                <% if user.online? %>
-                  <div class="online-logo">
-                    <%= image_tag("online_logo.svg",height:'36',width:'36') %>
-                  </div>
-                <% end %>
+              <div class="online-users-home-page">
+                <%= user.first_name %> <%= user.last_name %>
               </div>
+            </td>
+            <td>
+              <% if user.online? %>
+                <div class="online-logo">
+                  <%= image_tag("online_logo.svg",height:'36',width:'36') %>
+                </div>
+              <% end %>
             </td>
             <td>
               <% if user.online? %>

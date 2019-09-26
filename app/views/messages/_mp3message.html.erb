@@ -5,7 +5,7 @@
         <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
       <% end %>
       <div class="message-boxing">
-          <div class="message-body">
+          <div class="message-body-audio">
             <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong>
             <%= audio_tag(msg.mp3, autoplay:false, controls:true, type:"audio/mpeg") %>
           </div>

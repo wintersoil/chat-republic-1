@@ -284,6 +284,9 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   width: 300px;
   height: 300px;
 }
+.message-body video:focus {
+  outline: none;
+}
 .message-wrap {
   filter: drop-shadow(4px 8px 15px #555);
   display: flex;

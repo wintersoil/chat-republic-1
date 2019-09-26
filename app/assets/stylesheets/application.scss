@@ -253,6 +253,10 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   margin-left: 20px;
   border: 1px solid #888;
   box-shadow: 3px 8px 12px #bbb;
+  display:flex;
+}
+.message-boxing-audio .message-body{
+  display: inline-block;
 }
 .message-timing {
   position: absolute;

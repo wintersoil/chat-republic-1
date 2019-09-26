@@ -63,25 +63,27 @@
           <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Applications-internet.svg/1024px-Applications-internet.svg.png",height:'195',width:'195',class:'online-heading-logo') %>
           <h3>People Online</h3>
           <p>Check to see which people are online so you can chat or video conference with them.</p>
-          <table>
-          <% @users.each do |user| %>
-          <tr id="user_<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">
-            <td>
-              <div class="online-users-home-page">
-                <%= user.first_name %> <%= user.last_name %>
-              </div>
-            </td>
-            <td>
-              <div class="online-logo" style="<% if user.online? %>display:inline-block<% end %>">
-                <%= image_tag("online_logo.svg",height:'36',width:'36') %>
-              </div>
-            </td>
-            <td>
-              <span class="online-span" style="<% if user.online? %>display:inline-block<% end %>">Online</span>
-            </td>
-          </tr>
-          <% end %>
-        </table>
+          <div class="online-table">
+            <table>
+            <% @users.each do |user| %>
+            <tr id="user_<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">
+              <td>
+                <div class="online-users-home-page">
+                  <%= user.first_name %> <%= user.last_name %>
+                </div>
+              </td>
+              <td>
+                <div class="online-logo" style="<% if user.online? %>display:inline-block<% end %>">
+                  <%= image_tag("online_logo.svg",height:'36',width:'36') %>
+                </div>
+              </td>
+              <td>
+                <span class="online-span" style="<% if user.online? %>display:inline-block<% end %>">Online</span>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
         </div>
       </div>
     <% end %>

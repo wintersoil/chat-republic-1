@@ -637,6 +637,7 @@ div[id^="user_"] {
     position: fixed;
     top: 20px;
     right: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -650,12 +651,15 @@ div[id^="user_"] {
   }
   .one {
     width: 10px;
+    display:block;
   }
   .two {
     width: 10px;
+    display:block;
   }
   .three {
     width: 10px;
+    display:block;
   }
   .not-logged-in-wrap{
     margin-top: 85px;

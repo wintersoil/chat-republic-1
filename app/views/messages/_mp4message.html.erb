@@ -4,7 +4,7 @@
       <% if msg.user.profile_picture.present? %>
         <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
       <% end %>
-      <div class="message-boxing">
+      <div class="message-boxing-video">
           <div class="message-body">
             <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong>
             <%= video_tag(msg.mp4, autoplay:false, controls:true, type:"video/mpeg", height:'180', width:'300') %>

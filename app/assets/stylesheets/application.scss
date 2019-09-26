@@ -248,6 +248,11 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   -webkit-clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   position: relative;
 }
+.message-boxing-audio{
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  box-shadow: 3px 8px 12px #bbb;
+}
 .message-timing {
   position: absolute;
   top: -8px;

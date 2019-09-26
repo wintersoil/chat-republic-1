@@ -250,7 +250,8 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 }
 .message-boxing-audio{
   padding: 8px 10px;
-  border: 1px solid #ddd;
+  margin-left: 20px;
+  border: 1px solid #888;
   box-shadow: 3px 8px 12px #bbb;
 }
 .message-timing {
@@ -564,7 +565,7 @@ div[id^="user_"] {
     margin-top: 3px;
   }
   .message-body audio {
-    width: 260px;
+    width: 430px;
   }
   .message-body video {
     width: 260px;

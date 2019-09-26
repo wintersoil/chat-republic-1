@@ -6,8 +6,12 @@
       <% end %>
       <div class="message-boxing-audio">
           <div class="message-body">
-            <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong>
-            <%= audio_tag(msg.mp3, autoplay:false, controls:true, type:"audio/mpeg") %>
+            <div>
+              <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong>
+            </div>
+            <div>
+              <%= audio_tag(msg.mp3, autoplay:false, controls:true, type:"audio/mpeg") %>
+            </div>
           </div>
           <div class="message-timing">
             <span><%= time_ago_in_words(msg.created_at) %> ago</span>

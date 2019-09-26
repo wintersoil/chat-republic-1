@@ -50,6 +50,7 @@
           <%= image_tag(msg.user.profile_picture.to_s, height:'100', width:'100',class:'profile-picture') %>
         <% end %>
         <div class="message-boxing-video">
+          <%= image_tag("https://cdn2.iconfinder.com/data/icons/web-set-1/50/65-512.png",width:'80',height:'80') %>
             <div class="message-body">
               <div>
                 <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong>

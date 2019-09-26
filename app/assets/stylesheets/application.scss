@@ -327,6 +327,9 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 .messages-of-others .message-boxing-audio .message-timing {
   color: grey;
 }
+.messages-of-others .message-boxing-video .message-timing {
+  color: grey;
+}
 .griddy {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

@@ -664,7 +664,7 @@ div[id^="user_"] {
   .user-info{
     margin-top: 85px;
   }
-  #menu-checkbox:checked ~ .super-menu{
+  .rounded-mobile-menu #menu-checkbox:checked + .super-menu{
     display: block;
     position: fixed;
     top: 0px;

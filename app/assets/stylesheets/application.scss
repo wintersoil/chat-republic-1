@@ -678,9 +678,6 @@ div[id^="user_"] {
   #menu-checkbox:checked + .label-menu-checkbox .menu-cont{
     display: none;
   }
-  #menu-checkbox:checked body{
-    overflow: hidden;
-  }
   .label-menu-checkbox{
     z-index: 25;
   }

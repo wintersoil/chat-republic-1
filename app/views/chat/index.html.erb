@@ -62,6 +62,7 @@
         <div class="white-glassy-intro" id="">
           <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Applications-internet.svg/1024px-Applications-internet.svg.png",height:'195',width:'195',class:'online-heading-logo') %>
           <h3>People Online</h3>
+          <p>Check to see which people are online so you can chat or video conference with them.</p>
           <table>
           <% @users.each do |user| %>
           <tr id="user_<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">

@@ -282,6 +282,9 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 .message-body audio {
   width: 450px;
 }
+.message-body audio:focus {
+  outline: none;
+}
 .message-body video {
   width: 300px;
   height: 300px;

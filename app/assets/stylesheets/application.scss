@@ -261,14 +261,12 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 }
 .message-boxing-video{
   padding: 8px 10px;
-  margin-left: 20px;
   box-shadow: 3px 8px 12px #bbb;
   display:flex;
 }
 .message-boxing-video-outer{
-  clip-path: polygon(0 0,100% 0, 100% 100%, 75px 100%, 75px 100px, 0 100px);
-  padding: 3px 3px;
-  background-color: #ccc;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 75px 100%, 75px 100px, 0 58px);
+  margin-left: 20px;
 }
 .message-timing {
   position: absolute;

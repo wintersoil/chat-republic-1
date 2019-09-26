@@ -269,6 +269,9 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
   color: grey;
   font-size:16px;
 }
+.message-body audio {
+  width: 700px;
+}
 .message-wrap {
   filter: drop-shadow(4px 8px 15px #555);
   display: flex;
@@ -570,7 +573,7 @@ div[id^="user_"] {
     margin-top: 3px;
   }
   .message-body audio {
-    width: 700px;
+    width: 260px;
   }
   .message-body video {
     width: 260px;

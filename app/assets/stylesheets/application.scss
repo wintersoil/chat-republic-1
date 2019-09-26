@@ -262,9 +262,6 @@ clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 .message-boxing-video{
   padding: 8px 10px;
   margin-left: 20px;
-  border: 1px solid #888;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 90px 100%, 90px 90px, 0 90px);
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 90px 100%, 90px 90px, 0 90px);
   box-shadow: 3px 8px 12px #bbb;
   display:flex;
 }

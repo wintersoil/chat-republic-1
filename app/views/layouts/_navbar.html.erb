@@ -43,7 +43,11 @@
   <% end %>
 </div>
 <div class="navbar-mobile">
+  <input type="checkbox" style="display:none" id="menu-checkbox"/>
   <label class="rounded-mobile-menu label-menu-checkbox" for="menu-checkbox">
+    <div class="menu-times">
+      &times;
+    </div>
     <div class="menu-cont">
     </div>
     <div class="menu-cont">
@@ -51,7 +55,6 @@
     <div class="menu-cont">
     </div>
   </label>
-  <input type="checkbox" style="display:none" id="menu-checkbox"/>
     <div class="super-menu">
       <div class="nav-item super-menu-item">
         <%= image_tag("home-logo.svg",height:'50',width:'50') %>

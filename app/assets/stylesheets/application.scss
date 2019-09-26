@@ -653,13 +653,16 @@ div[id^="user_"] {
   .menu-cont {
     flex-basis: 70%;
   }
+  .menu-times {
+    display: none;
+  }
   .not-logged-in-wrap{
     margin-top: 85px;
   }
   .user-info{
     margin-top: 85px;
   }
-  #menu-checkbox:checked + .super-menu{
+  #menu-checkbox:checked ~ .super-menu{
     display: block;
     position: fixed;
     top: 0px;
@@ -668,6 +671,12 @@ div[id^="user_"] {
     width: 99.7vw;
     z-index: 20;
     background-color: white;
+  }
+  #menu-checkbox:checked + .label-menu-checkbox .menu-times{
+    display: block;
+  }
+  #menu-checkbox:checked + .label-menu-checkbox .menu-cont{
+    display: none;
   }
   .label-menu-checkbox{
     z-index: 25;

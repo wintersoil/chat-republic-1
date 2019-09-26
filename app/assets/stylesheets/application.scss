@@ -643,6 +643,21 @@ div[id^="user_"] {
     cursor: pointer;
     font-family: "Titillium Web";
   }
+  .label-menu-checkbox div {
+    height: 20px;
+    background-color: #fff;
+    margin: 25px 0;
+    border-radius: 25px;
+  }
+  .one {
+    width: 150px;
+  }
+  .two {
+    width: 150px;
+  }
+  .three {
+    width: 150px;
+  }
   .not-logged-in-wrap{
     margin-top: 85px;
   }

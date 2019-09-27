@@ -584,7 +584,7 @@ div[id^="user_"] {
 }
 
 .online-notification-bar-wrapper {
-  display: flex;
+  display: none;
 }
 .online-notification-bar {
   background-image: linear-gradient(to bottom, #00b0ff, #134a9c);

@@ -583,6 +583,40 @@ div[id^="user_"] {
   display:none;
 }
 
+.online-notification-bar-wrapper {
+  display: flex;
+}
+.online-notification-bar {
+  background-image: linear-gradient(to bottom, #00b0ff, #134a9c);
+  color: #666;
+  padding: 10px 20px 10px 10px;
+  border-radius: 50px;
+  border: 3px solid #00FFFF;
+  font-size: 25px;
+  font-family: "Titillium Web";
+  align-items: center;
+  width: 60px;
+  overflow: hidden;
+  max-height: 60px;
+  transition: all 0.9s;
+  align-content: top;
+    display: flex;
+  cursor: pointer;
+}
+.online-notification-bar img{
+  margin-right: 7px;
+}
+.online-notification-bar:hover {
+  width: 300px;
+}
+.online-notification-bar .inner-text{
+  color: #eee;
+  display: block;
+  width: 300px;
+  min-width: 300px;
+  margin-left:5px;
+}
+
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

@@ -21,7 +21,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           stringy3 = '' + userId
           stringy3 = stringy3.toString +'_online-users-home-page'
           stringy3 = 'user_'+ stringy3.toString
-          elm = document.getElementById stringy3.toString
+          elm = document.getElementById(stringy3.toString)
           stringy2 = elm.innerHTML
           stringyHTML = '<img src="https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0" height="70px" width="70px"/><div class="inner-text">'+ stringy2 +' is online now</div>'
           $('.online-notification-bar').html(stringyHTML)

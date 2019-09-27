@@ -598,16 +598,12 @@ div[id^="user_"] {
   width: 60px;
   overflow: hidden;
   max-height: 60px;
-  transition: all 0.9s;
   align-content: top;
-    display: flex;
+    display: none;
   cursor: pointer;
 }
 .online-notification-bar img{
   margin-right: 7px;
-}
-.online-notification-bar:hover {
-  width: 300px;
 }
 .online-notification-bar .inner-text{
   color: #eee;

@@ -20,7 +20,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           $('.online-notification-bar').html($('#user_' + userId + ' .online-users-home-page').html())
           $('.online-notification-bar').animate({width:'300px'}, 1000, () ->
             $('.online-notification-bar').animate({width:'0px'}, 1000, () ->
-              $('.online-notification-bar').css('display', 'none')
+              $('.online-notification-bar').css('display', 'none')))
         else
           $('#user_' + userId).removeClass 'background-green-online'
           $('#user_' + userId + ' .online-logo').css('display', 'none')

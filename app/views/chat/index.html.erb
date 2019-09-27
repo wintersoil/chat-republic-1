@@ -68,7 +68,7 @@
             <% @users.each do |user| %>
             <tr id="user_<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">
               <td>
-                <div class="online-users-home-page">
+                <div class="online-users-home-page" id="user_<%= user.id %>_online-users-home-page">
                   <%= user.first_name %> <%= user.last_name %>
                 </div>
               </td>

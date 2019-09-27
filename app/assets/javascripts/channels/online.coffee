@@ -12,13 +12,13 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
       while i < data.arrayez.length
         userId = data.arrayez[i].user_id
         eventType = data.arrayez[i].event
-        if eventType == 'appear' && isNaN(userId) == false
+        if eventType == 'appear'
           $('#user_' + userId).addClass 'background-green-online'
           $('#user_' + userId + ' .online-logo').css('display', 'flex')
           $('#user_' + userId + ' .online-span').css('display', 'inline-block')
           $('.online-notification-bar-wrapper').css('display', 'flex')
           $('.online-notification-bar').css('display', 'flex')
-          stringyHTML = '<img src="https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0" height="70px" width="70px"/><div class="inner-text">'+ $('#user_' + (userId).toString()).find('.online-users-home-page').html() +' is online now</div>'
+          stringyHTML = '<img src="https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0" height="70px" width="70px"/><div class="inner-text">'+ $('#user_'+userId+' .online-users-home-page').eq(0).html() +' is online now</div>'
           $('.online-notification-bar').html(stringyHTML)
           $('.online-notification-bar').animate({width:'300px'}, 1000, () ->
             $('.online-notification-bar').animate({width:'60px'}, 1000, () ->

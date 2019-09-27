@@ -17,9 +17,10 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           $('#user_' + userId + ' .online-logo').css('display', 'flex')
           $('#user_' + userId + ' .online-span').css('display', 'inline-block')
           $('.online-notification-bar').css('display', 'flex')
-          $('.online-notification-bar').html($('#user_' + userId + ' .online-users-home-page').html())
+          stringyHTML = '<img src="https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0" height="70px" width="70px"/><div class="inner-text">'+ $('#user_' + userId + ' .online-users-home-page').html() +' is online now</div>'
+          $('.online-notification-bar').html(stringyHTML)
           $('.online-notification-bar').animate({width:'300px'}, 1000, () ->
-            $('.online-notification-bar').animate({width:'0px'}, 1000, () ->
+            $('.online-notification-bar').animate({width:'60px'}, 1000, () ->
               $('.online-notification-bar').css('display', 'none')))
         else
           $('#user_' + userId).removeClass 'background-green-online'

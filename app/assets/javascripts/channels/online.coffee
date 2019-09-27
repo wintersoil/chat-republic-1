@@ -12,7 +12,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
       while i < data.arrayez.length
         userId = data.arrayez[i].user_id
         eventType = data.arrayez[i].event
-        if eventType == 'appear'
+        if eventType == 'appear' && isNaN(userId) == false
           $('#user_' + userId).addClass 'background-green-online'
           $('#user_' + userId + ' .online-logo').css('display', 'flex')
           $('#user_' + userId + ' .online-span').css('display', 'inline-block')

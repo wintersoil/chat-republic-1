@@ -18,7 +18,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           $('#user_' + userId + ' .online-span').css('display', 'inline-block')
           $('.online-notification-bar-wrapper').css('display', 'flex')
           $('.online-notification-bar').css('display', 'flex')
-          stringy3 = '' + userId
+          stringy3 = '' + userId.toString
           stringy3 = stringy3.toString +'_online-users-home-page'
           stringy3 = 'user_'+ stringy3.toString
           stringy2 = $(stringy3.toString).html()

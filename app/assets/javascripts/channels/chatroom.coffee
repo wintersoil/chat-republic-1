@@ -16,8 +16,8 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
       document.getElementById('hollow-copy').play();
       document.getElementById('hollow-copy-1').play();
     else if data.hasOwnProperty('mod_message')
-      $('.experimental-messages').empty;
       $('.messages-display').append(data.mod_message);
       scroll_bottom();
       document.getElementById('hollow-copy').play();
       document.getElementById('hollow-copy-1').play();
+      $('.experimental-messages').empty;

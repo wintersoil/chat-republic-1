@@ -11,7 +11,7 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
       $('.experimental-messages').append(data.mod_message);
       if parseInt($('.experimental-messages .message-outer').attr('data-attr')) != parseInt($('.experimental-messages').attr('data-attr'))
         $('.experimental-messages .message-outer').addClass('messages-of-others');
-        $('.messages-display').append($('.experimental-messages').html)
+        document.getElementsByClassName('.messages-display').item(0).insertAdjacentHTML('beforeend', document.getElementByClassName('.experimental-messages').item(0).innerHTML)
         document.getElementsByClassName('experimental-messages').item(0).innerHTML = "";
         scroll_bottom();
         document.getElementById('hollow-copy').play();

@@ -19,7 +19,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-span').css('display', 'inline-block')
             $('.online-notification-bar-wrapper').css('display', 'flex')
             $('.online-notification-bar').css('display', 'flex')
-            stringy3 = "#user_" + userId + "_online-users-home-page"
+            stringy3 = '#user_' + userId + '_online-users-home-page'
             stringy2 = $(stringy3).html
             stringyHTML = '<img src="https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0" height="70px" width="70px"/><div class="inner-text">'+ stringy2 +' is online now</div>'
             $('.online-notification-bar').html(stringyHTML)

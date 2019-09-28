@@ -99,7 +99,6 @@ $( document ).on('turbolinks:load', function() {
             data: fd,
             dataType: "text"
           }).done(function(data){
-            console.log(data);
           });
         };
         reader.readAsDataURL(blob);
@@ -175,7 +174,6 @@ $( document ).on('turbolinks:load', function() {
             data: fd,
             dataType: "text"
           }).done(function(data){
-            console.log(data);
           });
         };
         reader.readAsDataURL(blob);

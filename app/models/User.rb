@@ -16,7 +16,7 @@ class User < ApplicationRecord
     end
     only_relevant = []
     all_online.each do |elm|
-      only_relevant.push({event: 'appear', user_id: elm.id})
+      only_relevant.push({event: 'appear', user_id: elm.id, first_name: elm.first_name, last_name: elm.last_name})
     end
     ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end

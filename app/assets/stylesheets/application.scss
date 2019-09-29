@@ -21,6 +21,7 @@
   margin: 0px;
   padding: 20px 40px;
   font-family: 'Titillium Web', sans-serif;
+  position: relative;
 }
 .navbar {
   display: flex;
@@ -603,6 +604,9 @@ div[id^="user_"] {
   align-content: top;
   display: none;
   cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
 }
 .online-notification-bar img{
   margin-right: 7px;

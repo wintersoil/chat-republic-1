@@ -23,8 +23,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             last_name = data.arrayez[i].last_name
             stringyHTML = "<img src='https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0' height='70px' width='70px'/><div class='inner-text'>#{first_name} #{last_name} is online now</div>"
             document.getElementsByClassName('online-notification-bar').item(0).innerHTML = stringyHTML
-            $('.online-notification-bar').animate({max-width:'600px'}, 1000, () ->
-              $('.online-notification-bar').animate({max-width:'60px'}, 1000, () ->
+            $('.online-notification-bar').animate({width:'600px'}, 1000, () ->
+              $('.online-notification-bar').animate({width:'60px'}, 1000, () ->
                 $('.online-notification-bar').css('display', 'none')
                 $('.online-notification-bar-wrapper').css('display', 'none')
                 ))

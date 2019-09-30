@@ -16,6 +16,7 @@
               <div class="name-card-live">
                 <%= usr.first_name %> <%= usr.last_name %>
                 <%= link_to "Video", video_path(id: usr.id), method: :post %>
+                <%= link_to "Private Chat", private_chat_path(id: usr.id) %>
               </div>
             </div>
         </div>

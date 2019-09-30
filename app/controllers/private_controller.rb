@@ -19,6 +19,6 @@ class PrivateController < ApplicationController
   private
 
   def private_msg_params
-    params.require(:private_message).permit(:body, :recipient)
+    params.require(:private_message).permit(:body)
   end
 end

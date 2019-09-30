@@ -8,6 +8,6 @@
 
 <%= form_for @private_message, url: {action:"create", controller:"private"}, remote: true do |f| %>
   <%= f.text_field :body, autocomplete: :off %>
-  <%= f.hidden_field :recipient, :value => @recipient %>
+  <%= f.hidden_field :recipient, :value => @recipient.to_i %>
   <%= f.submit "Send" %>
 <% end %>

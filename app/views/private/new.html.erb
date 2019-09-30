@@ -6,7 +6,7 @@
   <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
 <% end %>
 
-<% form_for @private_message, url: {action:"create", controller:"private"}, remote: true do |f| %>
+<%= form_for @private_message, url: {action:"create", controller:"private"}, remote: true do |f| %>
   <%= f.text_field :body, autocomplete: :off %>
   <%= f.hidden_field :recipient, :value => @recipient %>
   <%= f.submit "Send" %>

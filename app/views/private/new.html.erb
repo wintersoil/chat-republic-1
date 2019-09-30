@@ -1,1 +1,10 @@
 <h1>Hello how are you</h1>
+<% @private_messages.each do |msg| %>
+  <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+<% end %>
+
+<% form_for @private_message, url: {action:create}, rmeote: true do |f| %>
+  <%= f.text_field :body, autocomplete: :off %>
+  <%= f.hidden_field 'recipient', @recipient %>
+  <%= f.submit "Send" %>
+<% end %>

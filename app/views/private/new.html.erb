@@ -5,6 +5,6 @@
 
 <% form_for @private_message, url: {action:"create"}, remote: true do |f| %>
   <%= f.text_field :body, autocomplete: :off %>
-  <%= f.hidden_field 'recipient', @recipient %>
+  <%= f.hidden_field :recipient, @recipient %>
   <%= f.submit "Send" %>
 <% end %>

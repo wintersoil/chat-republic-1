@@ -1,4 +1,5 @@
 class PrivateController < ApplicationController
+  before_filter :sanitize_page_params
 
   def new
     @private_message = PrivateMessage.new
@@ -10,15 +11,18 @@ class PrivateController < ApplicationController
   def create
     @private_message = PrivateMessage.new(private_msg_params)
     @private_message.user = current_user
-    @private_message.recipient = User.find(params[:private_message][:recipient].to_i)
     if @private_message.save
-      redirect_to private_message_path(params[:recipient])
+      redirect_to private_message_path(params[:private_message][:recipient])
     end
   end
 
   private
 
+  def sanitize_page_params
+    params[:private_message][:recipient] = params[:private_message][:recipient].to_i
+  end
+
   def private_msg_params
-    params.require(:private_message).permit(:body)
+    params.require(:private_message).permit(:body, :recipient)
   end
 end

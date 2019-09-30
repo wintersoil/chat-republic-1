@@ -1,5 +1,5 @@
 class PrivateController < ApplicationController
-  before_filter :sanitize_page_params
+  before_action :sanitize_page_params
 
   def new
     @private_message = PrivateMessage.new

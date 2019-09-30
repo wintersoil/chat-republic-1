@@ -19,7 +19,7 @@ class PrivateController < ApplicationController
   private
 
   def sanitize_page_params
-    params[:private_message][:recipient] = params[:private_message][:recipient].to_i
+    params[:private_message][:recipient] = User.find(params[:private_message][:recipient].to_i)
   end
 
   def private_msg_params

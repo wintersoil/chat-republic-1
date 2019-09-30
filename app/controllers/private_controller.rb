@@ -12,7 +12,7 @@ class PrivateController < ApplicationController
     @private_message = PrivateMessage.new(private_msg_params)
     @private_message.user = current_user
     if @private_message.save
-      redirect_to private_message_path(params[:private_message][:recipient])
+      redirect_to private_chat_path(params[:private_message][:recipient])
     end
   end
 

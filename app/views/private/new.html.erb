@@ -2,6 +2,9 @@
 <% @private_messages.each do |msg| %>
   <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
 <% end %>
+<% @private_messages2.each do |msg| %>
+  <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+<% end %>
 
 <% form_for @private_message, url: {action:"create"}, remote: true do |f| %>
   <%= f.text_field :body, autocomplete: :off %>

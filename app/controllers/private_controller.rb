@@ -10,8 +10,8 @@ class PrivateController < ApplicationController
   def create
     @private_message = PrivateMessage.new(private_msg_params)
     @recipient = User.find(params[:private_message][:recipient].to_i)
-    @private_message.recipient = @recipient
     @private_message.user = current_user
+    @private_message.recipient = @recipient
     if @private_message.save
       redirect_to private_chat_path id: params[:private_message][:recipient]
     end

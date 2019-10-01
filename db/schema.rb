@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_095426) do
+ActiveRecord::Schema.define(version: 2019_10_01_105802) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_095426) do
     t.string "mp4"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "recipient"
+    t.integer "recipient_id"
     t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 

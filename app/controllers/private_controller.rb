@@ -10,6 +10,7 @@ class PrivateController < ApplicationController
 
   def create
     @private_message = PrivateMessage.new(private_msg_params)
+    @private_message.recipient = @recipient
     @private_message.user = current_user
     if @private_message.save
       redirect_to private_chat_path id: params[:private_message][:recipient]
@@ -19,10 +20,10 @@ class PrivateController < ApplicationController
   private
 
   def sanitize_page_params
-    params[:private_message][:recipient] = User.find(params[:private_message][:recipient].to_i)
+    @recipient = User.find(params[:private_message][:recipient].to_i)
   end
 
   def private_msg_params
-    params.require(:private_message).permit(:body, :recipient)
+    params.require(:private_message).permit(:body)
   end
 end

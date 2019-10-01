@@ -3,8 +3,7 @@ class PrivateController < ApplicationController
   def new
     @private_message = PrivateMessage.new
     @recipient = params[:id]
-    @private_messages = PrivateMessage.where(user: current_user, recipient: @recipient)
-    @private_messages2 = PrivateMessage.where(user: User.find(@recipient), recipient: current_user.id)
+    @private_messages = PrivateMessage.where(user: current_user, recipient: @recipient).merge(PrivateMessage.where(user: User.find(@recipient), recipient: current_user.id))
   end
 
   def create

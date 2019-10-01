@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 2019_10_01_105802) do
     t.string "body"
     t.string "mp3"
     t.string "mp4"
+    t.integer "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "recipient_id"
+    t.index ["recipient_id"], name: "index_private_messages_on_recipient_id"
     t.index ["user_id"], name: "index_private_messages_on_user_id"
   end
 

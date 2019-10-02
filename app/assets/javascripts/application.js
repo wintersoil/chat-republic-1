@@ -24,6 +24,11 @@ scroll_bottom = function() {
     $('.messages-display').scrollTop($('.messages-display')[0].scrollHeight);
   }
 }
+scroll_bottom_private = function() {
+  if($('.private-messages-container').length > 0) {
+    $('.private-messages-container').scrollTop($('.private-messages-container')[0].scrollHeight);
+  }
+}
 $( document ).on('turbolinks:load', function() {
   scroll_bottom();
 

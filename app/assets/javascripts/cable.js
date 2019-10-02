@@ -8,6 +8,6 @@
 (function() {
   this.App || (this.App = {});
 
-  App.cable = ActionCable.createConsumer("wss://www.downlink.online/cable");
+  App.cable = ActionCable.createConsumer();
 
 }).call(this);

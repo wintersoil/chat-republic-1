@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_105802) do
+ActiveRecord::Schema.define(version: 2019_10_02_134549) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2019_10_01_105802) do
     t.string "mp3"
     t.string "mp4"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "private_message_groups", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_private_message_groups_on_recipient_id"
+    t.index ["user_id"], name: "index_private_message_groups_on_user_id"
   end
 
   create_table "private_messages", force: :cascade do |t|

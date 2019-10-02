@@ -1,5 +1,5 @@
 class PrivateController < ApplicationController
-  after_action :sendagain, only[:create]
+  after_action :sendagain, only: [:create]
 
   def new
     @private_message = PrivateMessage.new

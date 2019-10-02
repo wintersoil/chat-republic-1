@@ -1,6 +1,10 @@
 <h1>Hello how are you</h1>
 <% @private_messages.each do |msg| %>
-  <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+  <div class="private-message-outer">
+    <div class="private-message-box">
+      <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+    </div>
+  </div>
 <% end %>
 
 <%= form_for @private_message, url: {action:"create", controller:"private"}, remote: true do |f| %>

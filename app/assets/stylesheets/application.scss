@@ -623,7 +623,6 @@ div[id^="user_"] {
   display: flex;
   padding: 25px 25px 10px 35px;
   color: #eee;
-  box-shadow: 3px 5px 15px #444, 3px -3px 15px #444;
   clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 15px 80%);
   -webkit-clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 15px 80%);
   font-size: 20px;
@@ -638,6 +637,7 @@ div[id^="user_"] {
 }
 .private-message-all {
   margin-bottom: 15px;
+  filter: drop-shadow(3px 5px 15px #444, 3px -3px 15px #444);
 }
 .private-message-image-box {
   display: flex;
@@ -657,7 +657,6 @@ div[id^="user_"] {
   display: flex;
   padding: 25px 25px 10px 35px;
   color: #eee;
-  box-shadow: 3px 5px 15px #444, 3px -3px 15px #444;
   clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 15px 80%);
   -webkit-clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 15px 80%);
   font-size: 20px;

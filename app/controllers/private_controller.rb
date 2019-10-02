@@ -13,8 +13,8 @@ class PrivateController < ApplicationController
     @private_message.recipient = @recipient
     @current_user = current_user
     if @private_message.save
-      ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: message_render(@private_message) 
-      ActionCable.server.broadcast "private:#{@current_user.to_gid_param}", mod_message: message_render(@private_message)
+      ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: message_render(@private_message)
+      ActionCable.server.broadcast "private:#{@current_user.to_gid_param}", mod_message: message_render_1(@private_message)
     end
   end
 
@@ -25,6 +25,9 @@ class PrivateController < ApplicationController
   end
 
   def message_render(message)
+    render(partial: 'private/message', locals: {msg: message})
+  end
+  def message_render_1(message)
     render(partial: 'private/message', locals: {msg: message})
   end
 end

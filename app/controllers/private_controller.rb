@@ -4,8 +4,6 @@ class PrivateController < ApplicationController
     @private_message = PrivateMessage.new
     @recipient = params[:id]
     @private_messages = PrivateMessage.where(user: current_user, recipient: @recipient).or(PrivateMessage.where(user: User.find(@recipient), recipient: current_user.id))
-    @privatemessagegroup = PrivateMessageGroup.new(user: current_user, recipient: @recipient)
-    PrivateMessageGroup.save
   end
 
   def create

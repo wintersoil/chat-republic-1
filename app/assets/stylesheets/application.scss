@@ -641,6 +641,16 @@ div[id^="user_"] {
 .private-message-image-box {
   display: flex;
 }
+.private-message-timing {
+  position: absolute;
+  top: -8px;
+  right: 0px;
+  background-color: transparent;
+  padding: 9px 7px 0px 7px;
+  border-radius: 25px;
+  color: grey;
+  font-size:16px;
+}
 
 @media only screen and (max-width: 480px)
 {

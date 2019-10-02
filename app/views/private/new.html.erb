@@ -9,6 +9,9 @@
       <div class="private-message-box">
         <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
       </div>
+      <div class="private-message-timing">
+        <%= time_ago_in_words(msg.created_at) %> ago
+      </div>
     </div>
   </div>
 <% end %>

@@ -626,14 +626,14 @@ div[id^="user_"] {
   box-shadow: 3px 5px 15px #444, 3px -3px 15px #444;
   border: 1px solid #ddd;
   border-radius: 10px;
+  clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
+  -webkit-clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 }
 .private-message-outer {
   display: flex;
   margin-bottom: 20px;
   align-items: center;
   margin-left: 15px;
-  clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
-  -webkit-clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 30px 80%);
 }
 .private-message-all {
   margin-bottom: 15px;

@@ -630,6 +630,7 @@ div[id^="user_"] {
 .private-message-outer {
   display: flex;
   margin-bottom: 20px;
+  align-items: baseline;
 }
 .private-message-image-box {
   display: flex;

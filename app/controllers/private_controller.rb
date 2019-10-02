@@ -25,9 +25,9 @@ class PrivateController < ApplicationController
   end
 
   def message_render(message)
-    render(partial: 'private/message', locals: {msg: message})
+    render_to_string(partial: 'private/message', locals: {msg: message})
   end
   def message_render_1(message)
-    render(partial: 'private/message', locals: {msg: message})
+    render_to_string(partial: 'private/message', locals: {msg: message})
   end
 end

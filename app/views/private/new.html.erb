@@ -1,7 +1,9 @@
-<h1>Hello how are you</h1>
 <% @private_messages.each do |msg| %>
   <div class="private-message-outer">
     <div class="private-message-box">
+      <% if msg.user.profile_picture.nil? == false %>
+        <%= image_tag(msg.user.profile_picture.to_s, height:'90', width:'90') %>
+      <% end %>
       <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
     </div>
   </div>

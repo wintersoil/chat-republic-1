@@ -7,7 +7,6 @@ App.private = App.cable.subscriptions.create "PrivateChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    console.log data
     $ ->
       $('.experimental-messages').append(data.mod_message);
       if parseInt($('.experimental-messages .private-message-all').attr('data-attr')) != parseInt($('.experimental-messages').attr('data-attr'))

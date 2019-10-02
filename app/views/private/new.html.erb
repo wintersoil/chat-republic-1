@@ -11,3 +11,6 @@
   <%= f.hidden_field :recipient, :value => @recipient.to_i %>
   <%= f.submit "Send" %>
 <% end %>
+
+<%= audio_tag("definite.mp3", autoplay: false, controls: true, style: "display:none", id:"hollow-copy") %>
+<%= audio_tag("definite_iphone.m4r", autoplay: false, controls: true, style: "display:none", id:"hollow-copy-1") %>

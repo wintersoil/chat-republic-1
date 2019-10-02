@@ -631,6 +631,9 @@ div[id^="user_"] {
   display: flex;
   margin-bottom: 20px;
 }
+.private-message-image-box {
+  display: flex;
+}
 
 @media only screen and (max-width: 480px)
 {

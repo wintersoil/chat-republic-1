@@ -1,10 +1,14 @@
 <% @private_messages.each do |msg| %>
-<% if msg.user.profile_picture.nil? == false %>
-  <%= image_tag(msg.user.profile_picture.to_s, height:'90', width:'90', class:'profile-rounded') %>
-<% end %>
-  <div class="private-message-outer">
-    <div class="private-message-box">
-      <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+  <div style="display: flex;">
+  <% if msg.user.profile_picture.nil? == false %>
+    <div class="private-message-image-box">
+      <%= image_tag(msg.user.profile_picture.to_s, height:'90', width:'90', class:'profile-rounded') %>
+    </div>
+  <% end %>
+    <div class="private-message-outer">
+      <div class="private-message-box">
+        <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+      </div>
     </div>
   </div>
 <% end %>

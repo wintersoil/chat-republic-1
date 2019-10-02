@@ -11,9 +11,10 @@ class PrivateController < ApplicationController
     @recipient = User.find(params[:private_message][:recipient].to_i)
     @private_message.user = current_user
     @private_message.recipient = @recipient
+    @current_user = current_user
     if @private_message.save
       ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: message_render(@private_message)
-      ActionCable.server.broadcast "private:#{current_user.to_gid_param}", mod_message: message_render(@private_message)
+      ActionCable.server.broadcast "private:#{@current_user.to_gid_param}", mod_message: message_render(@private_message)
     end
   end
 

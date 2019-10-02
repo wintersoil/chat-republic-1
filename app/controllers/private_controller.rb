@@ -12,7 +12,7 @@ class PrivateController < ApplicationController
     @private_message.user = current_user
     @private_message.recipient = @recipient
     if @private_message.save
-      ActionCable.server.broadcast "private_channel:#{@recipient.to_gid_param}", mod_message: message_render(@private_message)
+      ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: message_render(@private_message)
     end
   end
 

@@ -1,4 +1,5 @@
 class PrivateController < ApplicationController
+  after_action :sendagain, only[:create]
 
   def new
     @private_message = PrivateMessage.new
@@ -14,7 +15,6 @@ class PrivateController < ApplicationController
     @current_user = current_user
     if @private_message.save
       ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: message_render(@private_message)
-      redirect_to private_chat_path(id: @recipient.id)
     end
   end
 
@@ -22,6 +22,10 @@ class PrivateController < ApplicationController
 
   def private_msg_params
     params.require(:private_message).permit(:body)
+  end
+
+  def sendagain
+    ActionCable.server.broadcast "private:#{@current_user.to_gid_param}", mod_message: message_render_1(@private_message)
   end
 
   def message_render(message)

@@ -5,12 +5,14 @@
       <%= image_tag(msg.user.profile_picture.to_s, height:'90', width:'90', class:'profile-rounded') %>
     </div>
   <% end %>
-    <div class="private-message-outer">
-      <div class="private-message-box">
-        <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
-      </div>
-      <div class="private-message-timing">
-        <%= time_ago_in_words(msg.created_at) %> ago
+    <div class="private-message-drop-shadow">
+      <div class="private-message-outer">
+        <div class="private-message-box">
+          <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+        </div>
+        <div class="private-message-timing">
+          <%= time_ago_in_words(msg.created_at) %> ago
+        </div>
       </div>
     </div>
   </div>

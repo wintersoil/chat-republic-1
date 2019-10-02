@@ -1,5 +1,5 @@
 <% @private_messages.each do |msg| %>
-  <div style="display: flex;" class="private-message-all">
+  <div style="display: flex;" class="private-message-all <% if msg.user != current_user %>private-message-others<% end %>">
   <% if msg.user.profile_picture.nil? == false %>
     <div class="private-message-image-box">
       <%= image_tag(msg.user.profile_picture.to_s, height:'90', width:'90', class:'profile-rounded') %>

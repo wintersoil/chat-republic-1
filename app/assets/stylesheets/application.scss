@@ -633,10 +633,11 @@ div[id^="user_"] {
   align-items: center;
 }
 .private-message-all {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .private-message-image-box {
   display: flex;
+  margin-left: 15px;
 }
 
 @media only screen and (max-width: 480px)

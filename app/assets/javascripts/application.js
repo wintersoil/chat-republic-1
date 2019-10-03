@@ -33,9 +33,9 @@ $( document ).on('turbolinks:load', function() {
   scroll_bottom();
   scroll_bottom_private();
 
-  $('.private-message-send').onmouseover(function(){
+  $('.private-message-send').mouseover(function(){
     $('.private-message-send').attr('src','https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send_hover.svg');
-  }).onmouseout(function(){
+  }).mouseout(function(){
     $('.private-message-send').attr('src','https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send.svg');
   });
 

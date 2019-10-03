@@ -37,6 +37,10 @@ $( document ).on('turbolinks:load', function() {
     $('#message_body').val('');
   });
 
+  $('#new_private_message').bind("ajax:complete", function(event,xhr,status){
+    $('#private_message_body').val('');
+  });
+
   $(".flash-exit").click(function(){
     $(".flash-outer").css("display", "none")
   });

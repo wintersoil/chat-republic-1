@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post 'livevideo', to: 'livevideo#create'
   get 'private_chat', to: 'private#new'
   post 'private_chat', to: 'private#create'
+  delete 'private_chat', to: 'private#destroy'
 
   mount ActionCable.server, at: '/cable'
 end

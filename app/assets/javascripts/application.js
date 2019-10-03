@@ -38,6 +38,11 @@ $( document ).on('turbolinks:load', function() {
   }).mouseout(function(){
     $('.private-message-send').attr('src','https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send.svg');
   });
+  $('.private-message-empty').mouseover(function(){
+    $('.private-message-empty').attr('src','https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_empty_hover.svg');
+  }).mouseout(function(){
+    $('.private-message-empty').atrr('src','https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_empty.svg')
+  });
 
   $('#new_message').bind("ajax:complete", function(event,xhr,status){
     $('#message_body').val('');

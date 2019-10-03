@@ -21,7 +21,7 @@ class PrivateController < ApplicationController
   def destroy
     @recipient = params[:id]
     @private_messages = PrivateMessage.where(user: current_user, recipient: @recipient).or(PrivateMessage.where(user: User.find(@recipient), recipient: current_user.id))
-    @private_messages.destroy
+    @private_messages.delete_all
     redirect_to private_chat_path(id: @recipient)
   end
 

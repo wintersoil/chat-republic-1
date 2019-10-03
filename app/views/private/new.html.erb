@@ -13,7 +13,7 @@
     <%= image_submit_tag("private_message_send.svg", height:'50', width:'50', class:'private-message-send') %>
   </div>
 <% end %>
-<%= link_to private_chat, method: :delete, id: @recipient.to_i do %>
+<%= link_to private_chat_path, method: :delete, id: @recipient.to_i do %>
   <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_empty.svg", height:'90', width:'90', class:'private-message-empty') %>
 <% end %>
 <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_empty_hover.svg", height:'0', width:'0') %>

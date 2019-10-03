@@ -682,7 +682,7 @@ div[id^="user_"] {
 }
 .private-message-input {
   font-size: 21px;
-  height: 40px;
+  height: 50px;
   padding: 0px 22px;
   border: 0px;
   color: #999;
@@ -699,6 +699,7 @@ div[id^="user_"] {
   color: white;
   border-radius: 25px;
   cursor: pointer;
+  outline: none;
 }
 .private-message-bubble {
   position: absolute;

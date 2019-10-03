@@ -33,8 +33,10 @@ $( document ).on('turbolinks:load', function() {
   scroll_bottom();
   scroll_bottom_private();
 
-  $('.private-message-send').hover(function(){
+  $('.private-message-send').onmouseover(function(){
     $('.private-message-send').attr('src','https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send_hover.svg');
+  }).onmouseout(function(){
+    $('.private-message-send').attr('src','https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send.svg');
   });
 
   $('#new_message').bind("ajax:complete", function(event,xhr,status){

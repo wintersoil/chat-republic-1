@@ -10,7 +10,7 @@ App.private = App.cable.subscriptions.create "PrivateChannel",
     $ ->
       $('.experimental-messages').append(data.mod_message);
       if parseInt($('.experimental-messages .private-message-all').attr('data-attr')) != parseInt($('.experimental-messages').attr('data-attr'))
-        $('.experimental-messages .message-outer').addClass('messages-of-others');
+        $('.experimental-messages .message-outer').addClass('private-message-others');
         $('.private-messages-container').append(document.getElementsByClassName('experimental-messages').item(0).innerHTML)
         document.getElementsByClassName('experimental-messages').item(0).innerHTML = '';
         scroll_bottom_private();

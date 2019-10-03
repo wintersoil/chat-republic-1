@@ -688,7 +688,8 @@ div[id^="user_"] {
   color: #999;
   outline: none;
   border-radius: 25px;
-  width:80%;
+  display: flex;
+  flex-basis: 100%;
 }
 .private-message-button {
   height: 40px;
@@ -712,6 +713,7 @@ div[id^="user_"] {
 }
 .private-message-rounded-send {
   width: 70%;
+  display:flex;
   height: 50px;
   border-radius: 25px;
   border: 1px solid #aaa;

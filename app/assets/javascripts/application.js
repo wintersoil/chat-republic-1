@@ -31,6 +31,7 @@ scroll_bottom_private = function() {
 }
 $( document ).on('turbolinks:load', function() {
   scroll_bottom();
+  scroll_bottom_private();
 
   $('#new_message').bind("ajax:complete", function(event,xhr,status){
     $('#message_body').val('');

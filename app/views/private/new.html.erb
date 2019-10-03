@@ -8,8 +8,8 @@
 
 <%= form_for @private_message, url: {action:"create", controller:"private"}, remote: true do |f| %>
   <%= f.text_field :body, autocomplete: :off, class:'private-message-input' %>
-  <%= f.hidden_field :recipient, :value => @recipient.to_i, class:'private-message-button' %>
-  <%= f.submit "Send" %>
+  <%= f.hidden_field :recipient, :value => @recipient.to_i %>
+  <%= f.submit "Send", class:'private-message-button' %>
 <% end %>
 
 <%= audio_tag("definite.mp3", autoplay: false, controls: true, style: "display:none", id:"hollow-copy") %>

@@ -673,11 +673,15 @@ div[id^="user_"] {
   padding: 7px 12px 7px 12px;
 }
 .private-message-input {
-  height: 25px;
+  height: 40px;
   font-size: 21px;
   width: 70%;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 0px 22px;
+  border: 1px solid #ddd;
+  color: #999;
+  border-width: 0px;
+  margin-top: 12px;
 }
 .private-message-button {
   height: 25px;

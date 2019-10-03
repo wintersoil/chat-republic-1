@@ -669,6 +669,7 @@ div[id^="user_"] {
 .private-messages-container {
   height: 90vh;
   border: 1px solid #ccc;
+  overflow: scroll;
 }
 
 @media only screen and (max-width: 480px)

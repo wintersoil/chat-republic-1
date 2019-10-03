@@ -10,8 +10,7 @@
   <div class="private-message-rounded-send">
     <%= f.text_field :body, autocomplete: :off, class:'private-message-input' %>
     <%= f.hidden_field :recipient, :value => @recipient.to_i %>
-    <%= image_submit_tag("private_message_send.svg", height:'90', width:'90') %>
-    <%= f.submit "Send", class:'private-message-button' %>
+    <%= image_submit_tag("private_message_send.svg", height:'50', width:'50') %>
   </div>
 <% end %>
 

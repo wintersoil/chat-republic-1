@@ -692,12 +692,12 @@ div[id^="user_"] {
   flex-basis: 100%;
 }
 .private-message-button {
-  height: 40px;
+  height: 50px;
   font-size: 20px;
   padding: 8px 10px;
   background-color: lightgreen;
   color: white;
-  border-radius: 8px;
+  border-radius: 25px;
   cursor: pointer;
 }
 .private-message-bubble {
@@ -716,8 +716,9 @@ div[id^="user_"] {
   display:flex;
   height: 50px;
   border-radius: 25px;
-  border: 1px solid #aaa;
+  border: 1px solid #ccc;
   margin-top: 12px;
+  padding-left: 30px;
 }
 
 @media only screen and (max-width: 480px)

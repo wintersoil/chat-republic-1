@@ -681,6 +681,7 @@ div[id^="user_"] {
   border: 1px solid #ddd;
   color: #999;
   margin-top: 12px;
+  outline: none;
 }
 .private-message-button {
   height: 40px;
@@ -689,6 +690,7 @@ div[id^="user_"] {
   background-color: lightgreen;
   color: white;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 480px)

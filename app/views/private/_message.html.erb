@@ -7,7 +7,9 @@
   <div class="private-message-drop-shadow">
     <div class="private-message-outer">
       <div class="private-message-box">
-        <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+        <span style="z-index:5;">
+          <%= msg.user.first_name %> <%= msg.user.last_name %>: <%= msg.body %>
+        </span>
         <div class="private-message-bubble">
         </div>
       </div>

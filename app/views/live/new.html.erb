@@ -15,14 +15,16 @@
             <div class="name-card-live-outer">
               <div class="name-card-live">
                 <%= usr.first_name %> <%= usr.last_name %>
-                <%= link_to video_path(id: usr.id), method: :post do %>
-                  <%= image_tag("https://cdn4.iconfinder.com/data/icons/REALVISTA/multimedia/png/400/videocam.png", width:'80', height:'80') %>
-                <% end %>
+                <div>
+                  <%= link_to video_path(id: usr.id), method: :post do %>
+                    <%= image_tag("https://cdn4.iconfinder.com/data/icons/REALVISTA/multimedia/png/400/videocam.png", width:'80', height:'80') %>
+                  <% end %>
+                </div>
+                <div>
                 <%= link_to private_chat_path(id: usr.id) do %>
-                  <div class="">
-                    <%= image_tag("private_messages_logo.svg", width:'80', height:'80') %>
-                  </div>
+                  <%= image_tag("private_messages_logo.svg", width:'80', height:'80') %>
                 <% end %>
+                </div>
               </div>
             </div>
         </div>

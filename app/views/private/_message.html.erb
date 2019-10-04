@@ -1,5 +1,5 @@
 <% if (msg.mp3.nil? && msg.mp4.nil?) %>
-<div style="display: flex;" class="private-message-all <% if msg.user.id != current_user.id %>private-message-others<% end %>" data-attr="<%= msg.user.id %>">
+<div style="display: flex;margin-left: 20px;" class="private-message-all <% if msg.user.id != current_user.id %>private-message-others<% end %>" data-attr="<%= msg.user.id %>">
 <% if msg.user.profile_picture.nil? == false %>
   <div class="private-message-image-box">
     <%= image_tag(msg.user.profile_picture.to_s, height:'90', width:'90', class:'profile-picture') %>

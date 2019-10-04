@@ -99,11 +99,11 @@ class PrivateController < ApplicationController
   end
 
   def mp3_message_render(message)
-    render(partial: 'messages/mp3message', locals: {msg: message})
+    render_to_string(partial: 'messages/mp3message', locals: {msg: message})
   end
 
   def mp4_message_render(message)
-    render(partial: 'messages/mp4message', locals: {msg: message})
+    render_to_string(partial: 'messages/mp4message', locals: {msg: message})
   end
 
 end

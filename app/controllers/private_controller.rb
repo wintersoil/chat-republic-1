@@ -29,7 +29,7 @@ class PrivateController < ApplicationController
   def mp3audio
     @private_message = PrivateMessage.new(body: "msg")
     @private_message.user = current_user
-    @private_message.recipient = params[:recipient].to_i
+    @private_message.recipient = User.find(params[:recipient].to_i)
     @user = current_user
     metadata_size = "data:audio/mp3;base64,".length
     audio = params[:data][metadata_size, params[:data].length]
@@ -61,7 +61,7 @@ class PrivateController < ApplicationController
   def mp4video
     @private_message = PrivateMessage.new(body: "mp4")
     @private_message.user = current_user
-    @private_message.recipient = params[:recipient].to_i
+    @private_message.recipient = User.find(params[:recipient].to_i)
     @user = current_user
     metadata_size = "data:video/mp4;base64,".length
     audio = params[:data][metadata_size, params[:data].length]

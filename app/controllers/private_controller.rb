@@ -38,7 +38,7 @@ class PrivateController < ApplicationController
     else
     end
     s3 = Fog::AWS::Storage.new(:aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'], :region => "ca-central-1")
-    directory = s3.directories.get("aliphotoappimages").get("private_messages")
+    directory = s3.directories.get("aliphotoappimages/private_messages")
 
     extension = 'mp3'
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
@@ -68,7 +68,7 @@ class PrivateController < ApplicationController
     else
     end
     s3 = Fog::AWS::Storage.new(:aws_access_key_id => ENV['S3_ACCESS_KEY'], :aws_secret_access_key => ENV['S3_SECRET_KEY'], :region => "ca-central-1")
-    directory = s3.directories.get("aliphotoappimages").get("private_messages")
+    directory = s3.directories.get("aliphotoappimages/private_messages")
 
     extension = 'mp4'
     name = ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
@@ -105,5 +105,5 @@ class PrivateController < ApplicationController
   def mp4_message_render(message)
     render(partial: 'messages/mp4message', locals: {msg: message})
   end
-  
+
 end

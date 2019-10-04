@@ -15,7 +15,7 @@
             <div class="name-card-live-outer">
               <div class="name-card-live">
                 <%= usr.first_name %> <%= usr.last_name %>
-                <%= link_to video_path(id: usr.id), method: :post %>
+                <%= link_to "Live", video_path(id: usr.id), method: :post %>
                 <%= link_to private_chat_path(id: usr.id) do %>
                   <div class="">
                     <%= image_tag("private_messages_logo.svg", width:'150', height:'150') %>

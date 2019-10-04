@@ -13,8 +13,8 @@
     <%= image_submit_tag("private_message_send.svg", height:'50', width:'50', class:'private-message-send') %>
   </div>
 <% end %>
-<%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg", id:"private_record", height:'90px', width:'90px') %>
-<%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg", id:"private_recordVideo", height:'90px', width:'90px') %>
+<%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg", id:"private_record", height:'90px', width:'90px', data: {attr: @recipient.to_i}) %>
+<%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg", id:"private_recordVideo", height:'90px', width:'90px', data: {attr: @recipient.to_i}) %>
 <img src="https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg" height="0px" width="0px" />
 <img src="https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg" height="0px" width="0px" />
 <%= link_to private_chat_path(id: @recipient.to_i), method: :delete do %>

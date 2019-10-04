@@ -167,6 +167,7 @@ $( document ).on('turbolinks:load', function() {
         var reader = new FileReader();
         reader.onload = function(event){
           var fd = {};
+          fd["recipient"] = $('#private_record').attr('data-attr');
           fd["fname"] = "test.mp3";
           fd["data"] = event.target.result;
           $.ajax({
@@ -242,6 +243,7 @@ $( document ).on('turbolinks:load', function() {
         var reader = new FileReader();
         reader.onload = function(event){
           var fd = {};
+          fd["recipient"] = $('#private_recordVideo').attr('data-attr');
           fd["fname"] = "test.mp4";
           fd["data"] = event.target.result;
           $.ajax({

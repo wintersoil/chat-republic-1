@@ -52,6 +52,7 @@ class PrivateController < ApplicationController
       ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: mp3_message_render(@private_message)
       ActionCable.server.broadcast "private:#{@current_user.to_gid_param}", mod_message: mp3_message_render(@private_message)
     else
+      puts "Havoc in banf"
     end
   end
 
@@ -82,6 +83,7 @@ class PrivateController < ApplicationController
       ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: mp4_message_render(@private_message)
       ActionCable.server.broadcast "private:#{@current_user.to_gid_param}", mod_message: mp4_message_render(@private_message)
     else
+      puts "Havoc in banf"
     end
   end
 

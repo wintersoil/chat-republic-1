@@ -127,7 +127,22 @@ $( document ).on('turbolinks:load', function() {
     }
   }
 
-
+  try{
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {private_handlerFunction(stream)});
+  }
+  catch(err){
+    try{
+      navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {private_handlerFunction(stream)});
+    }
+    catch(err){
+      try{
+      navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {private_handlerFunction(stream)});
+      }
+      catch(err){
+        console.log("If all media requests fails,   Error:   " + err);
+      }
+    }
+  }
   let private_recording = false;
   $("#private_record").click(function(e){
     if(private_recording == false)
@@ -150,7 +165,7 @@ $( document ).on('turbolinks:load', function() {
     }
   });
 
-  function handlerFunction(stream) {
+  function private_handlerFunction(stream) {
     window.private_rec = new MediaRecorder(stream);
     window.private_rec.ondataavailable = e => {
       audioChunks.push(e.data);

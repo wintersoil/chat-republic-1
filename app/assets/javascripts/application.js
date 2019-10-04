@@ -127,6 +127,79 @@ $( document ).on('turbolinks:load', function() {
     }
   }
 
+
+  try{
+    navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+  }
+  catch(err){
+    try{
+    navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    }
+    catch(err){
+      try{
+      navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      }
+      catch(err)
+      {
+        console.log("If all media requests fails,    Error:   " + err);
+      }
+    }
+  }
+  let recordingVideo = false;
+  $("#recordVideo").click(function(e){
+    if(recordingVideo == false)
+    {
+      audioChunks = [];
+      window.recVideo.start();
+      recordingVideo = true;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg";
+      $("#recordVideo").attr( "src", hover );
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");
+    }
+    else {
+      recordingVideo = false;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
+      $("#recordVideo").attr( "src", hover );
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");
+      window.recVideo.stop();
+    }
+  });
+
+  function handlerFunctionVideo(stream) {
+    window.recVideo = new MediaRecorder(stream);
+    window.recVideo.ondataavailable = e => {
+      audioChunks.push(e.data);
+      let url1;
+      if(recVideo.state == "inactive"){
+        let blob = new Blob(audioChunks,{type:"video/mp4"});
+        try{
+         url1 = webkitURL.createObjectURL(blob);
+      }
+      catch(err)
+      {
+        url1 = URL.createObjectURL(blob);
+      }
+        var reader = new FileReader();
+        reader.onload = function(event){
+          var fd = {};
+          fd["fname"] = "test.mp4";
+          fd["data"] = event.target.result;
+          $.ajax({
+            type: "POST",
+            url: "/uploadMP4",
+            data: fd,
+            dataType: "text"
+          }).done(function(data){
+          });
+        };
+        reader.readAsDataURL(blob);
+      }
+    }
+  }
+
+
   try{
     navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {private_handlerFunction(stream)});
   }
@@ -203,15 +276,15 @@ $( document ).on('turbolinks:load', function() {
 
   //video streaming
   try{
-    navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {private_handlerFunctionVideo(stream)});
   }
   catch(err){
     try{
-    navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {private_handlerFunctionVideo(stream)});
     }
     catch(err){
       try{
-      navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {private_handlerFunctionVideo(stream)});
       }
       catch(err)
       {
@@ -241,7 +314,7 @@ $( document ).on('turbolinks:load', function() {
     }
   });
 
-  function handlerFunctionVideo(stream) {
+  function private_handlerFunctionVideo(stream) {
     window.private_recVideo = new MediaRecorder(stream);
     window.private_recVideo.ondataavailable = e => {
       audioChunks.push(e.data);

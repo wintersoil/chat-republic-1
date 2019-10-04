@@ -722,6 +722,12 @@ div[id^="user_"] {
   padding-left: 30px;
   margin-bottom: 30px;
 }
+#private_record:hover {
+  cursor: pointer;
+}
+#private_recordVideo:hover {
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 480px)
 {

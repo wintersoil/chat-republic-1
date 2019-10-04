@@ -128,6 +128,61 @@ $( document ).on('turbolinks:load', function() {
   }
 
 
+  let private_recording = false;
+  $("#private_record").click(function(e){
+    if(private_recording == false)
+    {
+      audioChunks = [];
+      window.private_rec.start();
+      private_recording = true;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
+      $("#private_record").attr( "src", hover );
+      $("#private_record").attr( "height", "90px" );
+      $("#private_record").attr( "width", "90px");
+    }
+    else {
+      private_recording = false;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
+      $("#private_record").attr( "src", hover );
+      $("#private_record").attr( "height", "90px" );
+      $("#private_record").attr( "width", "90px");
+      window.private_rec.stop();
+    }
+  });
+
+  function handlerFunction(stream) {
+    window.private_rec = new MediaRecorder(stream);
+    window.private_rec.ondataavailable = e => {
+      audioChunks.push(e.data);
+      let url1;
+      if(private_rec.state == "inactive"){
+        let blob = new Blob(audioChunks,{type:"audio/mpeg"});
+        try{
+         url1 = webkitURL.createObjectURL(blob);
+      }
+      catch(err)
+      {
+        url1 = URL.createObjectURL(blob);
+      }
+        var reader = new FileReader();
+        reader.onload = function(event){
+          var fd = {};
+          fd["fname"] = "test.mp3";
+          fd["data"] = event.target.result;
+          $.ajax({
+            type: "POST",
+            url: "/privateUploadMP3",
+            data: fd,
+            dataType: "text"
+          }).done(function(data){
+          });
+        };
+        reader.readAsDataURL(blob);
+      }
+    }
+  }
+
+
 
 
   //video streaming
@@ -148,34 +203,34 @@ $( document ).on('turbolinks:load', function() {
       }
     }
   }
-  let recordingVideo = false;
-  $("#recordVideo").click(function(e){
-    if(recordingVideo == false)
+  let private_recordingVideo = false;
+  $("#private_recordVideo").click(function(e){
+    if(private_recordingVideo == false)
     {
       audioChunks = [];
-      window.recVideo.start();
-      recordingVideo = true;
+      window.private_recVideo.start();
+      private_recordingVideo = true;
       var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg";
-      $("#recordVideo").attr( "src", hover );
-      $("#recordVideo").attr( "height", "90px" );
-      $("#recordVideo").attr( "width", "90px");
+      $("#private_recordVideo").attr( "src", hover );
+      $("#private_recordVideo").attr( "height", "90px" );
+      $("#private_recordVideo").attr( "width", "90px");
     }
     else {
-      recordingVideo = false;
+      private_recordingVideo = false;
       var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
-      $("#recordVideo").attr( "src", hover );
-      $("#recordVideo").attr( "height", "90px" );
-      $("#recordVideo").attr( "width", "90px");
-      window.recVideo.stop();
+      $("#private_recordVideo").attr( "src", hover );
+      $("#private_recordVideo").attr( "height", "90px" );
+      $("#private_recordVideo").attr( "width", "90px");
+      window.private_recVideo.stop();
     }
   });
 
   function handlerFunctionVideo(stream) {
-    window.recVideo = new MediaRecorder(stream);
-    window.recVideo.ondataavailable = e => {
+    window.private_recVideo = new MediaRecorder(stream);
+    window.private_recVideo.ondataavailable = e => {
       audioChunks.push(e.data);
       let url1;
-      if(recVideo.state == "inactive"){
+      if(private_recVideo.state == "inactive"){
         let blob = new Blob(audioChunks,{type:"video/mp4"});
         try{
          url1 = webkitURL.createObjectURL(blob);
@@ -191,7 +246,7 @@ $( document ).on('turbolinks:load', function() {
           fd["data"] = event.target.result;
           $.ajax({
             type: "POST",
-            url: "/uploadMP4",
+            url: "/privateUploadMP4",
             data: fd,
             dataType: "text"
           }).done(function(data){

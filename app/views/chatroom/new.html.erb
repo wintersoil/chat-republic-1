@@ -126,7 +126,6 @@ function handlerFunction(stream) {
 }
 
 let video_record = function(){
-  return new Promise((resolve, reject) => {
     try{
       navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
     }
@@ -144,12 +143,12 @@ let video_record = function(){
         }
       }
     }
-  });
 }
 video_record();
 let recordingVideo = false;
 $("#recordVideo").click(function(e){
-  video_record().then(function() {
+  video_record();
+  setTimeout(function(){
     if(recordingVideo == false)
     {
       audioChunks = [];
@@ -169,7 +168,8 @@ $("#recordVideo").click(function(e){
       window.recVideo.stop();
       video_record();
     }
-  }).catch(error => console.log(error));
+  }, 1500);
+
 });
 
 function handlerFunctionVideo(stream) {

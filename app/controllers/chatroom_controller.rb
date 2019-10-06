@@ -41,8 +41,41 @@ class ChatroomController < ApplicationController
     url = file.public_url
     puts url
     @message.mp3 = url
+    user_agent =  request.env['HTTP_USER_AGENT'].downcase
+    @users_browser ||= begin
+  if user_agent.index('msie') && !user_agent.index('opera') && !user_agent.index('webtv')
+                'ie'+user_agent[user_agent.index('msie')+5].chr
+    elsif user_agent.index('gecko/')
+        'gecko'
+    elsif user_agent.index('opera')
+        'opera'
+    elsif user_agent.index('konqueror')
+        'konqueror'
+    elsif user_agent.index('ipod')
+        'ipod'
+    elsif user_agent.index('ipad')
+        'ipad'
+    elsif user_agent.index('iphone')
+        'iphone'
+    elsif user_agent.index('chrome/')
+        'chrome'
+    elsif user_agent.index('applewebkit/')
+        'safari'
+    elsif user_agent.index('googlebot/')
+        'googlebot'
+    elsif user_agent.index('msnbot')
+        'msnbot'
+    elsif user_agent.index('yahoo! slurp')
+        'yahoobot'
+    #Everything thinks it's mozilla, so this goes last
+    elsif user_agent.index('mozilla/')
+        'gecko'
+    else
+        'unknown'
+    end
+  end
     if @message.save
-      ActionCable.server.broadcast "chatroom_channel", mod_message: mp3_message_render(@message)
+      ActionCable.server.broadcast "chatroom_channel", mod_message: mp3_message_render(@message, @users_browser)
     else
     end
   end
@@ -87,8 +120,8 @@ class ChatroomController < ApplicationController
     render(partial: 'messages/message', locals: {msg: message})
   end
 
-  def mp3_message_render(message)
-    render(partial: 'messages/mp3message', locals: {msg: message})
+  def mp3_message_render(message, browser)
+    render(partial: 'messages/mp3message', locals: {msg: message, browser: browser})
   end
 
   def mp4_message_render(message)

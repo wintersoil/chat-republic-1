@@ -12,8 +12,11 @@
             </div>
             <div>
               <audio controls="controls" preload="auto">
-                <source src="<%= msg.mp3 %>" type="audio/mpeg">
-                <source src="<%= msg.mp3 %>" type="audio/ogg">
+                <% if browser == "safari" %>
+                  <source src="<%= msg.mp3 %>" type="audio/ogg">
+                <% else %>
+                  <source src="<%= msg.mp3 %>" type="audio/mpeg">
+                <% end %>
               </audio>
             </div>
           </div>

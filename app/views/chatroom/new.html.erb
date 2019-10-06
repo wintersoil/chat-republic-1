@@ -69,8 +69,7 @@ let try_recording = function() {
 let recording = false;
 let current_audio = false;
 $("#record").click(function(e){
-  if (current_audio == false)
-    try_recording();
+  try_recording();
   current_audio = true;
   if(recording == false)
   {
@@ -145,11 +144,9 @@ let try_recording_video = function() {
 }
 let recordingVideo = false;
 $("#recordVideo").click(function(e){
+  try_recording_video();
   if(recordingVideo == false)
   {
-    if(current_audio == true)
-      try_recording_video();
-    current_audio = false;
     audioChunks = [];
     window.recVideo.start();
     recordingVideo = true;

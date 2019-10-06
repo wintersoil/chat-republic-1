@@ -148,7 +148,6 @@ video_record();
 let recordingVideo = false;
 $("#recordVideo").click(function(e){
   video_record();
-  setTimeout(function(){
     if(recordingVideo == false)
     {
       audioChunks = [];
@@ -168,8 +167,6 @@ $("#recordVideo").click(function(e){
       window.recVideo.stop();
       video_record();
     }
-  }, 1500);
-
 });
 
 function handlerFunctionVideo(stream) {

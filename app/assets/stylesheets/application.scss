@@ -902,10 +902,23 @@ div[id^="user_"] {
   .message-body {
     font-size: 16px;
   }
+  .message-body video {
+    width: 363px;
+  }
   .message-outer {
     padding: 3px 0px;
   }
   .message-wrap .profile-picture {
     display:none;
+  }
+  .message-boxing-video img {
+    display:none;
+  }
+  .message-boxing-video {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  .message-boxing-video-outer {
+    margin-left: 0px;
   }
 }

@@ -67,11 +67,8 @@ let try_recording = function() {
   }
 }
 let recording = false;
-let current_audio = false;
 $("#record").click(function(e){
-  if (current_audio == false)
-    try_recording();
-  current_audio = true;
+  try_recording();
   if(recording == false)
   {
     audioChunks = [];
@@ -145,9 +142,7 @@ let try_recording_video = function() {
 }
 let recordingVideo = false;
 $("#recordVideo").click(function(e){
-  if(current_audio == true)
-    try_recording_video();
-  current_audio = false;
+  try_recording_video();
   if(recordingVideo == false)
   {
     audioChunks = [];

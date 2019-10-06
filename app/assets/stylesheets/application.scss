@@ -669,6 +669,7 @@ div[id^="user_"] {
   -webkit-clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 15px 80%);
   font-size: 20px;
   border-radius: 6px;
+  min-width: 121px;
 }
 .private-message-others .private-message-bubble {
   background-color: #aeadff;

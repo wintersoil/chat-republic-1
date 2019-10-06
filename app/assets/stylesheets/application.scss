@@ -455,9 +455,12 @@ div[id^="user_"] {
   flex-basis: 45%;
   margin-right: 30px;
   margin-bottom: 30px;
-  height: 300px;
+  height: 185px;
   padding-bottom: 14px;
   display: flex;
+}
+.card-inner-buttons {
+  display: inline-block;
 }
 .profile-rounded {
   border-radius: 50%;

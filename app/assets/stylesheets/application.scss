@@ -999,7 +999,10 @@ div[id^="user_"] {
   .message-body video {
     width: 310px;
   }
+  .private-messages-container {
+    height:67vh;
+  }
   .containing {
-    height: 88vh;
+    width: 95vw;
   }
 }

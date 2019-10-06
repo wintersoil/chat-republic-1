@@ -881,4 +881,14 @@ div[id^="user_"] {
   .super-menu-item {
     display:block;
   }
+  .message-wrap {
+    filter: none;
+  }
+  .messages-of-others .message-boxing {
+    padding-top: 18px;
+    padding-bottom: 2px;
+  }
+  .message-body {
+    font-size: 16px;
+  }
 }

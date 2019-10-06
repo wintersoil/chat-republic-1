@@ -160,7 +160,7 @@ function handlerFunctionVideo(stream) {
   window.recVideo.ondataavailable = e => {
     audioChunks.push(e.data);
     let url1;
-    if(recVideo.state == "inactive"){
+    if(window.recVideo.state == "inactive"){
       let blob = new Blob(audioChunks,{type:"video/mp4"});
       try{
        url1 = webkitURL.createObjectURL(blob);

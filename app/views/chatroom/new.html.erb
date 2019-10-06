@@ -147,25 +147,27 @@ let video_record = function(){
 video_record();
 let recordingVideo = false;
 $("#recordVideo").click(function(e){
-  if(recordingVideo == false)
-  {
-    audioChunks = [];
-    window.recVideo.start();
-    recordingVideo = true;
-    var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg";
-    $("#recordVideo").attr( "src", hover );
-    $("#recordVideo").attr( "height", "90px" );
-    $("#recordVideo").attr( "width", "90px");
-  }
-  else {
-    recordingVideo = false;
-    var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
-    $("#recordVideo").attr( "src", hover );
-    $("#recordVideo").attr( "height", "90px" );
-    $("#recordVideo").attr( "width", "90px");
-    window.recVideo.stop();
-    video_record();
-  }
+  video_record().then(function() {
+    if(recordingVideo == false)
+    {
+      audioChunks = [];
+      window.recVideo.start();
+      recordingVideo = true;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg";
+      $("#recordVideo").attr( "src", hover );
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");
+    }
+    else {
+      recordingVideo = false;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
+      $("#recordVideo").attr( "src", hover );
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");
+      window.recVideo.stop();
+      video_record();
+    }
+  });
 });
 
 function handlerFunctionVideo(stream) {

@@ -887,8 +887,15 @@ div[id^="user_"] {
   .messages-of-others .message-boxing {
     padding-top: 18px;
     padding-bottom: 2px;
+    margin-left: 0px;
   }
   .message-body {
     font-size: 16px;
+  }
+  .message-outer {
+    padding: 3px 0px;
+  }
+  .message-wrap .profile-picture {
+    display:none;
   }
 }

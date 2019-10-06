@@ -110,7 +110,7 @@ function handlerFunction(stream) {
       var reader = new FileReader();
       reader.onload = function(event){
         var fd = {};
-        fd["fname"] = "test.mp3";
+        fd["fname"] = "test.mpeg";
         fd["data"] = event.target.result;
         $.ajax({
           type: "POST",

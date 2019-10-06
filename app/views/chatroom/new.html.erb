@@ -51,6 +51,7 @@
 $(document).ready(function(){
 
 
+let audio_record = function(){
   try{
     navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
@@ -67,10 +68,10 @@ $(document).ready(function(){
       }
     }
   }
+}
+audio_record();
 let recording = false;
-let current_audio = false;
 $("#record").click(function(e){
-  current_audio = true;
   if(recording == false)
   {
     audioChunks = [];
@@ -88,6 +89,7 @@ $("#record").click(function(e){
     $("#record").attr( "height", "90px" );
     $("#record").attr( "width", "90px");
     window.rec.stop();
+    audio_record();
   }
 });
 

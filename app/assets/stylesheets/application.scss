@@ -893,6 +893,7 @@ div[id^="user_"] {
     margin-left: 0px;
     padding-top: 18px;
     padding-bottom: 5px;
+    clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 10px 80%);
   }
   .message-body {
     font-size: 16px;

@@ -919,6 +919,18 @@ div[id^="user_"] {
     box-shadow: none;
     border: 1px solid #ddd;
   }
+  .message-boxing-audio {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    margin-left: 0px;
+    position: relative;
+  }
+  .message-body audio {
+    width: 363px;
+  }
+  .message-boxing-audio img{
+    display: none;
+  }
   .message-boxing-video-outer {
     margin-left: 0px;
   }

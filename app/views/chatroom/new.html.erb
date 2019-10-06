@@ -48,24 +48,30 @@
 <%= audio_tag("definite.mp3", autoplay: false, controls: true, style: "display:none", id:"hollow-copy") %>
 <%= audio_tag("definite_iphone.m4r", autoplay: false, controls: true, style: "display:none", id:"hollow-copy-1") %>
 <script>
-try{
-  navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
-}
-catch(err){
+let try_recording = function() {
   try{
-    navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
   }
   catch(err){
     try{
-    navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+      navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
     }
     catch(err){
-      console.log("If all media requests fails,   Error:   " + err);
+      try{
+      navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+      }
+      catch(err){
+        console.log("If all media requests fails,   Error:   " + err);
+      }
     }
   }
 }
 let recording = false;
+let current_audio = false;
 $("#record").click(function(e){
+  if (current_audio == false)
+    try_recording();
+  current_audio = true;
   if(recording == false)
   {
     audioChunks = [];
@@ -118,26 +124,30 @@ function handlerFunction(stream) {
   }
 }
 
-
-try{
-  navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
-}
-catch(err){
+let try_recording_video = function() {
   try{
-  navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
   }
   catch(err){
     try{
-    navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
     }
-    catch(err)
-    {
-      console.log("If all media requests fails,    Error:   " + err);
+    catch(err){
+      try{
+      navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      }
+      catch(err)
+      {
+        console.log("If all media requests fails,    Error:   " + err);
+      }
     }
   }
 }
 let recordingVideo = false;
 $("#recordVideo").click(function(e){
+  if(current_audio == true)
+    try_recording_video();
+  current_audio = false;
   if(recordingVideo == false)
   {
     audioChunks = [];

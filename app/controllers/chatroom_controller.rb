@@ -74,6 +74,7 @@ class ChatroomController < ApplicationController
         'unknown'
     end
   end
+  puts @users_browser
     if @message.save
       ActionCable.server.broadcast "chatroom_channel", mod_message: mp3_message_render(@message, @users_browser)
     else

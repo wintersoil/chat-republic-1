@@ -961,6 +961,9 @@ div[id^="user_"] {
     margin-bottom: 2px !important;
     filter: none;
   }
+  .private-message-box {
+    border: none;
+  }
 }
 @media only screen and (max-width: 360px)
 {

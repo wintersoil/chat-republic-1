@@ -126,23 +126,25 @@ function handlerFunction(stream) {
 }
 
 let video_record = function(){
-  try{
-    navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
-  }
-  catch(err){
+  return new Promise((resolve, reject) => {
     try{
-    navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
     }
     catch(err){
       try{
-      navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
       }
-      catch(err)
-      {
-        console.log("If all media requests fails,    Error:   " + err);
+      catch(err){
+        try{
+        navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+        }
+        catch(err)
+        {
+          console.log("If all media requests fails,    Error:   " + err);
+        }
       }
     }
-  }
+  });
 }
 video_record();
 let recordingVideo = false;
@@ -167,7 +169,7 @@ $("#recordVideo").click(function(e){
       window.recVideo.stop();
       video_record();
     }
-  });
+  }).catch(error => console.log(error));
 });
 
 function handlerFunctionVideo(stream) {

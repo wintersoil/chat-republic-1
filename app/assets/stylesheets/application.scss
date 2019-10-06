@@ -732,6 +732,9 @@ div[id^="user_"] {
 .private-message-send {
   display: none;
 }
+.private-message-rounded-send .private-message-send {
+  display: flex;
+}
 
 @media only screen and (max-width: 480px)
 {

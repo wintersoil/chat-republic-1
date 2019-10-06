@@ -11,13 +11,13 @@
               <strong><%= msg.user.first_name %> <%= msg.user.last_name %> : </strong>
             </div>
             <div>
-              <audio controls="controls" preload="auto">
-                <% if browser == "safari" %>
-                  <source src="<%= msg.mp3 %>" type="audio/ogg">
+                <% if browser == "safari" || browser == "iphone" %>
+                <audio controls="controls" preload="auto" src="<%= msg.mp3 %>" type="audio/ogg" />
                 <% else %>
-                  <source src="<%= msg.mp3 %>" type="audio/mpeg">
+                  <audio controls="controls" preload="auto">
+                    <source src="<%= msg.mp3 %>" type="audio/mpeg">
+                  </audio>
                 <% end %>
-              </audio>
             </div>
           </div>
           <div class="message-timing">

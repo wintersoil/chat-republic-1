@@ -950,6 +950,9 @@ div[id^="user_"] {
   .private-message-send {
     display: inline-block;
   }
+  .private-messages-container {
+    height: 75vh;
+  }
 }
 @media only screen and (max-width: 360px)
 {

@@ -13,11 +13,14 @@
       <%= form_for @message, url: {action: "create"}, html: {class: "form-chatroom"}, remote: true do |f| %>
         <%= f.text_field :body, class:"messages-input-field", autocomplete: :off %>
         <%= f.submit "Send", class:"messages-input-button", placeholder: "Type text and send to everyone!" %>
+        <%= image_submit_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send.svg", height:'50', width:'50', class:'private-message-send') %>
       <% end %>
       <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg", id:"record", height:'90px', width:'90px') %>
       <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg", id:"recordVideo", height:'90px', width:'90px') %>
       <img src="https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg" height="0px" width="0px" />
       <img src="https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg" height="0px" width="0px" />
+      <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send.svg", height:'0', width:'0') %>
+      <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send_hover.svg", height:'0', width:'0') %>
     </div>
   </div>
 </div>

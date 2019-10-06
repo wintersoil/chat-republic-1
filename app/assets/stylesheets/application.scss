@@ -729,6 +729,9 @@ div[id^="user_"] {
 #private_recordVideo:hover {
   cursor: pointer;
 }
+.private-message-send {
+  display: none;
+}
 
 @media only screen and (max-width: 480px)
 {
@@ -934,5 +937,11 @@ div[id^="user_"] {
   }
   .message-boxing-video-outer {
     margin-left: 0px;
+  }
+  .messages-input-button {
+    display: none;
+  }
+  .private-message-send {
+    display: inline-block;
   }
 }

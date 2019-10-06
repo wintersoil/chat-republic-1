@@ -14,7 +14,9 @@
             <% end %>
             <div class="name-card-live-outer">
               <div class="name-card-live">
-                <%= usr.first_name %> <%= usr.last_name %>
+                <div class="card-inner-name">
+                  <%= usr.first_name %> <%= usr.last_name %>
+                </div>
                 <div class="card-inner-buttons">
                   <%= link_to video_path(id: usr.id), method: :post do %>
                     <%= image_tag("https://cdn4.iconfinder.com/data/icons/REALVISTA/multimedia/png/400/videocam.png", width:'80', height:'80') %>

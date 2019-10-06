@@ -611,6 +611,7 @@ div[id^="user_"] {
   position: fixed;
   top: 15px;
   right: 15px;
+  z-index: 1500;
 }
 .online-notification-bar img{
   margin-right: 7px;

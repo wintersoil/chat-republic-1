@@ -948,3 +948,12 @@ div[id^="user_"] {
     display: inline-block;
   }
 }
+@media only screen and (max-width: 360px)
+{
+  .message-body audio {
+    width: 335px;
+  }
+  .message-body video {
+    width: 335px;
+  }
+}

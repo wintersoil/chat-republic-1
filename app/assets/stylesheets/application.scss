@@ -965,6 +965,7 @@ div[id^="user_"] {
   .private-message-box {
     border: none;
     font-size: 16px;
+    min-width: 121px;
   }
   .private-message-others .private-message-box {
     font-size: 16px;

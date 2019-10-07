@@ -161,6 +161,7 @@ if(iOS == false)
         $("#recordVideo").attr( "height", "90px" );
         $("#recordVideo").attr( "width", "90px");
         $(".video-playback").css("display", "block");
+        $("#video-mirror").play();
 
       }
       else {
@@ -171,6 +172,7 @@ if(iOS == false)
         $("#recordVideo").attr( "width", "90px");
         window.recVideo.stop();
         $(".video-playback").css("display", "none");
+        $("#video-mirror").pause();
 
       }
     });

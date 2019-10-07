@@ -15,15 +15,19 @@ class User < ApplicationRecord
       elm.online?
     end
     only_relevant = []
+    controller = params[:controller]
+    action = params[:action]
     all_online.each do |elm|
-      only_relevant.push({event: 'appear', user_id: elm.id, first_name: elm.first_name, last_name: elm.last_name})
+      only_relevant.push({event: 'appear', user_id: elm.id, first_name: elm.first_name, last_name: elm.last_name, controller: controller, action: action})
     end
     ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end
 
   def disappear
     self.update(online: false)
-    ActionCable.server.broadcast "online_channel", {event: 'disappear', user_id: self.id}
+    action = params[:action]
+    controller = params[:controller]
+    ActionCable.server.broadcast "online_channel", {event: 'disappear', user_id: self.id, controller: controller, action: action}
   end
 
   def away

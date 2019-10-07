@@ -13,7 +13,10 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         while i < data.arrayez.length
           userId = data.arrayez[i].user_id
           eventType = data.arrayez[i].event
-          if eventType == 'appear'
+          controller = data.arrayez[i].controller
+          action = data.arrayez[i].action
+          console.log controller + " " + action
+          if (eventType == 'appear' && controller == "chatroom")
             $('#user_' + userId).removeClass 'hidden-user'
             $('#user_' + userId).addClass 'background-green-online'
             $('#user_' + userId + ' .online-logo').css('display', 'flex')

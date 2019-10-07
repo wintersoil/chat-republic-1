@@ -10,7 +10,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
     $ ->
       if data.hasOwnProperty('arrayez')
         i = 0
-        while i < data.arrayez.length
+        while i <= data.arrayez.length
           userId = data.arrayez[i].user_id
           eventType = data.arrayez[i].event
           if eventType == 'appear'

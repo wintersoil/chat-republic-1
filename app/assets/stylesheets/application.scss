@@ -1046,7 +1046,11 @@ div[id^="user_"] {
     display: none;
     position: absolute;
     top: 30px;
-    left: -100px;
+    left: -200px;
     z-index: 300;
+  }
+  #video-mirror {
+    width: 280px;
+    height: 550px;
   }
 }

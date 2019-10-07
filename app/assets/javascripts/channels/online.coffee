@@ -15,13 +15,13 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           eventType = data.arrayez[i].event
           if data.arrayez[i].hasOwnProperty('controller')
             controller = data.arrayez[i].controller
-          console.log controller
-          if (eventType == 'appear' && controller == "chatroom")
+            console.log controller
+          if eventType == 'appear' && controller == "chatroom"
             $('#user_' + userId).removeClass 'hidden-user'
             $('#user_' + userId).addClass 'background-green-online'
             $('#user_' + userId + ' .online-logo').css('display', 'flex')
             $('#user_' + userId + ' .online-span').css('display', 'inline-block')
-          else if (eventType == 'appear')
+          else if eventType == 'appear'
             $('.online-notification-bar-wrapper').css('display', 'flex')
             $('.online-notification-bar').css('display', 'flex')
             first_name = data.arrayez[i].first_name

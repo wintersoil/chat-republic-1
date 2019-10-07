@@ -174,9 +174,9 @@ if(iOS == false)
         var reader = new FileReader();
         reader.onload = function(event){
           var fd = {};
+          fd["recipient"] = '<%= @recipient.to_i %>';
           fd["fname"] = "test.mp4";
           fd["data"] = event.target.result;
-          fd["recipient"] = '<%= @recipient.to_i %>';
           $.ajax({
             type: "POST",
             url: "/privateUploadMP4",

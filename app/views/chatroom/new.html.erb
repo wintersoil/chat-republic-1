@@ -224,14 +224,14 @@ else {
       }
     }
   }
-  audio_record();
   let recording = false;
   $("#record").click(function(e){
+    console.log(current_status_audio);
     if(current_status_audio == false)
     {
       audio_record();
     }
-    else if(recording == false)
+    else if(current_status_audio == true && recording == false)
     {
       audioChunks = [];
       window.rec.start();
@@ -248,7 +248,6 @@ else {
       $("#record").attr( "height", "90px" );
       $("#record").attr( "width", "90px");
       window.rec.stop();
-      audio_record();
     }
   });
 
@@ -304,14 +303,14 @@ else {
       }
     }
   }
-  video_record();
   let recordingVideo = false;
   $("#recordVideo").click(function(e){
+    console.log(current_status_audio);
     if(current_status_audio == true)
     {
       video_record();
     }
-    else if(recordingVideo == false)
+    else if(current_status_audio == false && recordingVideo == false)
     {
       audioChunks = [];
       window.recVideo.start();
@@ -328,7 +327,6 @@ else {
       $("#recordVideo").attr( "height", "90px" );
       $("#recordVideo").attr( "width", "90px");
       window.recVideo.stop();
-      video_record();
     }
   });
 

@@ -172,7 +172,7 @@ if(iOS == false)
     });
 
     function handlerFunctionVideo(stream) {
-      const mirror = document.getElementById('video-mirror');/
+      const mirror = document.getElementById('video-mirror');
       mirror.srcObject = stream;
       $('.video-playback').css('display', 'block');
     window.recVideo = new MediaRecorder(stream);

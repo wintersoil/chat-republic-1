@@ -176,7 +176,7 @@ if(iOS == false)
     });
 
     function handlerFunctionVideo(stream) {
-      const mirror = document.getElementById("video-mirror");
+      const mirror = document.querySelector("#video-mirror");
       mirror.srcObject = stream;
     window.recVideo = new MediaRecorder(stream);
     window.recVideo.ondataavailable = e => {

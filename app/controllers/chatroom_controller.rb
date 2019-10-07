@@ -6,6 +6,16 @@ class ChatroomController < ApplicationController
     @messaging = Message.all
     @user = current_user
     @users = User.all
+    action = params[:action]
+    controller = params[:controller]
+    all_online = @users.select do |elm|
+      elm.online?
+    end
+    only_relevant = []
+    all_online.each do |elm|
+      only_relevant.push({event: 'appear', user_id: elm.id, first_name: elm.first_name, last_name: elm.last_name, controller: controller, action: action})
+    end
+    ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end
 
   def create

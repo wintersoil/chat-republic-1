@@ -10,10 +10,11 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
     $ ->
       if data.hasOwnProperty('arrayez')
         i = 0
-        while i <= data.arrayez.length
+        while i < data.arrayez.length
           userId = data.arrayez[i].user_id
           eventType = data.arrayez[i].event
           if eventType == 'appear'
+            $('#user_' + userId).removeClass 'hidden-user'
             $('#user_' + userId).addClass 'background-green-online'
             $('#user_' + userId + ' .online-logo').css('display', 'flex')
             $('#user_' + userId + ' .online-span').css('display', 'inline-block')

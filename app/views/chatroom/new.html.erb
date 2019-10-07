@@ -204,46 +204,52 @@ if(iOS == false)
 }
 else {
   //is an iPhone
+  let current_status_audio = false;
   let audio_record = function(){
-  try{
-    navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
-  }
-  catch(err){
+    current_status_audio = true;
     try{
-      navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+      navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
     }
     catch(err){
       try{
-      navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+        navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
       }
       catch(err){
-        console.log("If all media requests fails,   Error:   " + err);
+        try{
+        navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+        }
+        catch(err){
+          console.log("If all media requests fails,   Error:   " + err);
+        }
       }
     }
-  }
   }
   audio_record();
   let recording = false;
   $("#record").click(function(e){
-  if(recording == false)
-  {
-    audioChunks = [];
-    window.rec.start();
-    recording = true;
-    var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
-    $("#record").attr( "src", hover );
-    $("#record").attr( "height", "90px" );
-    $("#record").attr( "width", "90px");
-  }
-  else {
-    recording = false;
-    var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
-    $("#record").attr( "src", hover );
-    $("#record").attr( "height", "90px" );
-    $("#record").attr( "width", "90px");
-    window.rec.stop();
-    audio_record();
-  }
+    if(current_status_audio == false)
+    {
+      audio_record();
+    }
+    else if(recording == false)
+    {
+      audioChunks = [];
+      window.rec.start();
+      recording = true;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
+      $("#record").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");
+    }
+    else {
+      recording = false;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
+      $("#record").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");
+      window.rec.stop();
+      audio_record();
+    }
   });
 
   function handlerFunction(stream) {
@@ -279,6 +285,7 @@ else {
   }
 
   let video_record = function(){
+    curent_status_audio = false;
     try{
       navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
     }
@@ -300,7 +307,11 @@ else {
   video_record();
   let recordingVideo = false;
   $("#recordVideo").click(function(e){
-    if(recordingVideo == false)
+    if(current_status_audio == true)
+    {
+      video_record();
+    }
+    else if(recordingVideo == false)
     {
       audioChunks = [];
       window.recVideo.start();

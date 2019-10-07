@@ -160,6 +160,8 @@ if(iOS == false)
         $("#recordVideo").attr( "src", hover );
         $("#recordVideo").attr( "height", "90px" );
         $("#recordVideo").attr( "width", "90px");
+        $(".video-playback").css("display", "block");
+
       }
       else {
         recordingVideo = false;
@@ -168,11 +170,12 @@ if(iOS == false)
         $("#recordVideo").attr( "height", "90px" );
         $("#recordVideo").attr( "width", "90px");
         window.recVideo.stop();
+        $(".video-playback").css("display", "none");
+
       }
     });
 
     function handlerFunctionVideo(stream) {
-      $(".video-playback").css("display", "block");
       const mirror = document.getElementById("video-mirror");
       mirror.srcObject = stream;
     window.recVideo = new MediaRecorder(stream);
@@ -199,7 +202,6 @@ if(iOS == false)
             data: fd,
             dataType: "text"
           }).done(function(data){
-            $('.video-playback').css('display', 'none');
           });
         };
         reader.readAsDataURL(blob);

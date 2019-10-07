@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :clients
   mount_uploader :profile_picture, PictureUploader
 
-  def appear(controller,action)
+  def appear
     self.update(online: true)
     users = User.all
     all_online = users.select do |elm|
@@ -16,14 +16,14 @@ class User < ApplicationRecord
     end
     only_relevant = []
     all_online.each do |elm|
-      only_relevant.push({event: 'appear', user_id: elm.id, first_name: elm.first_name, last_name: elm.last_name, controller: controller, action: action})
+      only_relevant.push({event: 'appear', user_id: elm.id, first_name: elm.first_name, last_name: elm.last_name})
     end
     ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end
 
-  def disappear(controller,action)
+  def disappear
     self.update(online: false)
-    ActionCable.server.broadcast "online_channel", {event: 'disappear', user_id: self.id, controller: controller, action: action}
+    ActionCable.server.broadcast "online_channel", {event: 'disappear', user_id: self.id}
   end
 
   def away

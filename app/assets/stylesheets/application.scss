@@ -1001,12 +1001,18 @@ div[id^="user_"] {
     height: 70px;
   }
   .sending-video {
-    display: none;
+    display: block;
   }
   #returned-photo {
     width: 393px;
   }
   .receiving-video-header {
+    display: none;
+  }
+  .both-videos {
+    display: block;
+  }
+  .sending-video-header {
     display: none;
   }
 }

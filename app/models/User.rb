@@ -11,6 +11,7 @@ class User < ApplicationRecord
   def appear
     self.update(online: true)
     users = User.all
+    only_relevant = []
     only_relevant.push({event: 'appear', user_id: current_user.id, first_name: current_user.first_name, last_name: current_user.last_name})
     ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end

@@ -920,14 +920,14 @@ div[id^="user_"] {
     font-size: 16px;
   }
   .message-body video {
-    width: 363px;
+    width: 312px;
   }
   .message-outer {
     padding: 3px 0px;
   }
   .message-wrap .profile-picture {
-    height: 25px;
-    width: 25px;
+    height: 40px;
+    width: 40px;
   }
   .message-boxing-video img {
     display:none;
@@ -941,9 +941,10 @@ div[id^="user_"] {
     border: 1px solid #ddd;
     margin-left: 0px;
     position: relative;
+    margin-left: 5px;
   }
   .message-body audio {
-    width: 363px;
+    width: 312px;
   }
   .message-boxing-audio img{
     display: none;

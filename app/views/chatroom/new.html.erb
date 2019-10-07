@@ -161,8 +161,7 @@ if(iOS == false)
         $("#recordVideo").attr( "height", "90px" );
         $("#recordVideo").attr( "width", "90px");
         $(".video-playback").css("display", "block");
-        $("#video-mirror").play();
-
+        document.getElementById("video-mirror").play();
       }
       else {
         recordingVideo = false;
@@ -172,8 +171,7 @@ if(iOS == false)
         $("#recordVideo").attr( "width", "90px");
         window.recVideo.stop();
         $(".video-playback").css("display", "none");
-        $("#video-mirror").pause();
-
+        document.getElementById("video-mirror").pause();
       }
     });
 

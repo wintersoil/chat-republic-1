@@ -1000,6 +1000,15 @@ div[id^="user_"] {
     width: 70px;
     height: 70px;
   }
+  .sending-video {
+    display: none;
+  }
+  #returned-photo {
+    width: 393px;
+  }
+  .receiving-video-header {
+    display: none;
+  }
 }
 @media only screen and (max-width: 360px)
 {

@@ -30,6 +30,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
                 ))
           else
             $('#user_' + userId).removeClass 'background-green-online'
+            $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
           i=i+1

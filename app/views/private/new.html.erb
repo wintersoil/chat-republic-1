@@ -93,7 +93,7 @@ if(iOS == false)
         var reader = new FileReader();
         reader.onload = function(event){
           var fd = {};
-          fd["recipient"] = '<%= @recipient.to_i %>';
+          fd["recipient"] = $('#private_recordVideo').attr('data-attr');
           fd["fname"] = "test.mpeg";
           fd["data"] = event.target.result;
           $.ajax({
@@ -174,7 +174,7 @@ if(iOS == false)
         var reader = new FileReader();
         reader.onload = function(event){
           var fd = {};
-          fd["recipient"] = '<%= @recipient.to_i %>';
+          fd["recipient"] = $('#private_recordVideo').attr('data-attr');
           fd["fname"] = "test.mp4";
           fd["data"] = event.target.result;
           $.ajax({

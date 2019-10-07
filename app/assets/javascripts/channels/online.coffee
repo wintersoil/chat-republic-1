@@ -22,6 +22,11 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-logo').css('display', 'flex')
             $('#user_' + userId + ' .online-span').css('display', 'inline-block')
           else if eventType == 'appear'
+            $('#user_' + userId).removeClass 'background-green-online'
+            $('#user_' + userId).addClass 'hidden-user'
+            $('#user_' + userId + ' .online-logo').css('display', 'none')
+            $('#user_' + userId + ' .online-span').css('display', 'none')
+            
             $('.online-notification-bar-wrapper').css('display', 'flex')
             $('.online-notification-bar').css('display', 'flex')
             first_name = data.arrayez[i].first_name

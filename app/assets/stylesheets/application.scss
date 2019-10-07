@@ -1042,4 +1042,11 @@ div[id^="user_"] {
   .private-message-rounded-send{
     width: 94%;
   }
+  .video-playback{
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: -100px;
+    z-index: 300;
+  }
 }

@@ -26,6 +26,337 @@
 <%= audio_tag("definite_iphone.m4r", autoplay: false, controls: true, style: "display:none", id:"hollow-copy-1") %>
 <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send.svg", height:'0', width:'0') %>
 <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/private_message_send_hover.svg", height:'0', width:'0') %>
+<div class="video-playback">
+  <video muted autoplay id="video-mirror" height="500px" width="800px"></video>
+</div>
+<script>
+$(document).ready(function(){
+var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+console.log(iOS);
+if(iOS == false)
+{
+    let audio_record = function(){
+    try{
+      navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    }
+    catch(err){
+      try{
+        navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+      }
+      catch(err){
+        try{
+        navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+        }
+        catch(err){
+          console.log("If all media requests fails,   Error:   " + err);
+        }
+      }
+    }
+    }
+    audio_record();
+    let recording = false;
+    $("#private_record").click(function(e){
+    if(recording == false)
+    {
+      audioChunks = [];
+      window.rec.start();
+      recording = true;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
+      $("#private_record").attr( "src", hover );
+      $("#private_record").attr( "height", "90px" );
+      $("#private_record").attr( "width", "90px");
+    }
+    else {
+      recording = false;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
+      $("#private_record").attr( "src", hover );
+      $("#private_record").attr( "height", "90px" );
+      $("#private_record").attr( "width", "90px");
+      window.rec.stop();
+    }
+    });
+
+    function handlerFunction(stream) {
+    window.rec = new MediaRecorder(stream);
+    window.rec.ondataavailable = e => {
+      audioChunks.push(e.data);
+      let url1;
+      if(rec.state == "inactive"){
+        let blob = new Blob(audioChunks,{type:"audio/mpeg"});
+        try{
+         url1 = webkitURL.createObjectURL(blob);
+      }
+      catch(err)
+      {
+        url1 = URL.createObjectURL(blob);
+      }
+        var reader = new FileReader();
+        reader.onload = function(event){
+          var fd = {};
+          fd["fname"] = "test.mpeg";
+          fd["data"] = event.target.result;
+          $.ajax({
+            type: "POST",
+            url: "/privateUploadMP3",
+            data: fd,
+            dataType: "text"
+          }).done(function(data){
+          });
+        };
+        reader.readAsDataURL(blob);
+      }
+    }
+    }
+
+    let video_record = function(){
+      try{
+        navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      }
+      catch(err){
+        try{
+        navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+        }
+        catch(err){
+          try{
+          navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+          }
+          catch(err)
+          {
+            console.log("If all media requests fails,    Error:   " + err);
+          }
+        }
+      }
+    }
+    video_record();
+    let recordingVideo = false;
+    $("#private_recordVideo").click(function(e){
+      if(recordingVideo == false)
+      {
+        audioChunks = [];
+        window.recVideo.start();
+        recordingVideo = true;
+        var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg";
+        $("#private_recordVideo").attr( "src", hover );
+        $("#private_recordVideo").attr( "height", "90px" );
+        $("#private_recordVideo").attr( "width", "90px");
+        $(".video-playback").css("display", "block");
+        document.getElementById("video-mirror").play();
+      }
+      else {
+        recordingVideo = false;
+        var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
+        $("#private_recordVideo").attr( "src", hover );
+        $("#private_recordVideo").attr( "height", "90px" );
+        $("#private_recordVideo").attr( "width", "90px");
+        window.recVideo.stop();
+        $(".video-playback").css("display", "none");
+        document.getElementById("video-mirror").pause();
+      }
+    });
+
+    function handlerFunctionVideo(stream) {
+      const mirror = document.querySelector("#video-mirror");
+      mirror.srcObject = stream;
+    window.recVideo = new MediaRecorder(stream);
+    window.recVideo.ondataavailable = e => {
+      audioChunks.push(e.data);
+      let url1;
+      if(window.recVideo.state == "inactive"){
+        let blob = new Blob(audioChunks,{type:"video/mp4"});
+        try{
+         url1 = webkitURL.createObjectURL(blob);
+      }
+      catch(err)
+      {
+        url1 = URL.createObjectURL(blob);
+      }
+        var reader = new FileReader();
+        reader.onload = function(event){
+          var fd = {};
+          fd["fname"] = "test.mp4";
+          fd["data"] = event.target.result;
+          $.ajax({
+            type: "POST",
+            url: "/privateUploadMP4",
+            data: fd,
+            dataType: "text"
+          }).done(function(data){
+          });
+        };
+        reader.readAsDataURL(blob);
+      }
+    }
+    }
+
+}
+else {
+  //is an iPhone
+  let current_status_audio = false;
+  let audio_record = function(){
+    current_status_audio = true;
+    try{
+      navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    }
+    catch(err){
+      try{
+        navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+      }
+      catch(err){
+        try{
+        navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+        }
+        catch(err){
+          console.log("If all media requests fails,   Error:   " + err);
+        }
+      }
+    }
+  }
+  let recording = false;
+  $("#record").click(function(e){
+    console.log(current_status_audio);
+    if(current_status_audio == false)
+    {
+      audio_record();
+    }
+    else if(current_status_audio == true && recording == false)
+    {
+      audioChunks = [];
+      window.rec.start();
+      recording = true;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
+      $("#record").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");
+    }
+    else if(recording == true){
+      recording = false;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
+      $("#record").attr( "src", hover );
+      $("#record").attr( "height", "90px" );
+      $("#record").attr( "width", "90px");
+      window.rec.stop();
+      audio_record();
+    }
+  });
+
+  function handlerFunction(stream) {
+  window.rec = new MediaRecorder(stream);
+  window.rec.ondataavailable = e => {
+    audioChunks.push(e.data);
+    let url1;
+    if(rec.state == "inactive"){
+      let blob = new Blob(audioChunks,{type:"audio/mpeg"});
+      try{
+       url1 = webkitURL.createObjectURL(blob);
+    }
+    catch(err)
+    {
+      url1 = URL.createObjectURL(blob);
+    }
+      var reader = new FileReader();
+      reader.onload = function(event){
+        var fd = {};
+        fd["fname"] = "test.mpeg";
+        fd["data"] = event.target.result;
+        $.ajax({
+          type: "POST",
+          url: "/uploadMP3",
+          data: fd,
+          dataType: "text"
+        }).done(function(data){
+        });
+      };
+      reader.readAsDataURL(blob);
+    }
+  }
+  }
+
+  let video_record = function(){
+    current_status_audio = false;
+    try{
+      navigator.mediaDevices.getUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+    }
+    catch(err){
+      try{
+      navigator.mediaDevices.webkitGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+      }
+      catch(err){
+        try{
+        navigator.mediaDevices.mozGetUserMedia({video:true,audio:true}).then(stream => {handlerFunctionVideo(stream)});
+        }
+        catch(err)
+        {
+          console.log("If all media requests fails,    Error:   " + err);
+        }
+      }
+    }
+  }
+  let recordingVideo = false;
+  video_record();
+  $("#recordVideo").click(function(e){
+    console.log(current_status_audio);
+    if(current_status_audio == true)
+    {
+      video_record();
+    }
+    else if(current_status_audio == false && recordingVideo == false)
+    {
+      audioChunks = [];
+      window.recVideo.start();
+      recordingVideo = true;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/videoOff.svg";
+      $("#recordVideo").attr( "src", hover );
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");
+    }
+    else if(recordingVideo == true) {
+      recordingVideo = false;
+      var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
+      $("#recordVideo").attr( "src", hover );
+      $("#recordVideo").attr( "height", "90px" );
+      $("#recordVideo").attr( "width", "90px");
+      window.recVideo.stop();
+      video_record();
+    }
+  });
+
+  function handlerFunctionVideo(stream) {
+  window.recVideo = new MediaRecorder(stream);
+  window.recVideo.ondataavailable = e => {
+    audioChunks.push(e.data);
+    let url1;
+    if(window.recVideo.state == "inactive"){
+      let blob = new Blob(audioChunks,{type:"video/mp4"});
+      try{
+       url1 = webkitURL.createObjectURL(blob);
+    }
+    catch(err)
+    {
+      url1 = URL.createObjectURL(blob);
+    }
+      var reader = new FileReader();
+      reader.onload = function(event){
+        var fd = {};
+        fd["fname"] = "test.mp4";
+        fd["data"] = event.target.result;
+        $.ajax({
+          type: "POST",
+          url: "/uploadMP4",
+          data: fd,
+          dataType: "text"
+        }).done(function(data){
+        });
+      };
+      reader.readAsDataURL(blob);
+    }
+  }
+  }
+
+}
+});
+
+</script>
+
 <script>
 try{
   navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {private_handlerFunction(stream)});

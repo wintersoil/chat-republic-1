@@ -241,7 +241,7 @@ else {
       $("#record").attr( "height", "90px" );
       $("#record").attr( "width", "90px");
     }
-    else {
+    else if(recording == true){
       recording = false;
       var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
       $("#record").attr( "src", hover );
@@ -320,7 +320,7 @@ else {
       $("#recordVideo").attr( "height", "90px" );
       $("#recordVideo").attr( "width", "90px");
     }
-    else {
+    else if(recordingVideo == true) {
       recordingVideo = false;
       var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/video.svg";
       $("#recordVideo").attr( "src", hover );

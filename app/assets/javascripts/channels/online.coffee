@@ -27,7 +27,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
-            $("#card-inner-buttons-" + userId).css("display", "inline-block") 
+            $("#card-inner-buttons-" + userId).css("display", "inline-block")
 
             $('.online-notification-bar-wrapper').css('display', 'flex')
             $('.online-notification-bar').css('display', 'flex')
@@ -45,6 +45,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
+            $("#card-inner-buttons-" + userId).css("display", "inline-block")
           i=i+1
       else
         userId = data.user_id
@@ -54,3 +55,4 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           $('#user_' + userId).addClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'none')
           $('#user_' + userId + ' .online-span').css('display', 'none')
+          $("#card-inner-buttons-" + userId).css("display", "inline-block") 

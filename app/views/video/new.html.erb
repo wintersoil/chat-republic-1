@@ -55,7 +55,7 @@ $( document ).on('turbolinks:load', function() {
   const WS_URL2 = 'wss://www.downlink.online/cable';
   const ws = new WebSocket(WS_URL2);
 
-  const FPS = 3;
+  const FPS = 1;
   let msg;
   msg = {
     command: 'subscribe',
@@ -79,7 +79,7 @@ $( document ).on('turbolinks:load', function() {
         }),
       };
       ws.send(JSON.stringify(msg));
-    }, 1000 / FPS);
+    }, 50000 / FPS);
   }
 
 

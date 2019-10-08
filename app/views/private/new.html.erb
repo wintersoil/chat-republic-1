@@ -177,6 +177,7 @@ if(iOS == false)
           fd["recipient"] = $('#private_recordVideo').attr('data-attr');
           fd["fname"] = "test.mp4";
           fd["data"] = event.target.result;
+          console.log(fd);
           $.ajax({
             type: "POST",
             url: "/privateUploadMP4",

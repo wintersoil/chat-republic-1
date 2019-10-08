@@ -40,8 +40,9 @@ class VideoController < ApplicationController
   def mp3audio
     @client = User.find(params[:client].to_i)
     @user = current_user
-    metadata_size = "data:audio/mp3;base64,".length
-    @audio = params[:data][metadata_size, params[:data].length]
+    #metadata_size = "data:audio/mp3;base64,".length
+    #@audio = params[:data][metadata_size, params[:data].length]
+    @audio = params[:data]
     #@audio1 = Base64.decode64(audio)
     ActionCable.server.broadcast("video:#{@client.to_gid_param}", data: {audio: true, audio_data: mp3_message_live_render(@audio)})
   end

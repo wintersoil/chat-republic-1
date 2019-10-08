@@ -196,12 +196,11 @@ if(iOS == false)
           var fd = {};
           fd["fname"] = "test.mpeg";
           fd["data"] = event.target.result;
-          var video = { data: fd };
           console.log(video);
           $.ajax({
             type: "POST",
             url: "/uploadMP4",
-            video: video,
+            data: { video: fd },
             dataType: "text"
           }).done(function(data){
           });

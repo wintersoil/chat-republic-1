@@ -1,5 +1,6 @@
 class ChatroomController < ApplicationController
   before_action :require_logged_in_user
+  befor_action :video_params, only: [:mp4video]
 
   def new
     @message = Message.new
@@ -88,7 +89,6 @@ class ChatroomController < ApplicationController
 
   #mp4 streaming
   def mp4video
-    video_params
     @message = Message.new(body: "mp4")
     @message.user = current_user
     @user = current_user
@@ -124,7 +124,7 @@ class ChatroomController < ApplicationController
   end
 
   def video_params
-     params.permit(:data, :fname)
+     params.require(:video).permit(:data, :fname)
    end
 
   def message_render(message)

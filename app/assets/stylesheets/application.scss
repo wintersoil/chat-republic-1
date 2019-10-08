@@ -830,6 +830,9 @@ div[id^="user_"] {
 .receiving-audio {
   display: none;
 }
+.hidden-card-inner-button {
+  display: none;
+}
 
 @media only screen and (max-width: 480px)
 {

@@ -741,10 +741,13 @@ div[id^="user_"] {
   display: flex;
 }
 .video-playback{
+  background-color: #e8e8e8;
+  border: 1px solid grey;
+  padding: 15px 0px;
   display: none;
   position: absolute;
-  top: 30px;
-  left: 30px;
+  top: 15%;
+  left: 14%;
   z-index: 300;
 }
 

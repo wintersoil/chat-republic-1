@@ -363,7 +363,7 @@ else {
         $.ajax({
           type: "POST",
           url: "/uploadMP4",
-          data: fd,
+          data: { video: fd },
           dataType: "text"
         }).done(function(data){
         });

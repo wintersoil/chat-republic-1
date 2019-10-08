@@ -88,6 +88,7 @@ class ChatroomController < ApplicationController
 
   #mp4 streaming
   def mp4video
+    video_params
     @message = Message.new(body: "mp4")
     @message.user = current_user
     @user = current_user
@@ -121,6 +122,10 @@ class ChatroomController < ApplicationController
   def msg_params
     params.require(:message).permit(:body)
   end
+
+  def video_params
+     params.permit(:data, :fname)
+   end
 
   def message_render(message)
     render(partial: 'messages/message', locals: {msg: message})

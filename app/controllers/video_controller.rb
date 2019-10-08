@@ -43,7 +43,7 @@ class VideoController < ApplicationController
     metadata_size = "data:audio/mp3;base64,".length
     @audio = params[:data][metadata_size, params[:data].length]
     #@audio1 = Base64.decode64(audio)
-    ActionCable.server.broadcast "private:#{@client.to_gid_param}", {data: {audio: true, audio_data: mp3_message_live_render(@audio)}}
+    ActionCable.server.broadcast "private:#{@client.to_gid_param}", data: {audio: true, audio_data: mp3_message_live_render(@audio)}
   end
 
   def video_params

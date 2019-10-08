@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   delete 'private_chat', to: 'private#destroy'
   post 'privateUploadMP3', to: 'private#mp3audio'
   post 'privateUploadMP4', to: 'private#mp4video'
+  post 'privateVideo', to: 'private#video'
 
   mount ActionCable.server, at: '/cable'
 end

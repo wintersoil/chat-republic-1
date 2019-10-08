@@ -59,7 +59,7 @@ class PrivateController < ApplicationController
     end
   end
 
-  def mp4video
+  def video
     puts params[:recipient].to_i
     @private_message = PrivateMessage.new(body: "mp4")
     @private_message.user = current_user

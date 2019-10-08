@@ -757,6 +757,9 @@ div[id^="user_"] {
   display:none;
   background-color:lightgreen;
   border: 1px solid grey;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 @media only screen and (max-width: 480px)

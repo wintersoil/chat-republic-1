@@ -833,7 +833,11 @@ div[id^="user_"] {
 .hidden-card-inner-button {
   display: none;
 }
-
+.both-videos #record {
+  position: absolute;
+  top: 40%;
+  left: 85%;
+}
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

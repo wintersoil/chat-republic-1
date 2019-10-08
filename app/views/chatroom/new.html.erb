@@ -183,7 +183,7 @@ if(iOS == false)
       audioChunks.push(e.data);
       let url1;
       if(window.recVideo.state == "inactive"){
-        let blob = new Blob(audioChunks,{type:"video/mpeg"});
+        let blob = new Blob(audioChunks,{type:"video/mp4"});
         try{
          url1 = webkitURL.createObjectURL(blob);
       }
@@ -194,7 +194,7 @@ if(iOS == false)
         var reader = new FileReader();
         reader.onload = function(event){
           var fd = {};
-          fd["fname"] = "test.mpeg";
+          fd["fname"] = "test.mp4";
           fd["data"] = event.target.result;
           $.ajax({
             type: "POST",

@@ -763,6 +763,9 @@ div[id^="user_"] {
   height: 10%;
   width: 10%;
 }
+.loader-chatroom.loader-chatroom-private {
+  top: 66%;
+}
 
 .rounded-inner, .rounded-inner:after {
   border-radius: 50%;

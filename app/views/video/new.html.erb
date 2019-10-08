@@ -29,12 +29,15 @@
     </div>
     <img id="returned-photo" src="" width="700px" height="395px">
   </div>
+  <div id="receiving-audio">
+  </div>
+  <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg", id:"record", height:'90px', width:'90px') %>
 </div>
 <script>
 $( document ).on('turbolinks:load', function() {
   const video = document.querySelector('video');
   try{
-    navigator.mediaDevices.getUserMedia({video: {width: 100, height: 56}, audio: true}).then((stream) => video.srcObject = stream);
+    navigator.mediaDevices.getUserMedia({video: {width: 100, height: 56}}).then((stream) => video.srcObject = stream);
   }
   catch(err)
   {
@@ -78,5 +81,80 @@ $( document ).on('turbolinks:load', function() {
       ws.send(JSON.stringify(msg));
     }, 1000 / FPS);
   }
+
+
+let audio_record = function(){
+try{
+  navigator.mediaDevices.getUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+}
+catch(err){
+  try{
+    navigator.mediaDevices.webkitGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+  }
+  catch(err){
+    try{
+    navigator.mediaDevices.mozGetUserMedia({audio:true}).then(stream => {handlerFunction(stream)});
+    }
+    catch(err){
+      console.log("If all media requests fails,   Error:   " + err);
+    }
+  }
+}
+}
+audio_record();
+let recording = false;
+$("#record").click(function(e){
+if(recording == false)
+{
+  audioChunks = [];
+  window.rec.start();
+  recording = true;
+  var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone_off.svg";
+  $("#record").attr( "src", hover );
+  $("#record").attr( "height", "90px" );
+  $("#record").attr( "width", "90px");
+}
+else {
+  recording = false;
+  var hover = "https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg";
+  $("#record").attr( "src", hover );
+  $("#record").attr( "height", "90px" );
+  $("#record").attr( "width", "90px");
+  window.rec.stop();
+}
+});
+
+function handlerFunction(stream) {
+window.rec = new MediaRecorder(stream);
+window.rec.ondataavailable = e => {
+  audioChunks.push(e.data);
+  let url1;
+  if(rec.state == "inactive"){
+    let blob = new Blob(audioChunks,{type:"audio/mp3"});
+    try{
+     url1 = webkitURL.createObjectURL(blob);
+  }
+  catch(err)
+  {
+    url1 = URL.createObjectURL(blob);
+  }
+    var reader = new FileReader();
+    reader.onload = function(event){
+      var fd = {};
+      fd["client"] = '<%=  @client.id %>'
+      fd["fname"] = "test.mp3";
+      fd["data"] = event.target.result;
+      $.ajax({
+        type: "POST",
+        url: "/liveVideoMP3",
+        data: fd,
+        dataType: "text"
+      }).done(function(data){
+      });
+    };
+    reader.readAsDataURL(blob);
+  }
+}
+}
 });
 </script>

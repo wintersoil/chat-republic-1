@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'live', to: 'live#new'
   post 'video', to: 'video#create'
   get 'video_new', to: 'video#new'
+  post 'liveVideoMP3', to: 'video#mp3audio'
   delete 'video', to: 'video#destroy'
   post 'livevideo', to: 'livevideo#create'
   get 'private_chat', to: 'private#new'

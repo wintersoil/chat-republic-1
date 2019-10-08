@@ -37,6 +37,15 @@ class VideoController < ApplicationController
     end
   end
 
+  def mp3audio
+    @client = User.find(params[:client].to_i)
+    @user = current_user
+    metadata_size = "data:audio/mp3;base64,".length
+    audio = params[:data][metadata_size, params[:data].length]
+    @audio1 = Base64.decode64(audio)
+    ActionCable.server.broadcast "private:#{@client.to_gid_param}", data: {audio: true, audio_data: mp3_message_live_render(@audio1)}
+  end
+
   def video_params
     params.require(:video_client).permit(:user, :client)
   end
@@ -47,6 +56,12 @@ class VideoController < ApplicationController
     only_relevant = []
     only_relevant.push({event: 'appear', user_id: current_user.id, first_name: current_user.first_name, last_name: current_user.last_name, controller: controller, action: action})
     ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
+  end
+
+  private
+
+  def mp3_message_live_render(audio1)
+    render_to_string(partial: 'messages/mp3messageLive', locals: {msg: audio1})
   end
 
 end

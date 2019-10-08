@@ -784,8 +784,7 @@ div[id^="user_"] {
 }
 .rounded-inner {
   position: relative;
-  left: 35%;
-  top: 25%;
+  z-index: 1;
   border-top: 5px solid rgba(255, 255, 255, 0.2);
   border-right: 5px solid rgba(255, 255, 255, 0.2);
   border-bottom: 5px solid rgba(255, 255, 255, 0.2);
@@ -800,7 +799,7 @@ div[id^="user_"] {
   background-color: #00b3b3;
   height: 50%;
   width: 110%;
-  border-radius: 50px;
+  border-radius: 100px;
   position: absolute;
   top: 0px;
   z-index: 0;

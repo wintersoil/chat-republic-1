@@ -1,6 +1,6 @@
 class ChatroomController < ApplicationController
   before_action :require_logged_in_user
-  befor_action :video_params, only: [:mp4video]
+  before_action :video_params, only: [:mp4video]
 
   def new
     @message = Message.new

@@ -97,7 +97,7 @@ class ChatroomController < ApplicationController
     render(partial: 'messages/message', locals: {msg: message})
   end
 
-  def mp3_message_render(message, browser)
+  def mp3_message_render(message)
     render(partial: 'messages/mp3message', locals: {msg: message})
   end
 

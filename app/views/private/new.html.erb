@@ -96,6 +96,7 @@ if(iOS == false)
       }
         var reader = new FileReader();
         reader.onload = function(event){
+          $(".loader-chatroom").css("display", "flex");
           var fd = {};
           fd["recipient"] = $('#private_recordVideo').attr('data-attr');
           fd["fname"] = "test.mpeg";
@@ -106,6 +107,7 @@ if(iOS == false)
             data: fd,
             dataType: "text"
           }).done(function(data){
+            $(".loader-chatroom").css("display", "none");
           });
         };
         reader.readAsDataURL(blob);
@@ -177,6 +179,7 @@ if(iOS == false)
       }
         var reader = new FileReader();
         reader.onload = function(event){
+          $(".loader-chatroom").css("display", "flex");
           var fd = {};
           fd["recipient"] = $('#private_recordVideo').attr('data-attr');
           fd["fname"] = "test.mp4";
@@ -188,6 +191,7 @@ if(iOS == false)
             data: fd,
             dataType: "text"
           }).done(function(data){
+            $(".loader-chatroom").css("display", "none");
           });
         };
         reader.readAsDataURL(blob);

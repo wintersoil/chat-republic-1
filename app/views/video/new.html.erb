@@ -29,9 +29,9 @@
     </div>
     <img id="returned-photo" src="" width="700px" height="395px">
   </div>
-  <div id="receiving-audio">
-  </div>
-  <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg", id:"record", height:'90px', width:'90px') %>
+</div>
+<%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg", id:"record", height:'90px', width:'90px') %>
+<div id="receiving-audio">
 </div>
 <script>
 $( document ).on('turbolinks:load', function() {
@@ -55,7 +55,7 @@ $( document ).on('turbolinks:load', function() {
   const WS_URL2 = 'wss://www.downlink.online/cable';
   const ws = new WebSocket(WS_URL2);
 
-  const FPS = 1;
+  const FPS = 3;
   let msg;
   msg = {
     command: 'subscribe',
@@ -79,7 +79,7 @@ $( document ).on('turbolinks:load', function() {
         }),
       };
       ws.send(JSON.stringify(msg));
-    }, 50000 / FPS);
+    }, 1000 / FPS);
   }
 
 

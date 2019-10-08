@@ -48,6 +48,9 @@
 <div class="video-playback">
   <video muted autoplay id="video-mirror" height="500px" width="800px"></video>
 </div>
+<div class="loader-chatroom">
+  <h1>Loading</h1>
+</div>
 <%= audio_tag("definite.mp3", autoplay: false, controls: true, style: "display:none", id:"hollow-copy") %>
 <%= audio_tag("definite_iphone.m4r", autoplay: false, controls: true, style: "display:none", id:"hollow-copy-1") %>
 <script>
@@ -116,12 +119,14 @@ if(iOS == false)
           var fd = {};
           fd["fname"] = "test.mpeg";
           fd["data"] = event.target.result;
+          $(".loader-chatroom").css("display", "flex");
           $.ajax({
             type: "POST",
             url: "/uploadMP3",
             data: fd,
             dataType: "text"
           }).done(function(data){
+            $(".loader-chatroom").css("display", "none");
           });
         };
         reader.readAsDataURL(blob);
@@ -196,12 +201,14 @@ if(iOS == false)
           var fd = {};
           fd["fname"] = "test.mp4";
           fd["data"] = event.target.result;
+          $(".loader-chatroom").css("display", "flex");
           $.ajax({
             type: "POST",
             url: "/uploadMP4",
             data: { video: fd },
             dataType: "text"
           }).done(function(data){
+            $(".loader-chatroom").css("display", "none");
           });
         };
         reader.readAsDataURL(blob);

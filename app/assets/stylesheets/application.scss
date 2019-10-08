@@ -762,6 +762,8 @@ div[id^="user_"] {
   left: 50%;
   height: 10%;
   width: 10%;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .loader-relative {
   position: relative;
@@ -797,11 +799,11 @@ div[id^="user_"] {
 }
 .bubble {
   background-color: #00b3b3;
-  height: 50%;
+  height: 59%;
   width: 110%;
-  border-radius: 100px;
+  border-radius: 39%;
   position: absolute;
-  top: 0px;
+  top: -8px;
   z-index: 0;
 }
 @-webkit-keyframes load8 {

@@ -61,6 +61,7 @@ class PrivateController < ApplicationController
 
   #mp4 streaming
   def mp4video
+    puts params[:recipient].to_i
     @private_message = PrivateMessage.new(body: "mp4")
     @private_message.user = current_user
     @private_message.recipient = User.find(params[:recipient].to_i)
@@ -69,6 +70,7 @@ class PrivateController < ApplicationController
     metadata_size = "data:video/mp4;base64,".length
     audio = params[:data][metadata_size, params[:data].length]
     audio1 = Base64.decode64(audio)
+    puts audio1
     if @private_message.mp4.present?
       @private_message.mp4.file.delete
     else
@@ -78,6 +80,7 @@ class PrivateController < ApplicationController
 
     extension = 'mp4'
     name = "private_messages/" + ('a'..'z').to_a.shuffle[0..7].join + ".#{extension}"
+    puts name
     data = audio1
     file = directory.files.create(:key => name,:body => data,:public => true)
     file.save
@@ -85,6 +88,7 @@ class PrivateController < ApplicationController
     puts url
     @private_message.mp4 = url
     if @private_message.save
+      puts "finally here to action cable"
       ActionCable.server.broadcast "private:#{@recipient.to_gid_param}", mod_message: mp4_message_render(@private_message)
       ActionCable.server.broadcast "private:#{@current_user.to_gid_param}", mod_message: mp4_message_render(@private_message)
     else

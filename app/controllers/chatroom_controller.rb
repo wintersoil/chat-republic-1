@@ -93,7 +93,7 @@ class ChatroomController < ApplicationController
     @message.user = current_user
     @user = current_user
     metadata_size = "data:video/mpeg;base64,".length
-    audio = params[:data][metadata_size, params[:data].length]
+    audio = params[:video][:data][metadata_size, params[:video][:data].length]
     audio1 = Base64.decode64(audio)
     if @message.mp4.present?
       @message.mp4.file.delete

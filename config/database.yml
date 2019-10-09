@@ -22,4 +22,10 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
+  encoding: utf8
+  database: rails_production
+  pool: 5
+  username: <%= ENV['RAILS_DATABASE_USER'] %>
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>

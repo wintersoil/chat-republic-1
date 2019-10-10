@@ -13,6 +13,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         while i < data.arrayez.length
           userId = data.arrayez[i].user_id
           eventType = data.arrayez[i].event
+          otherSignOn = parseInt($("#which-user").attr("data-attr"),10) == parseInt(userId,10)
           if data.arrayez[i].hasOwnProperty('controller')
             controller = data.arrayez[i].controller
             console.log controller
@@ -28,18 +29,18 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
-
-            $('.online-notification-bar-wrapper').css('display', 'flex')
-            $('.online-notification-bar').css('display', 'flex')
-            first_name = data.arrayez[i].first_name
-            last_name = data.arrayez[i].last_name
-            stringyHTML = "<img src='https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0' height='70px' width='70px'/><div class='inner-text'>#{first_name} #{last_name} is online now</div>"
-            document.getElementsByClassName('online-notification-bar').item(0).innerHTML = stringyHTML
-            $('.online-notification-bar').animate({width:$('.inner-text').width()+70}, 1000, () ->
-              $('.online-notification-bar').animate({width:'60px'}, 1000, () ->
-                $('.online-notification-bar').css('display', 'none')
-                $('.online-notification-bar-wrapper').css('display', 'none')
-                ))
+            if otherSignOn == true
+              $('.online-notification-bar-wrapper').css('display', 'flex')
+              $('.online-notification-bar').css('display', 'flex')
+              first_name = data.arrayez[i].first_name
+              last_name = data.arrayez[i].last_name
+              stringyHTML = "<img src='https://vectr.com/wintersoil/a1gzED9FjB.svg?width=640&height=640&select=a1gzED9FjBpage0' height='70px' width='70px'/><div class='inner-text'>#{first_name} #{last_name} is online now</div>"
+              document.getElementsByClassName('online-notification-bar').item(0).innerHTML = stringyHTML
+              $('.online-notification-bar').animate({width:$('.inner-text').width()+70}, 1000, () ->
+                $('.online-notification-bar').animate({width:'60px'}, 1000, () ->
+                  $('.online-notification-bar').css('display', 'none')
+                  $('.online-notification-bar-wrapper').css('display', 'none')
+                  ))
           else
             $('#user_' + userId).removeClass 'background-green-online'
             $('#user_' + userId).addClass 'hidden-user'

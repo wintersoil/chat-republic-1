@@ -36,3 +36,4 @@
 #Environment variable files
 
 .rbenv-vars
+/shared/*

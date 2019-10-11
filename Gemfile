@@ -79,11 +79,12 @@ group :production do
   gem 'pg'
   gem 'puma'
   gem 'rails_12factor'
-  gem "capistrano", "~> 3.11", require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-puma'
+  gem 'airbrussh'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

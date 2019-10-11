@@ -13,7 +13,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         while i < data.arrayez.length
           userId = data.arrayez[i].user_id
           eventType = data.arrayez[i].event
-          otherSignOn = parseInt($("#which-user").attr("data-attr"),10) == parseInt(userId,10)
+          otherSignOn = parseInt($("#which-user").attr("data-attr"),10) != parseInt(userId,10)
           if data.arrayez[i].hasOwnProperty('controller')
             controller = data.arrayez[i].controller
             console.log controller
@@ -24,10 +24,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-span').css('display', 'inline-block')
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
           else if eventType == 'appear'
-            $('#user_' + userId).removeClass 'background-green-online'
-            $('#user_' + userId).addClass 'hidden-user'
-            $('#user_' + userId + ' .online-logo').css('display', 'none')
-            $('#user_' + userId + ' .online-span').css('display', 'none')
+            $('#user_home_page' + userId).append data.arrayez[i].modded_message
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
             if otherSignOn == true
               $('.online-notification-bar-wrapper').css('display', 'flex')
@@ -41,19 +38,23 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
                   $('.online-notification-bar').css('display', 'none')
                   $('.online-notification-bar-wrapper').css('display', 'none')
                   ))
-          else
+          else if eventType == 'disappear' && controller != "chat"
             $('#user_' + userId).removeClass 'background-green-online'
             $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
             $("#card-inner-buttons-" + userId).css("display", "none")
+          else if eventType == "disappear" && controller == "chat"
+            document.getElementById('user_home_page' + userId).innerHTML = "";
           i=i+1
       else
         userId = data.user_id
         eventType = data.event
-        if eventType == 'disappear'
+        if eventType == 'disappear' && controller != "chat"
           $('#user_' + userId).removeClass 'background-green-online'
           $('#user_' + userId).addClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'none')
           $('#user_' + userId + ' .online-span').css('display', 'none')
           $("#card-inner-buttons-" + userId).css("display", "none")
+        else if eventType == "disappear" && controller == "chat"
+          document.getElementById('user_home_page' + userId).innerHTML = "";

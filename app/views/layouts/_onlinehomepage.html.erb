@@ -1,0 +1,15 @@
+<tr id="user_<%= user.id %>" class="background-green-online">
+  <td>
+    <div class="online-users-home-page" id="user_<%= user.id %>_online-users-home-page">
+      <%= user.first_name %> <%= user.last_name %>
+    </div>
+  </td>
+  <td>
+    <div class="online-logo" style="display:inline-block">
+      <%= image_tag("online_logo.svg",height:'36',width:'36') %>
+    </div>
+  </td>
+  <td>
+    <span class="online-span" style="display:inline-block">Online</span>
+  </td>
+</tr>

@@ -66,21 +66,23 @@
           <div class="online-table">
             <table>
             <% @users.each do |user| %>
-            <tr id="user_<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">
-              <td>
-                <div class="online-users-home-page" id="user_<%= user.id %>_online-users-home-page">
-                  <%= user.first_name %> <%= user.last_name %>
-                </div>
-              </td>
-              <td>
-                <div class="online-logo" style="<% if user.online? %>display:inline-block<% end %>">
-                  <%= image_tag("online_logo.svg",height:'36',width:'36') %>
-                </div>
-              </td>
-              <td>
-                <span class="online-span" style="<% if user.online? %>display:inline-block<% end %>">Online</span>
-              </td>
-            </tr>
+              <tr id="user_home_page<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">
+                  <% if user.online? %>
+                  <td>
+                    <div class="online-users-home-page" id="user_<%= user.id %>_online-users-home-page">
+                      <%= user.first_name %> <%= user.last_name %>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="online-logo" style="<% if user.online? %>display:inline-block<% end %>">
+                      <%= image_tag("online_logo.svg",height:'36',width:'36') %>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="online-span" style="<% if user.online? %>display:inline-block<% end %>">Online</span>
+                  </td>
+                <% end %>
+              </tr>
             <% end %>
           </table>
         </div>

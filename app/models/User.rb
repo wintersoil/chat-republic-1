@@ -12,7 +12,7 @@ class User < ApplicationRecord
     self.update(online: true)
     users = User.all
     only_relevant = []
-    only_relevant.push({event: 'appear', user_id: self.id, first_name: self.first_name, last_name: self.last_name})
+    only_relevant.push({event: 'appear', user_id: self.id, modded_message: render_to_string(partial: "layouts/onlinehomepage", locals: {user: self} ) })
     ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end
 

@@ -24,6 +24,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-span').css('display', 'inline-block')
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
           else if eventType == 'appear'
+            document.getElementById('user_home_page' + userId).innerHTML = ""
             $('#user_home_page' + userId).append data.arrayez[i].modded_message
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
             if otherSignOn == true

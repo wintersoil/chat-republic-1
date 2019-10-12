@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def onlinehomepage_render(user)
-    render_to_string(partial: 'layouts/onlinehomepage', locals: {user: user})
+    ApplicationController.render_to_string(partial: 'layouts/onlinehomepage', locals: {user: user})
   end
 
 end

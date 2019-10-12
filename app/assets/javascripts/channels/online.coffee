@@ -28,6 +28,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             if data.arrayez[i].hasOwnProperty('modded_message')
               console.log '#user_home_page' + userId
               $('#user_home_page' + userId).empty()
+              homepage = document.getElementById('user_home_page' + userId)
+              homepage.innerHTML = ''
               $('#user_home_page' + userId).append data.arrayez[i].modded_message
             if otherSignOn == true
               $('.online-notification-bar-wrapper').css('display', 'flex')
@@ -48,6 +50,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-span').css('display', 'none')
             $("#card-inner-buttons-" + userId).css("display", "none")
             $('#user_home_page' + userId).empty()
+            homepage = document.getElementById('user_home_page' + userId)
+            homepage.innerHTML = ''
           i=i+1
       else
         userId = data.user_id
@@ -59,3 +63,5 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           $('#user_' + userId + ' .online-span').css('display', 'none')
           $("#card-inner-buttons-" + userId).css("display", "none")
           $('#user_home_page' + userId).empty()
+          homepage = document.getElementById('user_home_page' + userId)
+          homepage.innerHTML = ''

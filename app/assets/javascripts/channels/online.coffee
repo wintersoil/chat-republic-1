@@ -39,23 +39,21 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
                   $('.online-notification-bar').css('display', 'none')
                   $('.online-notification-bar-wrapper').css('display', 'none')
                   ))
-          else if eventType == 'disappear' && controller != "login"
+          else if eventType == 'disappear'
             $('#user_' + userId).removeClass 'background-green-online'
             $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
             $("#card-inner-buttons-" + userId).css("display", "none")
-          else if eventType == "disappear" && controller == "login"
             document.getElementById('user_home_page' + userId).innerHTML = "";
           i=i+1
       else
         userId = data.user_id
         eventType = data.event
-        if eventType == 'disappear' && controller != "login"
+        if eventType == 'disappear'
           $('#user_' + userId).removeClass 'background-green-online'
           $('#user_' + userId).addClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'none')
           $('#user_' + userId + ' .online-span').css('display', 'none')
           $("#card-inner-buttons-" + userId).css("display", "none")
-        else if eventType == "disappear" && controller == "login"
           document.getElementById('user_home_page' + userId).innerHTML = "";

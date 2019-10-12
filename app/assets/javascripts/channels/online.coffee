@@ -24,10 +24,11 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-span').css('display', 'inline-block')
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
           else if eventType == 'appear'
-            if data.arrayez[i].hasOwnProperty('modded_message')
-              $('#user_home_page' + userId).html ''
-              $('#user_home_page' + userId).append data.arrayez[i].modded_message
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
+            if data.arrayez[i].hasOwnProperty('modded_message')
+              console.log '#user_home_page' + userId
+              $('#user_home_page' + userId).empty()
+              $('#user_home_page' + userId).append data.arrayez[i].modded_message
             if otherSignOn == true
               $('.online-notification-bar-wrapper').css('display', 'flex')
               $('.online-notification-bar').css('display', 'flex')
@@ -46,7 +47,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
             $("#card-inner-buttons-" + userId).css("display", "none")
-            $('#user_home_page' + userId).html ''
+            $('#user_home_page' + userId).empty()
           i=i+1
       else
         userId = data.user_id
@@ -57,4 +58,4 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           $('#user_' + userId + ' .online-logo').css('display', 'none')
           $('#user_' + userId + ' .online-span').css('display', 'none')
           $("#card-inner-buttons-" + userId).css("display", "none")
-          $('#user_home_page' + userId).html ''
+          $('#user_home_page' + userId).empty()

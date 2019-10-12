@@ -10,11 +10,10 @@ class User < ApplicationRecord
 
   def appear
     self.update(online: true)
-    users = User.all
-    controller = ActionController.params[:controller]
-    only_relevant = []
-    only_relevant.push({event: 'appear', user_id: self.id, first_name: self.first_name, last_name: self.last_name, modded_message: onlinehomepage_render(self), controller: controller })
-    ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
+    #users = User.all
+    #only_relevant = []
+    #only_relevant.push({event: 'appear', user_id: self.id, first_name: self.first_name, last_name: self.last_name, modded_message: onlinehomepage_render(self), controller: controller })
+    #ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end
 
   def disappear

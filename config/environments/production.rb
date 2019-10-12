@@ -5,8 +5,10 @@ Rails.application.configure do
   config.cache_classes = false
 
   config.file_watcher = ActiveSupport::FileUpdateChecker
+  config.perform_caching = false
+config.cache_store = :null_store
 
-  config.reload_classes_only_on_change = false
+  config.reload_classes_only_on_change = true
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -16,7 +18,7 @@ Rails.application.configure do
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).

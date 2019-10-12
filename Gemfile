@@ -85,8 +85,6 @@ group :production do
   gem 'capistrano-bundler'
   gem 'capistrano3-puma'
   gem 'airbrussh'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

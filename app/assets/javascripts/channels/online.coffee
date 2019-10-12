@@ -44,24 +44,24 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
                   $('.online-notification-bar-wrapper').css('display', 'none')
                   ))
           else if eventType == 'disappear'
+            $('#user_home_page' + userId).empty()
+            homepage = document.getElementById('user_home_page' + userId)
+            homepage.innerHTML = ''
             $('#user_' + userId).removeClass 'background-green-online'
             $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
             $('#user_' + userId + ' .online-span').css('display', 'none')
             $("#card-inner-buttons-" + userId).css("display", "none")
-            $('#user_home_page' + userId).empty()
-            homepage = document.getElementById('user_home_page' + userId)
-            homepage.innerHTML = ''
           i=i+1
       else
         userId = data.user_id
         eventType = data.event
         if eventType == 'disappear'
+          $('#user_home_page' + userId).empty()
+          homepage = document.getElementById('user_home_page' + userId)
+          homepage.innerHTML = ''
           $('#user_' + userId).removeClass 'background-green-online'
           $('#user_' + userId).addClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'none')
           $('#user_' + userId + ' .online-span').css('display', 'none')
           $("#card-inner-buttons-" + userId).css("display", "none")
-          $('#user_home_page' + userId).empty()
-          homepage = document.getElementById('user_home_page' + userId)
-          homepage.innerHTML = ''

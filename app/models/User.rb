@@ -25,7 +25,8 @@ class User < ApplicationRecord
   end
 
   def onlinehomepage_render(user)
-    AbstractController::Rendering.render_to_string(partial: 'layouts/onlinehomepage', locals: {user: user})
+    ac = ActionController::Base.new()
+    ac.render_to_string(partial: 'layouts/onlinehomepage', locals: {user: user})
   end
 
 end

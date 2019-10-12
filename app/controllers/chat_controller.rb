@@ -1,5 +1,5 @@
 class ChatController < ApplicationController
-  after_action :notify_online_controller_action
+  #after_action :notify_online_controller_action
 
   def index
     @users = User.all

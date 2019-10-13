@@ -27,11 +27,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
             if data.arrayez[i].hasOwnProperty('modded_message')
               if document.getElementById('user_home_page' + userId) != null
-                console.log '#user_home_page' + userId
-                $('#user_home_page' + userId).empty()
-                homepage = document.getElementById('user_home_page' + userId)
-                homepage.innerHTML = ''
-                $('#user_home_page' + userId).append data.arrayez[i].modded_message
+                $('#user_home_page' + userId).remove()
+                $('.online-table table').append data.arrayez[i].modded_message
             if otherSignOn == true
               $('.online-notification-bar-wrapper').css('display', 'flex')
               $('.online-notification-bar').css('display', 'flex')
@@ -46,9 +43,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
                   ))
           else if eventType == 'disappear'
             if document.getElementById('user_home_page' + userId) != null
-              $('#user_home_page' + userId).empty()
-              homepage = document.getElementById('user_home_page' + userId)
-              homepage.innerHTML = ''
+              $('#user_home_page' + userId).remove()
             $('#user_' + userId).removeClass 'background-green-online'
             $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
@@ -60,9 +55,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         eventType = data.event
         if eventType == 'disappear'
           if document.getElementById('user_home_page' + userId) != null
-            $('#user_home_page' + userId).empty()
-            homepage = document.getElementById('user_home_page' + userId)
-            homepage.innerHTML = ''
+            $('#user_home_page' + userId).remove()
           $('#user_' + userId).removeClass 'background-green-online'
           $('#user_' + userId).addClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'none')

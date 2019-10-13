@@ -66,8 +66,8 @@
           <div class="online-table">
             <table>
             <% @users.each do |user| %>
-              <tr id="user_home_page<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">
-                  <% if user.online? %>
+              <% if user.online? %>
+                <tr id="user_home_page<%= user.id %>" class="<% if user.online? %>background-green-online<% end %>">
                   <td>
                     <div class="online-users-home-page" id="user_<%= user.id %>_online-users-home-page">
                       <%= user.first_name %> <%= user.last_name %>
@@ -81,8 +81,8 @@
                   <td>
                     <span class="online-span" style="<% if user.online? %>display:inline-block<% end %>">Online</span>
                   </td>
-                <% end %>
-              </tr>
+                </tr>
+              <% end %>
             <% end %>
           </table>
         </div>

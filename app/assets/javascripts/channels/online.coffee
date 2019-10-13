@@ -28,8 +28,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
               $("#online2 #user_" + userId).remove()
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
             if data.arrayez[i].hasOwnProperty('modded_message')
-              if document.getElementById('user_home_page' + userId) != null
-                $('#user_home_page' + userId).remove()
+              if document.querySelector('.online-table #user_' + userId) != null
+                $('.online-table #user_' + userId).remove()
               $('.online-table table').append data.arrayez[i].modded_message
             if otherSignOn == true
               $('.online-notification-bar-wrapper').css('display', 'flex')
@@ -44,8 +44,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
                   $('.online-notification-bar-wrapper').css('display', 'none')
                   ))
           else if eventType == 'disappear'
-            if document.getElementById('user_home_page' + userId) != null
-              $('#user_home_page' + userId).remove()
+            if document.querySelector('.online-table #user_' + userId) != null
+              $('.online-table #user_' + userId).remove()
             if document.querySelector('#online2 #user_' + userId) != null
               $("#online2 #user_" + userId).remove()
             $("#card-inner-buttons-" + userId).css("display", "none")
@@ -54,8 +54,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         userId = data.user_id
         eventType = data.event
         if eventType == 'disappear'
-          if document.getElementById('user_home_page' + userId) != null
-            $('#user_home_page' + userId).remove()
+          if document.querySelector('.online-table #user_' + userId) != null
+            $('.online-table #user_' + userId).remove()
           if document.querySelector('#online2 #user_' + userId) != null
             $("#online2 #user_" + userId).remove()
           $("#card-inner-buttons-" + userId).css("display", "none")

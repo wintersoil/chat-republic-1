@@ -31,7 +31,9 @@ class ApplicationController < ActionController::Base
   end
 
   def remove_from_chatroom
-    @current_on_chatroom.delete_at(@current_on_chatroom.index(current_user))
+    if logged_in?
+      @current_on_chatroom.delete_at(@current_on_chatroom.index(current_user))
+    end
   end
 
 end

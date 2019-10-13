@@ -26,11 +26,12 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           else if eventType == 'appear'
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
             if data.arrayez[i].hasOwnProperty('modded_message')
-              console.log '#user_home_page' + userId
-              $('#user_home_page' + userId).empty()
-              homepage = document.getElementById('user_home_page' + userId)
-              homepage.innerHTML = ''
-              $('#user_home_page' + userId).append data.arrayez[i].modded_message
+              if document.getElementById('user_home_page' + userId) != null
+                console.log '#user_home_page' + userId
+                $('#user_home_page' + userId).empty()
+                homepage = document.getElementById('user_home_page' + userId)
+                homepage.innerHTML = ''
+                $('#user_home_page' + userId).append data.arrayez[i].modded_message
             if otherSignOn == true
               $('.online-notification-bar-wrapper').css('display', 'flex')
               $('.online-notification-bar').css('display', 'flex')

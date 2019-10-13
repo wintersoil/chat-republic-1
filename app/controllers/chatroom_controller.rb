@@ -8,6 +8,7 @@ class ChatroomController < ApplicationController
     @messaging = Message.all
     @user = current_user
     @users = User.all
+    render "new"
   end
 
   def create

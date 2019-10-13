@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
   helper_method :logged_in?, :current_user, :require_logged_in_user, :is_owner?, :remove_from_chatroom
-  before_action :set_variables
 
   def logged_in?
     return !!current_user
@@ -25,14 +24,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-  def set_variables
-    @current_on_chatroom = []
-  end
+  @@current_on_chatroom = []
 
   def remove_from_chatroom
     if logged_in?
-      @current_on_chatroom.delete_at(@current_on_chatroom.index(current_user))
+      @@current_on_chatroom.delete_at(@@current_on_chatroom.index(current_user))
     end
   end
 

@@ -46,7 +46,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           else if eventType == 'disappear'
             if document.getElementById('user_home_page' + userId) != null
               $('#user_home_page' + userId).remove()
-            if document.getElementById('#online2 #user_' + userId) != null
+            if document.querySelector('#online2 #user_' + userId) != null
               $("#online2 #user_" + userId).remove()
             $("#card-inner-buttons-" + userId).css("display", "none")
           i=i+1
@@ -56,6 +56,6 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         if eventType == 'disappear'
           if document.getElementById('user_home_page' + userId) != null
             $('#user_home_page' + userId).remove()
-          if document.getElementById('#online2 #user_' + userId) != null
+          if document.querySelector('#online2 #user_' + userId) != null
             $("#online2 #user_" + userId).remove()
           $("#card-inner-buttons-" + userId).css("display", "none")

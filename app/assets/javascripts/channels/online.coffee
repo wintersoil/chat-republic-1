@@ -44,9 +44,10 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
                   $('.online-notification-bar-wrapper').css('display', 'none')
                   ))
           else if eventType == 'disappear'
-            $('#user_home_page' + userId).empty()
-            homepage = document.getElementById('user_home_page' + userId)
-            homepage.innerHTML = ''
+            if document.getElementById('user_home_page' + userId) != null
+              $('#user_home_page' + userId).empty()
+              homepage = document.getElementById('user_home_page' + userId)
+              homepage.innerHTML = ''
             $('#user_' + userId).removeClass 'background-green-online'
             $('#user_' + userId).addClass 'hidden-user'
             $('#user_' + userId + ' .online-logo').css('display', 'none')
@@ -57,9 +58,10 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         userId = data.user_id
         eventType = data.event
         if eventType == 'disappear'
-          $('#user_home_page' + userId).empty()
-          homepage = document.getElementById('user_home_page' + userId)
-          homepage.innerHTML = ''
+          if document.getElementById('user_home_page' + userId) != null
+            $('#user_home_page' + userId).empty()
+            homepage = document.getElementById('user_home_page' + userId)
+            homepage.innerHTML = ''
           $('#user_' + userId).removeClass 'background-green-online'
           $('#user_' + userId).addClass 'hidden-user'
           $('#user_' + userId + ' .online-logo').css('display', 'none')

@@ -80,6 +80,8 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       #invoke 'puma:restart'
+      puts "We are killing puma now removing app folder, shifting app from current (git pulled) to home/rails/app & we are then restarting puma"
+      execute "cd /home/rails && pkill -9 -f puma && rm -r /home/rails/app && mv /home/rails/current/app /home/rails/app && bundle exec puma"
     end
   end
 

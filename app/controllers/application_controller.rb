@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def initialize
+    super
     @current_on_chatroom = []
   end
 

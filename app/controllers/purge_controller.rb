@@ -1,4 +1,5 @@
 class PurgeController < ApplicationController
+  before_action :remove_from_chatroom
 
   def deleting
     if is_owner?

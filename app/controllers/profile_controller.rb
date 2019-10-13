@@ -1,5 +1,6 @@
 class ProfileController < ApplicationController
   before_action :notify_online_controller_action
+  before_action :remove_from_chatroom
 
   def new
     @user = current_user

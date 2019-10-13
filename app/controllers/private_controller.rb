@@ -1,5 +1,6 @@
 class PrivateController < ApplicationController
   before_action :notify_online_controller_action, only: [:new, :destroy]
+  before_action :remove_from_chatroom
 
   def new
     @private_message = PrivateMessage.new

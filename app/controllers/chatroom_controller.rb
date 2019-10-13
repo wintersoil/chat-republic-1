@@ -3,9 +3,6 @@ class ChatroomController < ApplicationController
   before_action :video_params, only: [:mp4video]
   after_action :notify_online_controller_action, only: [:new]
 
-  def initialize
-    @current_on_chatroom = []
-  end
 
   def new
     if @current_on_chatroom.include?(current_user) == false

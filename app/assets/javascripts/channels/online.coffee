@@ -18,10 +18,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             controller = data.arrayez[i].controller
             console.log controller
           if eventType == 'appear' && controller == "chatroom"
-            $('#user_' + userId).removeClass 'hidden-user'
-            $('#user_' + userId).addClass 'background-green-online'
-            $('#user_' + userId + ' .online-logo').css('display', 'flex')
-            $('#user_' + userId + ' .online-span').css('display', 'inline-block')
+            if data.arrayez[i].hasOwnProperty('chatroom_mod_message')
+              $('#online2').append data.arrayez[i].chatroom_mod_message
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
           else if eventType == 'appear'
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
@@ -44,10 +42,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
           else if eventType == 'disappear'
             if document.getElementById('user_home_page' + userId) != null
               $('#user_home_page' + userId).remove()
-            $('#user_' + userId).removeClass 'background-green-online'
-            $('#user_' + userId).addClass 'hidden-user'
-            $('#user_' + userId + ' .online-logo').css('display', 'none')
-            $('#user_' + userId + ' .online-span').css('display', 'none')
+            if document.getElementById('#online2 #user_' + userId) != null
+              $("#online2 #user_" + userId).remove()
             $("#card-inner-buttons-" + userId).css("display", "none")
           i=i+1
       else
@@ -56,8 +52,6 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
         if eventType == 'disappear'
           if document.getElementById('user_home_page' + userId) != null
             $('#user_home_page' + userId).remove()
-          $('#user_' + userId).removeClass 'background-green-online'
-          $('#user_' + userId).addClass 'hidden-user'
-          $('#user_' + userId + ' .online-logo').css('display', 'none')
-          $('#user_' + userId + ' .online-span').css('display', 'none')
+          if document.getElementById('#online2 #user_' + userId) != null
+            $("#online2 #user_" + userId).remove()
           $("#card-inner-buttons-" + userId).css("display", "none")

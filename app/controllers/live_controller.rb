@@ -1,6 +1,6 @@
 class LiveController < ApplicationController
   before_action :require_logged_in_user, :notify_online_controller_action
-  before_action :remove_from_chatroom
+  #before_action :remove_from_chatroom
 
   def new
     @users = User.all

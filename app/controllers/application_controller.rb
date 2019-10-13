@@ -24,11 +24,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  @@current_on_chatroom = []
+  def initialize
+    @current_on_chatroom = []
+  end
 
   def remove_from_chatroom
-    if logged_in? && @@current_on_chatroom.include?(current_user)
-      @@current_on_chatroom.delete_at(@@current_on_chatroom.index(current_user))
+    if logged_in? && @current_on_chatroom.include?(current_user)
+      @current_on_chatroom.delete_at(@current_on_chatroom.index(current_user))
     end
   end
 

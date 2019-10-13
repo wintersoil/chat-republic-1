@@ -27,6 +27,9 @@
 <div class="online2-outer">
   <div id="online2">
     <h2 style="padding:13px;margin-block-start: 0px;">People currently in chatroom (online)</h2>
+    <% @current_on_chatroom.each do |usering| %>
+      <%= render "layouts/onlinechatroom", usering: usering %>
+    <% end %>
   </div>
 </div>
 <div class="video-playback">

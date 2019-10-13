@@ -5,8 +5,8 @@ class ChatroomController < ApplicationController
 
 
   def new
-    #if @@current_on_chatroom.include?(current_user) == false
-      #@@current_on_chatroom.push(current_user)
+    if @@current_on_chatroom.include?(current_user) == false
+      @@current_on_chatroom.push(current_user)
     @message = Message.new
     @messaging = Message.all
     @user = current_user

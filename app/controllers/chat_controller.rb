@@ -1,5 +1,5 @@
 class ChatController < ApplicationController
-  #after_action :notify_online_controller_action
+  before_action :notify_online_controller_action
   before_action :remove_from_chatroom
 
   def index

@@ -24,6 +24,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
               $('#online2').append data.arrayez[i].chatroom_mod_message
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
           else if eventType == 'appear'
+            if document.getElementById('#online2 #user_' + userId) != null
+              $("#online2 #user_" + userId).remove()
             $("#card-inner-buttons-" + userId).css("display", "inline-block")
             if data.arrayez[i].hasOwnProperty('modded_message')
               if document.getElementById('user_home_page' + userId) != null

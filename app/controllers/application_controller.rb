@@ -26,29 +26,29 @@ class ApplicationController < ActionController::Base
 
   def initialize
     super
-    $cache = ActiveSupport::Cache::MemoryStore.new
+    $cache = Redis.new(host:"localhost")
     empty_arraying = []
-    $cache.write('current_on_chatroom', empty_arraying)
+    $cache.set('current_on_chatroom', empty_arraying)
   end
 
   def remove_from_chatroom
-    current_on_chatroom = $cache.read('current_on_chatroom')
+    current_on_chatroom = $cache.get('current_on_chatroom')
     if logged_in? && current_on_chatroom.include?(current_user)
       current_on_chatroom.delete_at(current_on_chatroom.index(current_user))
     end
-    $cache.write('current_on_chatroom', current_on_chatroom)
+    $cache.set('current_on_chatroom', current_on_chatroom)
   end
 
   def add_to_chatroom
-    current_on_chatroom = $cache.read('current_on_chatroom')
+    current_on_chatroom = $cache.get('current_on_chatroom')
     if logged_in? && current_on_chatroom.include?(current_user) == false
       current_on_chatroom.push(current_user)
     end
-    $cache.write('current_on_chatroom', current_on_chatroom)
+    $cache.set('current_on_chatroom', current_on_chatroom)
   end
 
   def read_from_chatroom
-    current_on_chatroom = $cache.read('current_on_chatroom')
+    current_on_chatroom = $cache.get('current_on_chatroom')
     return current_on_chatroom
   end
 

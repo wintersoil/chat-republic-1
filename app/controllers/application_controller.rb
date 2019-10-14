@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     if logged_in? && current_on_chatroom.include?(current_user)
       current_on_chatroom.delete_at(current_on_chatroom.index(current_user))
     end
-    $cache.hmset('current_on_chatroom', current_on_chatroom.to_json)
+    $cache.set('current_on_chatroom', current_on_chatroom.to_json)
   end
 
   def add_to_chatroom
@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     if logged_in? && current_on_chatroom.include?(current_user) == false
       current_on_chatroom.push(current_user)
     end
-    $cache.hmset('current_on_chatroom', current_on_chatroom.to_json)
+    $cache.set('current_on_chatroom', current_on_chatroom.to_json)
   end
 
   def read_from_chatroom

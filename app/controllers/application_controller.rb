@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :logged_in?, :current_user, :require_logged_in_user, :is_owner?, :remove_from_chatroom, :add_to_chatroom
+  helper_method :logged_in?, :current_user, :require_logged_in_user, :is_owner?, :remove_from_chatroom, :add_to_chatroom, :read_from_chatroom
 
   def logged_in?
     return !!current_user
@@ -26,19 +26,30 @@ class ApplicationController < ActionController::Base
 
   def initialize
     super
-    @current_on_chatroom = []
+    cache = ActiveSupport::Cache::MemoryStore.new
+    empty_arraying = []
+    cache.write('current_on_chatroom', empty_arraying)
   end
 
   def remove_from_chatroom
-    if logged_in? && @current_on_chatroom.include?(current_user)
-      @current_on_chatroom.delete_at(@current_on_chatroom.index(current_user))
+    current_on_chatroom = cache.read('current_on_chatroom')
+    if logged_in? && current_on_chatroom.include?(current_user)
+      current_on_chatroom.delete_at(current_on_chatroom.index(current_user))
     end
+    cache.write('current_on_chatroom', empty_arraying)
   end
 
   def add_to_chatroom
-    if logged_in? && @current_on_chatroom.include?(current_user) == false
-      @current_on_chatroom.push(current_user)
+    current_on_chatroom = cache.read('current_on_chatroom')
+    if logged_in? && current_on_chatroom.include?(current_user) == false
+      current_on_chatroom.push(current_user)
     end
+    cache.write('current_on_chatroom', current_on_chatroom)
+  end
+
+  def read_from_chatroom
+    current_on_chatroom = cache.read('current_on_chatroom')
+    return current_on_chatroom
   end
 
 end

@@ -7,7 +7,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::FileUpdateChecker
   config.perform_caching = false
   cache_servers = %w[redis://cache-01:6379/0 redis://cache-02:6379/0]
-config.cache_store = :redis_cache_store, { url : cache_servers }
+config.cache_store = :redis_cache_store
 
   config.reload_classes_only_on_change = true
 

@@ -30,6 +30,8 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             if data.arrayez[i].hasOwnProperty('modded_message')
               if document.querySelector('.online-table #user_' + userId) != null
                 $('.online-table #user_' + userId).remove()
+              if document.querySelector('.online-table #user_home_page' + userId) != null
+                $('.online-table #user_home_page' + userId).remove()
               $('.online-table table').append data.arrayez[i].modded_message
             if otherSignOn == true
               $('.online-notification-bar-wrapper').css('display', 'flex')

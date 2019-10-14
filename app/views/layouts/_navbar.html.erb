@@ -18,6 +18,7 @@
     </div>
   <% end %>
   <div class="nav-item">
+    <%= image_tag("about_us.jpg",height:'50',width:'50') %>
     <%= link_to "About", root_path, class:"nav-link" %>
   </div>
   <div class="nav-item">
@@ -44,6 +45,7 @@
 
   <% if is_owner? %>
     <div class="nav-item">
+      <%= image_tag("purge.png",height:'50',width:'50') %>
       <%= link_to "Purge Data", purge_path, class:"nav-link" %>
     </div>
   <% end %>
@@ -81,6 +83,7 @@
         </div>
       <% end %>
       <div class="nav-item super-menu-item">
+        <%= image_tag("about_us.jpg",height:'50',width:'50') %>
         <%= link_to "About", root_path, class:"nav-link" %>
       </div>
       <div class="nav-item super-menu-item">
@@ -107,6 +110,7 @@
 
       <% if is_owner? %>
         <div class="nav-item super-menu-item">
+          <%= image_tag("purge.png",height:'50',width:'50') %>
           <%= link_to "Purge Data", purge_path, class:"nav-link" %>
         </div>
       <% end %>

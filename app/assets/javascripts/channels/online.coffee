@@ -19,6 +19,13 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             console.log controller
           if eventType == 'appear' && controller == "chatroom"
             if data.arrayez[i].hasOwnProperty('chatroom_mod_message')
+              if data.arrayez[i].hasOwnProperty('online_chatroom_users')
+                j = 0
+                while i < data.arrayez[i].online_chatroom_users.length
+                  userIdCh = data.arrayez[i].online_chatroom_users[i]
+                  if document.querySelector('#online2 #user_' + userIdCh) != null
+                    $("#online2 #user_" + userIdCh).remove()
+                  j=j+1
               if document.querySelector('#online2 #user_' + userId) != null
                 $("#online2 #user_" + userId).remove()
               $('#online2').append data.arrayez[i].chatroom_mod_message

@@ -62,4 +62,9 @@ class ApplicationController < ActionController::Base
     return all_online_chatroom_users
   end
 
+  def read_array_from_chatroom
+    current_on_chatroom = JSON.parse($cache.get('current_on_chatroom'))
+    return current_on_chatroom
+  end
+
 end

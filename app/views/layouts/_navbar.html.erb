@@ -1,10 +1,11 @@
 <div class="navbar">
   <div class="nav-item">
-    <%= image_tag("home-logo.svg",height:'50',width:'50') %>
+    <%= image_tag("home.svg",height:'50',width:'50') %>
     <%= link_to "Home", root_path, class:"nav-link" %>
   </div>
   <% if logged_in? %>
     <div class="nav-item">
+      <%= image_tag("chatroom.svg",height:'50',width:'50') %>
       <%= link_to "Chatroom", chatroom_path, class:"nav-link" %>
     </div>
     <div class="nav-item">
@@ -57,11 +58,12 @@
   </label>
     <div class="super-menu">
       <div class="nav-item super-menu-item">
-        <%= image_tag("home-logo.svg",height:'50',width:'50') %>
+        <%= image_tag("home.svg",height:'50',width:'50') %>
         <%= link_to "Home", root_path, class:"nav-link" %>
       </div>
       <% if logged_in? %>
         <div class="nav-item super-menu-item">
+          <%= image_tag("chatroom.svg",height:'50',width:'50') %>
           <%= link_to "Chatroom", chatroom_path, class:"nav-link" %>
         </div>
         <div class="nav-item super-menu-item">

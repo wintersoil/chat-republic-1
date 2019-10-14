@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     super
     $cache = Redis.new(host:"localhost")
     empty_arraying = []
-    $cache.hmset('current_on_chatroom', empty_arraying.to_json)
+    $cache.hset('current_on_chatroom', empty_arraying.to_json)
   end
 
   def remove_from_chatroom

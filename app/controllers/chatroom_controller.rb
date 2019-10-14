@@ -108,12 +108,12 @@ class ChatroomController < ApplicationController
     action = params[:action]
     controller = params[:controller]
     only_relevant = []
-    only_relevant.push({event: 'appear', user_id: current_user.id, first_name: current_user.first_name, last_name: current_user.last_name, controller: controller, action: action, chatroom_mod_message: onlinechatroom_render(current_user)})
+    only_relevant.push({event: 'appear', user_id: current_user.id, first_name: current_user.first_name, last_name: current_user.last_name, controller: controller, action: action, chatroom_mod_message: onlinechatroom_render(@current_on_chatroom)})
     ActionCable.server.broadcast "online_channel", {arrayez: only_relevant}
   end
 
-  def onlinechatroom_render(user)
-    render_to_string(partial: 'layouts/onlinechatroom', locals: {usering: user})
+  def onlinechatroom_render(users)
+    render_to_string(partial: 'layouts/onlinechatroom', locals: {userings: users})
   end
 
 end

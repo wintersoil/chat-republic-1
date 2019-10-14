@@ -21,7 +21,7 @@ App.online = App.cable.subscriptions.create "OnlineChannel",
             if data.arrayez[i].hasOwnProperty('chatroom_mod_message')
               if data.arrayez[i].hasOwnProperty('online_chatroom_users')
                 j = 0
-                while i < data.arrayez[i].online_chatroom_users.length
+                while j < data.arrayez[i].online_chatroom_users.length
                   userIdCh = data.arrayez[i].online_chatroom_users[i]
                   if document.querySelector('#online2 #user_' + userIdCh) != null
                     $("#online2 #user_" + userIdCh).remove()

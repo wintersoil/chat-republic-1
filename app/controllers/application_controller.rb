@@ -29,10 +29,12 @@ class ApplicationController < ActionController::Base
     $cache = Redis.new(host:"localhost")
     empty_arraying = []
     $cache.set('current_on_chatroom', empty_arraying.to_json)
+    puts("New chatroom array created...")
   end
 
   def remove_from_chatroom
     current_on_chatroom = JSON.parse($cache.get('current_on_chatroom'))
+    puts("Removing from chatroom   " + current_on_chatroom)
     if logged_in? && current_on_chatroom.include?(current_user.id)
       current_on_chatroom.delete_at(current_on_chatroom.index(current_user.id))
     end
@@ -41,6 +43,7 @@ class ApplicationController < ActionController::Base
 
   def add_to_chatroom
     current_on_chatroom = JSON.parse($cache.get('current_on_chatroom'))
+    puts("Adding to chatroom   " + current_on_chatroom)
     if logged_in? && current_on_chatroom.include?(current_user.id) == false
       current_on_chatroom.push(current_user.id)
     end
@@ -49,6 +52,7 @@ class ApplicationController < ActionController::Base
 
   def read_from_chatroom
     current_on_chatroom = JSON.parse($cache.get('current_on_chatroom'))
+    puts("Reading from chatroom   " + current_on_chatroom)
     all_online_chatroom_users = []
     current_on_chatroom.each do |id_num|
       all_online_chatroom_users.push(User.find(id_num))

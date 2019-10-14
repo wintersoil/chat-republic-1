@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def remove_from_chatroom
-    current_on_chatroom = JSON.parse($cache.hmget('current_on_chatroom'))
+    current_on_chatroom = JSON.parse($cache.hget('current_on_chatroom'))
     if logged_in? && current_on_chatroom.include?(current_user)
       current_on_chatroom.delete_at(current_on_chatroom.index(current_user))
     end
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def add_to_chatroom
-    current_on_chatroom = JSON.parse($cache.hmget('current_on_chatroom'))
+    current_on_chatroom = JSON.parse($cache.hget('current_on_chatroom'))
     if logged_in? && current_on_chatroom.include?(current_user) == false
       current_on_chatroom.push(current_user)
     end
@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   end
 
   def read_from_chatroom
-    current_on_chatroom = JSON.parse($cache.hmget('current_on_chatroom'))
+    current_on_chatroom = JSON.parse($cache.hget('current_on_chatroom'))
     return current_on_chatroom
   end
 

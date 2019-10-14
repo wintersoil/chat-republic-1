@@ -72,9 +72,11 @@
           <%= link_to "Chatroom", chatroom_path, class:"nav-link" %>
         </div>
         <div class="nav-item super-menu-item">
+          <%= image_tag("user_logo.png",height:'50',width:'50') %>
           <%= link_to "Profile", profile_path, class:"nav-link" %>
         </div>
         <div class="nav-item super-menu-item">
+          <%= image_tag("live_camera.png",height:'50',width:'50') %>
           <%= link_to "Live", live_path, class:"nav-link" %>
         </div>
       <% end %>
@@ -82,10 +84,12 @@
         <%= link_to "About", root_path, class:"nav-link" %>
       </div>
       <div class="nav-item super-menu-item">
+        <%= image_tag("contact-us-icon.png",height:'50',width:'50') %>
         <%= link_to "Contact Us", root_path, class:"nav-link" %>
       </div>
       <% if !logged_in? %>
         <div class="nav-item super-menu-item">
+          <%= image_tag("login.png",height:'50',width:'50') %>
           <%= link_to "Login", login_path, class:"nav-link" %>
         </div>
       <% else %>
@@ -96,6 +100,7 @@
       <% end %>
       <% if !logged_in? %>
         <div class="nav-item super-menu-item">
+          <%= image_tag("sign_up.jpg",height:'50',width:'50') %>
           <%= link_to "Sign Up", signup_path, class:"nav-link" %>
         </div>
       <% end %>

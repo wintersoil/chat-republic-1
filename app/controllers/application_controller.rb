@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     if logged_in? && current_on_chatroom.include?(current_user)
       current_on_chatroom.delete_at(current_on_chatroom.index(current_user))
     end
-    $cache.write('current_on_chatroom', empty_arraying)
+    $cache.write('current_on_chatroom', current_on_chatroom)
   end
 
   def add_to_chatroom

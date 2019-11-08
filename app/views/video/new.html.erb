@@ -14,7 +14,8 @@
         <%= current_user.first_name %> <%= current_user.last_name %>
       </div>
     </div>
-    <video autoplay muted id="sending-video" width="480px" height="270px"></video>
+    <video autoplay muted id="sending-video" width="1980px" height="1080px" style="display: hidden;"></video>
+    <video autoplay muted id="sending-video-display" width="480px" height="270px"></video>
   </div>
   <div class="receiving-video">
     <div class="receiving-video-header">
@@ -56,6 +57,7 @@
 <script>
 $( document ).on('turbolinks:load', function() {
   let video;
+  let video1;
 
   var MediaStream = window.MediaStream;
   if (typeof MediaStream === 'undefined' && typeof webkitMediaStream !== 'undefined')
@@ -73,8 +75,12 @@ $( document ).on('turbolinks:load', function() {
 
   const changeQuality = (w,h) => {
     video = document.getElementById('sending-video');
+    video1 = document.getElementById('sending-video-display');
     try{
-      navigator.mediaDevices.getUserMedia({video: {width: w, height: h}}).then((stream) => video.srcObject = stream);
+      navigator.mediaDevices.getUserMedia({video: {width: w, height: h}}).then((stream) => {
+        video.srcObject = stream;
+        video1.srcObject = stream;
+      });
     }
     catch(err)
     {

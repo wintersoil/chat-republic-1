@@ -106,7 +106,7 @@ $( document ).on('turbolinks:load', function() {
     }
     if(dataRear == "true")
     {
-      try{
+      console.log("I am on rear camera");
         let DEVICES = [];
         let final = null;
         navigator.mediaDevices.enumerateDevices().then(function(devices){
@@ -121,6 +121,8 @@ $( document ).on('turbolinks:load', function() {
               {
                 final = tempDevise;
               }
+            }
+          }
               var totalCameras = DEVICES.length;
               if(final == null)
               {
@@ -137,15 +139,12 @@ $( document ).on('turbolinks:load', function() {
               navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
                 window.stream = stream;
                 video.srcObject = stream;
+              }).catch((error) => {
+                console.log('navigator.getUserMedia error: ', error);
               });
-            }
-          }
+        }).catch(function(err) {
+          console.log(err.name + ": " + err.message);
         });
-      }
-      catch(err)
-      {
-        console.log("Live video failed:     Error:    " + err);
-      }
     }
   }
 

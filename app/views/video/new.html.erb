@@ -95,7 +95,9 @@ $( document ).on('turbolinks:load', function() {
     if(dataRear == "false")
     {
       try{
-        navigator.mediaDevices.getUserMedia({video: {width: w, height: h, facingMode:"user"}}).then((stream) => video.srcObject = stream);
+        navigator.mediaDevices.getUserMedia({video: {width: w, height: h, facingMode:"user"}}).then((stream) => {
+          video.srcObject = stream;
+        });
       }
       catch(err)
       {
@@ -105,7 +107,40 @@ $( document ).on('turbolinks:load', function() {
     if(dataRear == "true")
     {
       try{
-        navigator.mediaDevices.getUserMedia({video: {width: w, height: h, facingMode:{ exact: "environment" } }}).then((stream) => video.srcObject = stream);
+        let DEVICES = [];
+        let final = null;
+        navigator.mediaDevices.enumerateDevices().then(function(devices){
+          var arrayLength = devices.length;
+          for(var i = 0; i < arrayLength; i++)
+          {
+            var tempDevice = devices[i];
+            if(tempDevice.kind == "videoinput")
+            {
+              DEVICES.push(tempDevice);
+              if(tempDevice.facingMode == "environment" || tempDevice.label.indexOf("facing back") >= 0)
+              {
+                final = tempDevise;
+              }
+              var totalCameras = DEVICES.length;
+              if(final == null)
+              {
+                final = DEVICES[totalCameras-1];
+              }
+              var constraints = {
+                audio: false,
+                video: {
+                  height: h,
+                  width: w,
+                  deviceId: {exact: final.deviceId},
+                }
+              };
+              navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+                window.stream = stream;
+                video.srcObject = stream;
+              });
+            }
+          }
+        });
       }
       catch(err)
       {

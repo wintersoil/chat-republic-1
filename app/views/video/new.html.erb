@@ -108,6 +108,7 @@ $( document ).on('turbolinks:load', function() {
             });
           });
           video.srcObject = stream;
+          video1.srcObject = stream;
           navigator.allMediaStreams.push(stream);
         });
       }
@@ -129,6 +130,7 @@ $( document ).on('turbolinks:load', function() {
             if(tempDevice.kind == "videoinput")
             {
               DEVICES.push(tempDevice);
+              console.log(tempDevice.facingMode + "    " + tempDevice.label);
               if(tempDevice.facingMode == "environment" || tempDevice.label.indexOf("facing back") >= 0)
               {
                 final = tempDevice;
@@ -140,6 +142,7 @@ $( document ).on('turbolinks:load', function() {
               {
                 final = DEVICES[totalCameras-1];
               }
+              console.log(final.deviceId + "    " + w + "    " + h);
               var constraints = {
                 audio: false,
                 video: {
@@ -156,6 +159,7 @@ $( document ).on('turbolinks:load', function() {
                 });
                 window.stream = stream;
                 video.srcObject = stream;
+                video1.srcObject = stream;
                 navigator.allMediaStreams.push(stream);
               }).catch((error) => {
                 console.log('navigator.getUserMedia error: ', error);

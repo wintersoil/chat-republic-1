@@ -47,8 +47,9 @@
 </div>
 <script>
 $( document ).on('turbolinks:load', function() {
+  let video;
   const changeQuality = (w,h) => {
-    const video = document.querySelector('video');
+    video = document.getElementById('sending-video');
     try{
       navigator.mediaDevices.getUserMedia({video: {width: w, height: h}}).then((stream) => video.srcObject = stream);
     }

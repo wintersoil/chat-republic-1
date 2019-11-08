@@ -72,14 +72,20 @@ $( document ).on('turbolinks:load', function() {
       });
     };
   }
-
+  navigator.allMediaStreams = [];
   const changeQuality = (w,h) => {
     video = document.getElementById('sending-video');
     video1 = document.getElementById('sending-video-display');
     try{
       navigator.mediaDevices.getUserMedia({video: {width: w, height: h}}).then((stream) => {
+        navigator.allMediaStreams.forEach(function (streamy) {
+          streamy.getTracks().forEach(function(track){
+            track.stop();
+          });
+        });
         video.srcObject = stream;
         video1.srcObject = stream;
+        navigator.allMediaStreams.push(stream);
       });
     }
     catch(err)
@@ -96,7 +102,13 @@ $( document ).on('turbolinks:load', function() {
     {
       try{
         navigator.mediaDevices.getUserMedia({video: {width: w, height: h, facingMode:"user"}}).then((stream) => {
+          navigator.allMediaStreams.forEach(function (streamy) {
+            streamy.getTracks().forEach(function(track){
+              track.stop();
+            });
+          });
           video.srcObject = stream;
+          navigator.allMediaStreams.push(stream);
         });
       }
       catch(err)
@@ -137,8 +149,14 @@ $( document ).on('turbolinks:load', function() {
                 }
               };
               navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+                navigator.allMediaStreams.forEach(function (streamy) {
+                  streamy.getTracks().forEach(function(track){
+                    track.stop();
+                  });
+                });
                 window.stream = stream;
                 video.srcObject = stream;
+                navigator.allMediaStreams.push(stream);
               }).catch((error) => {
                 console.log('navigator.getUserMedia error: ', error);
               });

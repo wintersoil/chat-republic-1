@@ -1135,7 +1135,7 @@ div[id^="user_"] {
     display: block;
   }
   #returned-photo {
-    width: 393px;
+    width: 325px;
   }
   .receiving-video-header {
     display: none;
@@ -1157,6 +1157,10 @@ div[id^="user_"] {
   }
   .private-messages-container {
     height:67vh;
+  }
+  body {
+    margin: 8px 0px;
+    overflow-x: hidden;
   }
   .containing {
     width: 96vw;

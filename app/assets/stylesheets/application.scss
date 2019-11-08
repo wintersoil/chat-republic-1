@@ -14,6 +14,9 @@
  *= require_self
  */
 
+ body {
+   overflow-x: hidden;
+ }
 .containing {
   color: teal;
   height: 95vh;

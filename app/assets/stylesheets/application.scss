@@ -855,6 +855,18 @@ div[id^="user_"] {
   font-size: 20px;
   border: 1px solid orange;
 }
+.video-camera-facing {
+  background-color: coral;
+  color: grey;
+  font-size: 20px;
+  border: 1px solid grey;
+}
+.video-camera-selected {
+  background-color: lightgreen;
+  color: white;
+  font-size: 20px;
+  border: 1px solid orange;
+}
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

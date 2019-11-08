@@ -84,7 +84,7 @@ $( document ).on('turbolinks:load', function() {
   changeQuality(100, 56);
 
   const changeCameraFacing = (w, h) => {
-    let dataRear = $(".video-quality-selected").attr("data-rear");
+    let dataRear = $(".video-camera-selected").attr("data-rear");
     video = document.getElementById('sending-video');
     if(dataRear == "false")
     {

@@ -843,6 +843,8 @@ div[id^="user_"] {
 }
 .quality-container {
   display: flex;
+  position: relative;
+  top: 157px;
 }
 .video-quality
 {
@@ -1197,4 +1199,18 @@ div[id^="user_"] {
   .containing{
     width: 94vw;
   }
+  #sending-video-display {
+    width: 301px !important;
+  }
+  #sending-video {
+    width: 100%;
+  }
+  #record {
+    height: 65px;
+  }
+  .record-audio-live-video-button {
+    top: 48%;
+    left: 67.5%;
+  }
+
 }

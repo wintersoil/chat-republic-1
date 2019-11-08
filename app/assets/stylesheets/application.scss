@@ -838,6 +838,23 @@ div[id^="user_"] {
   top: 40%;
   left: 91.5%;
 }
+.quality-container {
+  display: flex;
+}
+.video-quality
+{
+  background-color: coral;
+  color: grey;
+  font-size: 20px;
+  border: 1px solid grey;
+}
+.video-quality-selected
+{
+  background-color: lightgreen;
+  color: white;
+  font-size: 20px;
+  border: 1px solid orange;
+}
 @media only screen and (max-width: 480px)
 {
   .message-boxing{

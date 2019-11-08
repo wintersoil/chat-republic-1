@@ -31,16 +31,16 @@
   </div>
 </div>
 <%= image_tag("https://aliphotoappimages.s3.ca-central-1.amazonaws.com/svg/microphone.svg", id:"record", class:"record-audio-live-video-button", height:'90px', width:'90px') %>
-  <div id="video-quality" data-width="1920" data-height="1080">
+  <div class="video-quality" data-width="1920" data-height="1080">
     1920 × 1080
   </div>
-  <div id="video-quality" data-width="1280" data-height="720">
+  <div class="video-quality" data-width="1280" data-height="720">
     1280 x 720
   </div>
-  <div id="video-quality" data-width="720" data-height="480">
+  <div class="video-quality" data-width="720" data-height="480">
     720 × 480
   </div>
-  <div id="video-quality" data-width="100" data-height="56">
+  <div class="video-quality" data-width="100" data-height="56">
     100 x 56
   </div>
 <div id="receiving-audio">
@@ -60,7 +60,7 @@ $( document ).on('turbolinks:load', function() {
   }
   changeQuality(100, 56);
 
-  $("#video-quality").click(function(){
+  $(".video-quality").click(function(){
     changeQuality(parseInt( $(this).attr("data-width") ), parseInt( $(this).attr("data-height") ) );
   });
 

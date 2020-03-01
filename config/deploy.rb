@@ -9,9 +9,9 @@ set :application,     'rails'
 set :user,            'root'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-role :app, %w{root@https://www.downlink.online}
-role :web, %w{root@https://www.downlink.online}
-role :db, %w{root@https://www.downlink.online}
+role :app, %w{root@server}
+role :web, %w{root@server}
+role :db, %w{root@server}
 
 # Don't change these unless you know what you're doing
 set :pty,             true

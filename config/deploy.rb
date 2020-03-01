@@ -1,5 +1,5 @@
 # Change these
-server '178.128.229.182', port: 22, roles: [:web, :app, :db], primary: true
+server '178.128.229.182', port: 22, roles: %w{web app db}, primary: true
 append :linked_files, "config/master.key", "config/database.yml", "config/secrets.yml"
 set :rvm_path, '/usr/local/rvm'
 set :rvm_binary, '/usr/local/rvm/bin/rvm'

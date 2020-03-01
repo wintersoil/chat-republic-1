@@ -1,6 +1,6 @@
 # Change these
 server '178.128.229.182', port: 22, roles: %w{web app db}, primary: true
-append :linked_files, "/master.key"
+append :linked_files, "shared/master.key"
 set :rvm_path, '/usr/local/rvm'
 set :rvm_binary, '/usr/local/rvm/bin/rvm'
 set :rvm_ruby_version, 'ruby-2.6.4'
